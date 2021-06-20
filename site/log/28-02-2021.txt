@@ -1,0 +1,540 @@
+
+--------------
+Error Date: 28-02-2021 03:31:08
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 02:31:10 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: 74-072e_Trq-Gahs3FGipw
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 04:33:07
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 03:33:09 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: z0K0w2dIRxWpcSqQ-TthMA
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 04:33:11
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 03:33:13 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: u3snpEQESOu0SdC4x6vSYg
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 04:37:51
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 03:37:53 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: 05sJg0vzR024ywfwSGWoiQ
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 04:38:03
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 03:38:06 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: VZr3UJ9mRHulkeg-5NtnlA
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 04:47:47
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 03:47:49 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: 8Zt2DobLTJu3P_FXGmMcBA
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 04:50:38
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 03:50:41 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: lbvF-u2PRRe-9NaI2JLrmg
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 05:38:33
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 04:38:36 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: 8FjigPgzSsW9U8w7BXGw0w
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:08:14
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:08:16 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: o6_I-ib3ScSzcW5DY-QKIA
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:08:59
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:09:01 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: WCHTOXuqSo6gQRjW4uKR7w
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:10:32
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:10:35 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: uNgZa-fLRGGOgcRatozOTQ
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:11:55
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:11:57 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: FSutKQ8cSS29hWpMM-mLMQ
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:12:53
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:12:55 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: jaxImhcVRdeTnEinWFyXAw
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:29:27
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:29:29 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: pEhUfSpyR_-lkYlgINzMPA
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:33:20
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:33:23 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: Yg5xWCaHR2OjPxDHK8536g
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:34:20
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:34:23 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: NWRacU7PToe24jtuhlgsIQ
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:48:17
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:48:19 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: BwQOhaYFRM6dkAp6Szya7A
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:51:46
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:51:48 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: QKeawQCSSPmv7697O24dxA
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:52:41
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:52:43 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: N6DnxjMLS3GtdUC0UIirew
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)
+
+--------------
+Error Date: 28-02-2021 06:54:01
+Error In: \Model\User\Register.SendMail
+Error Message: Log Mail Result
+Variable JSON: SendGrid\Response Object
+(
+    [statusCode:protected] => 202
+    [body:protected] => 
+    [headers:protected] => Array
+        (
+            [0] => HTTP/1.1 202 Accepted
+            [1] => Server: nginx
+            [2] => Date: Sun, 28 Feb 2021 05:54:04 GMT
+            [3] => Content-Length: 0
+            [4] => Connection: keep-alive
+            [5] => X-Message-Id: AwpDhyCQRZe7PZLlorGAzg
+            [6] => Access-Control-Allow-Origin: https://sendgrid.api-docs.io
+            [7] => Access-Control-Allow-Methods: POST
+            [8] => Access-Control-Allow-Headers: Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+            [9] => Access-Control-Max-Age: 600
+            [10] => X-No-CORS-Reason: https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+            [11] => 
+            [12] => 
+        )
+
+)

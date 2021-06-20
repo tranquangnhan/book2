@@ -1,0 +1,23 @@
+.blog-detail {
+    background: white;
+    -webkit-box-shadow: 0px 10px 23px -8px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 10px 23px -8px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 10px 23px -8px rgba(0, 0, 0, 0.22);
+    padding: 1em 2em;
+}
+
+.blog-header h3 {
+    color: #2A629F;
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.blog-header small {
+    font-size: 1.1em;
+    color: gray;
+}
+
+.blog-content p {
+    font-size: 1.3em;
+}

@@ -1,0 +1,147 @@
+
+@media only screen and (max-width: 1200px) {
+    .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+        font-size: 0.8em;
+    }
+
+    img.logo-header {
+        width: 26%;
+    }
+}
+
+@media only screen and (max-width: 991.80px) {     
+    .logo-lap {
+        display: none;
+    }
+
+    .logo-mobile {
+        display: inline-block;
+    }
+    
+    a.navbar-brand.logo-mobile.w-80 {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .dropdown-2 .dropdown-hover-2 {
+        left: 0px;
+    }
+
+    .dropdown-2 .dropdown-hover-2 {
+        top: 0px;
+        left: 0px;
+        margin-left: 19%;
+    }
+
+    .icon-top i {
+        font-size: 3em;
+    }
+
+    .title-3 {
+        font-size: 0.8em;
+    }
+
+    .about-describe {
+        display: none;
+    }
+
+    .search-box-will-show {
+        display: block;
+    }
+
+    .search-box-will-hide {
+        display: none;
+    }
+    
+    a.nav-link {
+        border-radius: 5px;
+    }
+    
+    a.nav-link:hover {
+        background: rgba(108, 122, 252, 1);
+        color: white!important;
+        border-radius: 5px;
+    }
+
+    li.nav-item {
+        border-radius: 5px;
+        text-align: left;
+    }
+
+    .ftco-navbar-light.scrolled .nav-link {
+        padding: 0.6em!important;
+    }
+
+    .drop-box.text-left {
+        display: none;
+    }    
+    
+    li.nav-item.bar-active.active a:hover {
+        color: white!important;        
+    }
+
+    .ftco-navbar-light .navbar-nav > .nav-item.active > a {
+        border: none!important;
+    }
+
+    .navbar-collapse {
+        margin-top: 14px;
+    }
+
+    .ftco-navbar-light.scrolled .nav-item.active > a {
+        padding-bottom: 0.6em!important;
+        border: 0px;
+        background: #4286F5 !important;        
+        color: white!important;
+    }
+
+    .search-phone-menu {
+        display: block;
+    }
+
+    .ftco-navbar-light .navbar-toggler {
+        width: 10%;
+    }
+
+    .logo-header {
+        width: 45%!important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    ul.ftco-footer-social.list-unstyled.float-md-left.float-lft {
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .button-to-right {
+        margin-top: -40%!important;
+    }
+    
+    .logo-header {
+        width: 65%;
+    }
+
+    .logo-header {
+        width: 55%!important;
+    }
+
+    .card-body.p-1p4rem {
+        padding: 0;
+    }
+
+    .heading-section h2 {
+        font-size: 1.4em;
+    }
+
+    .count-div-flex {
+        margin: 0.5em;  
+    }
+
+    .item.d-flex.justify-content-center.counter-wrap.ftco-animate.fadeInUp.ftco-animated {
+        width: 43%!important;
+    }
+}

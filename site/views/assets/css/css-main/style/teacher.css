@@ -1,0 +1,42 @@
+.img-cirle {
+    border-radius: 100px;
+    width: 80%;
+    background: #ffffff !important;
+    padding: 2em;
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+
+.project-wrap {
+    box-shadow: none;
+    text-align: center;
+}
+
+.p-l-0 {
+    padding-left: 0px;
+}
+
+.project-wrap .text h3 a {
+    color: #2A629F;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.btn-group, .btn-group-vertical {
+    display: block
+}
+
+.box-shadow-none {
+    box-shadow: none;
+}
+
+.about-teacher {
+    background-image: url('../../../images/teacher.jpg');
+    background-repeat: no-repeat;
+}
+
+
+.img-cirle.icon-faw i {
+    font-size: 9em;
+    color: #f60000;
+}

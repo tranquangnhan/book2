@@ -1,0 +1,4 @@
+Database:	tytbblab_projectchay
+Host:	localhost
+Username:	tytbblab_projectchay
+Password:	Tranquangnhan@1606

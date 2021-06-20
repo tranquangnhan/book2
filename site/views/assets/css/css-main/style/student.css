@@ -1,0 +1,23 @@
+.heading-section h2 {   
+    font-size: 1.8em;
+    background: #2A629F;
+    color: white;
+    padding: 0.5em 0.8em;
+    border-radius: 55px;
+    box-shadow: 2px 3px 6px #183658;
+    margin-bottom: 1.2em;
+}
+
+.containerleft {
+    margin-bottom: 2.5em;
+}
+
+.about-student {
+    background-image: url('../../../images/student.jpg');
+    background-repeat: no-repeat;
+}
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: block!important;    
+}

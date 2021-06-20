@@ -1,0 +1,75 @@
+.contact-wrap {
+   z-index: 1;
+}
+
+.contact-background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .15;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../images/city.jpg");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.contactForm .form-control {
+    padding: 1em;
+}
+
+form#contactForm {
+    position: relative;
+    z-index: 10;
+}
+
+.form-control {
+    border-radius: 7px;
+    background: #ffffff !important;
+    border: 1px solid #3f3f3f59 !important;
+}
+
+.info-wrap .dbox .icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #4286F5 !important;
+    /* color: #4286F5 !important; */
+}
+
+.info-wrap .dbox .icon span {
+    font-size: 20px;
+    color: #4286F5 !important;
+}
+
+.info-wrap .dbox p {
+    margin-bottom: 0;
+    color: #000000bf;
+}
+
+.info-wrap .dbox p span {
+    font-weight: 500;
+    color: #000000d4;
+}
+
+.info-wrap .dbox p a {
+    color: #000000d4;
+}
+
+.contact-wrap {
+    background: none;
+}
+
+.color-black-2 {
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.8)!important;
+    font-weight: 400;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

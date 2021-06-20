@@ -1,0 +1,8 @@
+User-agent: *
+
+Allow: /uploads/
+
+Disallow: /admin/
+
+Disallow: /systems/*
+

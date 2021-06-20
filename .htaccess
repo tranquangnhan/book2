@@ -1,0 +1,33 @@
+RewriteEngine on
+RewriteRule ^$ site/
+
+
+php_value upload_max_filesize 200M 
+php_value post_max_size 200M 
+php_value max_execution_time 300 
+php_value max_input_time 300
+
+
+
+
+
+RewriteRule ^gioi-thieu$ /book/site/?act=about [L]
+RewriteRule ^san-pham$ /book/site/?act=products [L]
+RewriteRule ^hoc-sinh$ /book/site/?act=student [L]
+RewriteRule ^giao-vien$ /book/site/?act=teacher [L]
+RewriteRule ^phu-huynh$ /book/site/?act=parent [L]
+RewriteRule ^bai-viet$ /book/site/?act=blog [L]
+RewriteRule ^lien-he$ /book/site/?act=contact [L]
+
+
+RewriteRule ^bai-viet/page-([0-9]+)$ /book/site/?act=blog&Page=$1 [L]
+
+RewriteRule ^bai-viet/page-([0-9]+)$ /book/site/index.php?act=blog&pagenum=$1 [L]
+
+RewriteRule ^bai-viet/([a-zA-Z0-9-]+)-([0-9]+)$ /book/site/?act=blogdetail&id=$2&slug=$1 [L]
+
+RewriteRule ^bai-viet/([a-zA-Z0-9-]+)-([0-9]+)/page-([0-9]+)$ /book/site/?act=blog&maloai=$2&Page=$3&slug=$1 [L]
+
+RewriteRule ^sach/([a-zA-Z0-9-]+)$ /book/site/?act=productdetail&slug=$1 [L]
+
+ErrorDocument 404 /book/site/views/Error404.php
