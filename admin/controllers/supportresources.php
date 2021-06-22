@@ -27,7 +27,6 @@ class supportresources
                 $this->delete();
                 break;
             default:
-
                 break;
         }
 
@@ -42,27 +41,45 @@ class supportresources
     public function addNew()
     {        
         if (isset($_GET['id']) && ($_GET['ctrl'] = 'blogs')) {
-            $oneRecode = $this->modelSpResources->getDetailAbout($_GET['id']);
+            $oneRecode = $this->modelSpResources->getDetailSpResources($_GET['id']);
             $page_title = "Sửa bài viết";
-            $page_file = "views/abouts_edit.php";
+            $page_file = "views/spresources_edit.php";
         } else {
             $page_title = "Thêm bài viết";
-            $page_file = "views/abouts_add.php";
+            $page_file = "views/spresources_add.php";
         }
 
         if (isset($_POST['them']) && $_POST['them']) {
-            $name = $this->lib->stripTags($_POST['name']);
-            $content = $_POST['content-about'];
-            $link = $_POST['link'];
-
-            $slug = $this->lib->slug($name);           
-                                          
+            $name   = $this->lib->stripTags($_POST['name']);            
+            $link   = $_POST['link'];
+            $img    = $_FILES['img'];
+            $class  = $_POST['class'];
+            $imgs   = $this->lib->checkUpLoadMany($img);
+            if ($imgs) {                
+                $checkIMG = explode(",", $imgs);                
+               
+                for ($i = 0; $i < count($checkIMG); $i++) {
+                    $checkIMG[$i] = explode(".", $checkIMG[$i]);
+                    $checkIMG[$i][1] = strtolower($checkIMG[$i][1]);
+                    if ($checkIMG[$i][1] != "jpg" && $checkIMG[$i][1] != "jpeg" && $checkIMG[$i][1] != "png" && $checkIMG[$i][1] != "gif" && $checkIMG[$i][1] != "webp") {
+                        $checkimg = "Chỉ chấp nhận file .jpg, .jpeg, .png";
+                        break;
+                    }
+                }
+            }                               
+                                      
             $_SESSION['message'] = "";
 
             if ($name == "") {
                 $_SESSION['message'] = "Bạn chưa nhập tên";
+            } else if ($img == "") {
+                $_SESSION['message'] = "Bạn chưa chọn ảnh";
+            } else if ($checkimg) {
+                $_SESSION['message'] = $checkimg;
+            } else if ($link == "") {
+                $_SESSION['message'] = "Bạn chưa nhập link";
             }
-                
+
             if ($_SESSION['message']) {
                 header("location: ?ctrl=thongbao");
             } else {
@@ -72,27 +89,22 @@ class supportresources
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                     settype($id, "int");
+                    
+                    $this->edit($name, $class, $imgs, $link, $id);
+                    exit();
 
-                    $slug = $slug . '-' . $id;
-
-                     $this->edit($name, $slug, $content, $link, $id);
-
-                } else {                    
-                    $slug = $slug . '-' . ($this->modelSpResources->getLastestIdAbout() + 1);
-
-                    $this->store($name, $slug, $content, $link);
+                } else {                                        
+                    $this->store($name, $class, $imgs, $link);
                 }
             }
-
         }
-
         require_once "views/layout.php";
     }
 
-    public function store($name, $slug, $content, $link)
+    public function store($name, $class, $img, $link)
     {
-        if ($this->modelSpResources->addNewAbout($name, $slug, $content, $link)) {
-            header("location: ?ctrl=about");
+        if ($this->modelSpResources->addNewSpResources($name, $class, $img, $link)) {
+            header("location: ?ctrl=supportresources");
         } else {
             echo "<script>alert('Thêm thất bại')</script>";
         }
@@ -100,12 +112,12 @@ class supportresources
         require_once "views/layout.php";
     }
 
-    public function edit($name, $slug, $content, $link, $id)
+    public function edit($name, $class, $imgs, $link, $id)
     {
         if (isset($_GET['id'])) {
 
-            if ($this->modelSpResources->editAbouts($name, $slug, $content, $link, $id)) {
-                header("location: ?ctrl=about");
+            if ($this->modelSpResources->editSpResources($name, $class, $imgs, $link, $id)) {
+                header("location: ?ctrl=supportresources");
             } else {
                 echo "<script>alert('Sửa thất bại')</script>";
             }
@@ -115,13 +127,13 @@ class supportresources
 
     public function delete()
     {
-        if (isset($_GET['id']) && ($_GET['ctrl'] == 'about')) {
+        if (isset($_GET['id']) && ($_GET['ctrl'] == 'supportresources')) {
             $id = $_GET['id'];
             settype($id, "int");
 
-            if ($this->modelSpResources->deleteAbout($id)) {
+            if ($this->modelSpResources->deleteSpResources($id)) {
                 echo "<script>alert('Xoá thành công')</script>";
-                header("location: ?ctrl=about   ");
+                header("location: ?ctrl=supportresources   ");
             } else {
                 echo "<script>alert('Xoá thất bại')</script>";
             }

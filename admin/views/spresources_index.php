@@ -12,10 +12,12 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th width="">STT</th>
-                                    <th width="">Tên</th>                                                                       
-                                    <th width="50%">Nội dung/Link</th>                                    
-                                    <th width="">Xóa</th>
-                                    <th width="">Sửa</th>
+                                    <th width="">Tên</th>           
+                                    <th width="">Hình</th>   
+                                    <th width="">Lớp</th>                                                            
+                                    <th width="">Link</th>                                    
+                                    <th width="10%">Xóa</th>
+                                    <th width="10%">Sửa</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -23,24 +25,24 @@
                             $stt = 0;
 
                             foreach ( $list as $row) {  
+                                if ($row['class'] == 0) {
+                                    $class = 'Mầm non';
+                                } else {
+                                    $class = 'Lớp ' . $row['class'];
+                                }
                                 $stt++;
+                                $img = PATH_IMG_SITE . $row['img'];
                                 
-                                $linkDel = "'?ctrl=about&act=delete&id=" . $row['id'] . "'";
-                                $linkEdit = '?ctrl=about&act=edit&id=' . $row['id'];                                
+                                $linkDel = "'?ctrl=supportresources&act=delete&id=" . $row['id'] . "'";
+                                $linkEdit = '?ctrl=supportresources&act=edit&id=' . $row['id'];                                
                                 $noidung = trim(strip_tags($row['content']));
                                 ?>
                                 <tr>
                                     <td><?=$stt?></td>
                                     <td class="" ><?=$row['name']?></td>
-                                    
-                                    <?php 
-                                        if ($row['link'] != '') { ?>
-                                            <td class="" ><a href="<?=$row['link']?>"><?=$row['link']?></a></td>
-                                        <?php } else { ?>
-                                            <td class="limit-text-3" ><?=$noidung?></td>  
-                                            <!-- content-about -->
-                                    <?php } ?>
-                                                                  
+                                    <td><img style="object-fit:cover;" class="img-admin" width="100" height="100" src="<?=$img?>"></td>
+                                    <td class="" ><?=$class?></td>
+                                    <td class="" ><a href="<?=$row['link']?>"><?=$row['link']?></a></td>                                                                  
                                     
                                     <td><div  onclick="checkDelete(<?=$linkDel?>)"  class="btn btn-danger" role="button"><i class="fa fa-trash"></i></div></td>
                                     <td><a class="btn btn-primary" href="<?=$linkEdit?>" role="button"><span class="mdi mdi-pencil"></span></a></td>

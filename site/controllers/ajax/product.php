@@ -94,7 +94,26 @@ require_once "../../../system/config.php";
             echo json_encode([$dataProducts, $amountProduct, $sql]);            
 
             // echo json_encode($sql);  
-            break;        
+            break;    
+        case "getDataSpResources": 
+            $array      = array();               
+            $class      = $_POST['class'];
+            $form       = $_POST['form'];
+            
+            settype($class, "int");
+            settype($form, "int");
+
+            if ($class > 12) { // get all
+                $listSpResource   = $model->getAllSupportResourceLimit();
+                $amountSupport    = $model->getAmountSpResources();
+            } else {  // get by class                           
+                $listSpResource   = $model->getSupportResourceBy($class, $form);            
+                $amountSupport    = $model->getAmountSupportResourceBy($class);                                
+            }
+
+            echo json_encode([$listSpResource, $amountSupport]);
+            
+            break;   
         default:
             # code...
             break;

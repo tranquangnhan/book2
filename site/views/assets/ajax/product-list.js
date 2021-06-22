@@ -1,4 +1,5 @@
 const baseUrlSite = '/book2';
+
 var level = $('.levelType').val();
 var firstIdCategory = $('.category').first().val();
 
@@ -46,76 +47,121 @@ var checkReloadPage = false;
 
 var timeRequest;
 
-$('.filter').click(function(e) {    
-    checkReloadPage = true;
-    if ($('.ftco-loader').hasClass('show') == false) {
-        $('.product-box .product-item').remove();
-        $('.ftco-loader').addClass('show');
-    }
+//////// trang teacher ////////
+var classe = 100;
+$('.btn.show-option').click(function (e) { 
     e.preventDefault();
+    if (!$(this).hasClass('active')) {
+        if ($(this).hasClass('product')) {
+            if ($('.filter.class').parent('.active')) {
+                $('.filter.class').parent('.active').removeClass('active');
+                var needActive = $('[data-class='+ filterOb[1].class[0] +']').parent();
+                needActive.addClass('active');
+            }        
+            pageNumber = $('.pageNumber').val();
+        }
 
-    clearTimeout(timeRequest);
+        if ($(this).hasClass('support-resources')) {
+            if ($('.filter.class').parent('.active')) {
+                $('.filter.class').parent('.active').removeClass('active');
+                var needActive = $('[data-class='+ classe +']').parent();
+                needActive.addClass('active');
+            }        
+            pageNumber = $('.pageNumberTeacher').val();
+        } 
+    }    
+    console.log(pageNumber);
+});
 
-    var checkType = $(this).attr('data-type');
+$('.filter').click(function(e) { 
+    e.preventDefault();
+    if ($('.support-resources').hasClass('option-active')) {
+        checkReloadPage = true;
+        if ($('.ftco-loader.teacher').hasClass('show') == false) {
+            $('.spre .Resources-item').remove();
+            $('.ftco-loader.teacher').addClass('show');
+        }
 
-    if (checkType == 1) { // class
-        let dataClass = filterOb[checkType].class;
         var keyFilter = $(this).text();
-
-        if (keyFilter == 'Mầm Non') { keyFilter = 0; }
-
+        
+        classe = keyFilter;
         if ($(this).parent().hasClass('active')) {
-            $(this).parent().removeClass('active');
-
-            findAndDeleteItemInArray(dataClass, keyFilter);
+            $(this).parent().removeClass('active');  
+            getDataSupportResource(100, 0);          
         } else {
             var elementActive = $('.filter.class').parent('.active');            
-            elementActive.removeClass('active');
-            
-            $(this).parent().addClass('active');
-
-            filterOb[1].class[0] = keyFilter;
+            elementActive.removeClass('active');            
+            $(this).parent().addClass('active');    
+            getDataSupportResource(keyFilter, 0);
         }
+
     } else {
-        var keyFilter = $(this).val();
-
-        var data = getDataByTypeCheck(checkType);
-
-        if ($(this).parent().hasClass('btn-primary')) { // remove
-            $(this).parent().removeClass('btn-primary');
-            $(this).parent().addClass('btn-dark');
-
-                // console.log(data);
-            findAndDeleteItemInArray(data, keyFilter);
-
-        } else { // add
-            if ($(this).hasClass('type')) {
-                var elementActive = $('.type.btn-primary');
-                elementActive.removeClass('btn-primary');
-                elementActive.addClass('btn-dark');
-                filterOb[0].type[0] = keyFilter;
-            }
-
-            if ($(this).hasClass('category')) {
-                var elementActive = $('.category.btn-primary');
-                elementActive.removeClass('btn-primary');
-                elementActive.addClass('btn-dark');
-                filterOb[2].category[0] = keyFilter;
-            }
-
-            $(this).parent().removeClass('btn-dark');
-            $(this).parent().addClass('btn-primary');                    
+        checkReloadPage = true;
+        if ($('.ftco-loader').hasClass('show') == false) {
+            $('.product-box .product-item').remove();
+            $('.ftco-loader').addClass('show');
         }
+
+        clearTimeout(timeRequest);
+
+        var checkType = $(this).attr('data-type');
+
+        if (checkType == 1) { // class
+            let dataClass = filterOb[checkType].class;
+            var keyFilter = $(this).text();
+
+            if (keyFilter == 'Mầm Non') { keyFilter = 0; }
+
+            if ($(this).parent().hasClass('active')) {
+                $(this).parent().removeClass('active');
+
+                findAndDeleteItemInArray(dataClass, keyFilter);
+            } else {
+                var elementActive = $('.filter.class').parent('.active');            
+                elementActive.removeClass('active');
+                
+                $(this).parent().addClass('active');
+
+                filterOb[1].class[0] = keyFilter;
+            }
+        } else {
+            var keyFilter = $(this).val();
+
+            var data = getDataByTypeCheck(checkType);
+
+            if ($(this).parent().hasClass('btn-primary')) { // remove
+                $(this).parent().removeClass('btn-primary');
+                $(this).parent().addClass('btn-dark');
+
+                findAndDeleteItemInArray(data, keyFilter);
+
+            } else { // add
+                if ($(this).hasClass('type')) {
+                    var elementActive = $('.type.btn-primary');
+                    elementActive.removeClass('btn-primary');
+                    elementActive.addClass('btn-dark');
+                    filterOb[0].type[0] = keyFilter;
+                }
+
+                if ($(this).hasClass('category')) {
+                    var elementActive = $('.category.btn-primary');
+                    elementActive.removeClass('btn-primary');
+                    elementActive.addClass('btn-dark');
+                    filterOb[2].category[0] = keyFilter;
+                }
+
+                $(this).parent().removeClass('btn-dark');
+                $(this).parent().addClass('btn-primary');                    
+            }
+        }
+
+        var url = `${baseUrlSite}/site/controllers/ajax/product.php`;
+
+        timeRequest = setTimeout(
+            function() {
+                setDataAndRequest(filterOb, 0, url);
+            }, 600);            
     }
-
-    var url = `${baseUrlSite}/site/controllers/ajax/product.php`;
-
-    timeRequest = setTimeout(
-        function() {
-            setDataAndRequest(filterOb, 0, url);
-        }, 600);
-        console.log(filterOb);
-
 });
 
 function findAndDeleteItemInArray(array, find) {

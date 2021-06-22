@@ -232,9 +232,14 @@ class Home
         if ($AmountProduct == 0) {
             $mess = '<h3 class="text-center w-100 notice-h3">Không tìm thấy sản phẩm !</h3>';
         }
-
+        
+        $listSpResources = $this->model->getSpResouceslimit();
+        $amountSpResources = $this->model->getAmountSpResources();
+        
         $limitItem      = 9;
         $pageNumber     = ceil($AmountProduct / $limitItem);        
+        $pageNumberResources = ceil($amountSpResources / $limitItem); 
+        
         require_once "views/layout.php";
     }
 

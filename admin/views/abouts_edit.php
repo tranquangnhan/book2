@@ -57,7 +57,7 @@
                             <textarea id="editor1"  style="height: 300px;width:100%" name="content-about" ><?=$oneRecode['content']?></textarea>                            
                             <div class="form-group text-right mb-0 mt-5">
                                 <input type="submit" name="them" class="btn btn-primary waves-effect waves-light mr-1" value="Thêm" id='add_product'>
-                                <a href="<?=ROOT_URL?>/admin/?ctrl=blogs&act=index" clas="btn btn-secondary waves-effect waves-light">Hủy</a>
+                                <a href="<?=ROOT_URL?>/admin/?ctrl=about&act=index" clas="btn btn-secondary waves-effect waves-light">Hủy</a>
                             </div>
                         </form>
                     </div>
