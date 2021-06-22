@@ -81,7 +81,7 @@ class lib{
                 $arr=explode("|",$codau);
                 $str = str_replace($arr,$khongdau,$str);
         }
-        $str = str_replace(["%","$","*","&","?","!","#","@","^","+","=",":",",",".","/","|",";","'",'"',"-","“","”","{","}"],"",$str);
+        $str = str_replace(["%","$","*","&","?","!","#","@","^","+","=",":",",",".","/","|",";","'",'"',"-","“","”","{","}",")","("],"",$str);
         $str = trim($str);
         $str = strtolower($str);
         $str = preg_replace('/\s+/', ' ', $str);
