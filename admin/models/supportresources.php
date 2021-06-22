@@ -6,30 +6,36 @@ class Model_SpResources extends Model_db{
         return $this->result1(0,$sql);
     }
    
-    public function addNewAbout($name, $slug, $content, $link)
+    public function addNewSpResources($name, $class, $img, $link)
     {
-        $sql = "INSERT INTO about(name, slug, content, link) VALUE (?,?,?,?)";
-        return $this->SqlExecDebug($sql, $name, $slug, $content, $link);
+        $sql = "INSERT INTO supportresources(name, class, img, link) VALUE (?,?,?,?)";
+        return $this->SqlExecDebug($sql, $name, $class, $img, $link);
     }
 
-    function deleteAbout($id)
+    function deleteSpResources($id)
     {   
-        $sql = "DELETE FROM about WHERE id = ?";
+        $sql = "DELETE FROM supportresources WHERE id = ?";
         return $this->exec1($sql,$id);
     }
     
-    function editAbouts($name, $slug, $content, $link, $id) {
-        $sql = "UPDATE about SET name = ?, slug = ?, content = ?, link = ? WHERE id = ?";
-        return $this->exec1($sql, $name, $slug, $content, $link, $id);
+    function editSpResources($name, $class, $img, $link, $id) {
+        if ($img != '') {
+            $sql = "UPDATE supportresources SET name = ?, class = ?, img = ?, link = ? WHERE id = ?";
+            return $this->exec1($sql, $name, $class, $img, $link, $id);
+        } else {
+            $sql = "UPDATE supportresources SET name = ?, class = ?, link = ? WHERE id = ?";
+            return $this->exec1($sql, $name, $class, $link, $id);
+        }
+        
     }
     
-    function getDetailAbout($id){
-        $sql = "SELECT * FROM about WHERE id = ?";
+    function getDetailSpResources($id){
+        $sql = "SELECT * FROM supportresources WHERE id = ?";
         return $this->result1(1,$sql,$id);
     }
   
-    function getLastestIdAbout(){
-        $sql = "SELECT id as lastid FROM about ORDER BY id DESC LIMIT 1";
+    function getLastestIdSpResources(){
+        $sql = "SELECT id as lastid FROM supportresources ORDER BY id DESC LIMIT 1";
         return $this->result1(1,$sql)['lastid'];
     }
 }

@@ -751,4 +751,29 @@ class Model_home extends Model_db{
         $sql = "SELECT * FROM `video` WHERE 1";
         return $this->result1(0, $sql);
     }
+   
+    function getAmountSpResources() {
+        $sql = 'SELECT count(*) AS sodong FROM `supportresources`';
+        return $this->result1(1, $sql)['sodong'];
+    }
+
+    function getSpResouceslimit() {
+        $sql = "SELECT * FROM `supportresources` ORDER BY class ASC limit 9";
+        return $this->result1(0, $sql);
+    }
+
+    function getAllSupportResourceLimit() {
+        $sql = "SELECT * FROM `supportresources` ORDER BY class ASC limit 9";
+        return $this->result1(0, $sql);
+    }
+
+    function getSupportResourceBy($class, $form) {
+        $sql = "SELECT * FROM `supportresources` WHERE class = ? ORDER BY id DESC limit $form, 9";
+        return $this->result1(0, $sql, $class);
+    }
+
+    function getAmountSupportResourceBy($class) {
+        $sql = "SELECT count(*) AS sodong FROM `supportresources` WHERE class = ?";
+        return $this->result1(1, $sql, $class)['sodong'];
+    }
 }

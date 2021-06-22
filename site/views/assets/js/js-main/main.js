@@ -284,8 +284,7 @@ $('.show-option').click(function (e) {
 
     if (!active) {        
         var num = $(this).attr('data-show-op');
-        var numActive = $('.option-active').attr('data-show-op');
-        console.log(num, numActive);
+        var numActive = $('.option-active').attr('data-show-op');        
 
         $('div[data-option="'+ numActive +'"]').removeClass('active');
         $('div[data-option="'+ num +'"]').addClass('active');
@@ -406,19 +405,34 @@ function renderPage(pageCur) {
 var obj = {
     url: '',
     filterOb: '',
-    getData: function(form) {        
+    pageTeacher: false,
+    getData: function(form) {    
+        console.log(form);    
         goToByScroll('nav-chil');
-        if ($('.ftco-loader').hasClass('show') == false) {
-            $('.product-box .product-item').remove();
-            $('.ftco-loader').addClass('show');    
-        }
+    
     
         clearTimeout(timeRequest);
-    
-        timeRequest = setTimeout(
-            function() { 
-                setDataAndRequest(obj.filterOb, form, obj.url);                        
-            }, 600);    
+        if (obj.pageTeacher == false) {
+            if ($('.ftco-loader').hasClass('show') == false) {
+                $('.product-box .product-item').remove();
+                $('.ftco-loader').addClass('show');    
+            }
+            timeRequest = setTimeout(
+                function() { 
+                    setDataAndRequest(obj.filterOb, form, obj.url);                        
+                }, 600); 
+        } else {
+            if ($('.ftco-loader.teacher').hasClass('show') == false) {
+                $('.spre .Resources-item').remove();
+                $('.ftco-loader.teacher').addClass('show');
+            }
+
+            timeRequest = setTimeout(
+                function() { 
+                    getDataSupportResource(classe, form);
+                }, 600); 
+        }
+          
 
     },
 
