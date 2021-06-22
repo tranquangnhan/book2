@@ -149,14 +149,15 @@
                             <?php 
                             if (isset($mess)) {
                                 echo $mess;
-                            }
+                            }                            
                             ?>                                
                             <?php foreach ($listSpResources as $spre) { 
+                                ($spre['class'] == 0) ? $class = 'Mầm non' : $class = 'Lớp '. $spre['class'];
                             ?>
                             <div class="col-md-4 Resources-item d-flex align-items-stretch ftco-animate">
                                 <div class="project-wrap">
                                     <a href="<?=$spre['link']?>" class="img" style="background-image: url(<?=PATH_IMG_SITE?>/<?= $spre['img']?>);">
-                                        <span class="price">Sách</span>
+                                        <span class="price"><?=$class?></span>
                                     </a>
                                     <div class="text p-4">
                                         <h3><a href="<?=$spre['link']?>"><?= $spre['name'] ?></a></h3>
