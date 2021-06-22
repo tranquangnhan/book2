@@ -131,13 +131,94 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="">Link sách giáo viên</label><span style="color:red;"></span>
-                                        <input type="text" name="linksachgv"  parsley-trigger="change"
-                                            placeholder="link sách giáo viên ..." class="form-control" >
+                                        <label for="">Link sách mềm giáo viên</label><span style="color:red;"></span>
+                                        <input type="text" name="linksachmengv"  parsley-trigger="change"
+                                            placeholder="link sách mềm giáo viên ..." class="form-control" >
+                                    </div>
+                                </div>   
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link sách mềm học sinh</label><span style="color:red;"></span>
+                                        <input type="text" name="linksachmemhs"  parsley-trigger="change"
+                                            placeholder="link sách mềm học sinh ..." class="form-control" >
                                     </div>
                                 </div>              
                             </div>
-                            
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link sách giáo viên tập 1</label><span style="color:red;"></span>
+                                        <input type="text" name="linksachgv"  parsley-trigger="change"
+                                            placeholder="link sách giáo viên tập 1 ..." class="form-control" >
+                                    </div>
+                                </div>     
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link ứng dụng luyện từ vựng</label><span style="color:red;"></span>
+                                        <input type="text" name="linkudtuvung"  parsley-trigger="change"
+                                            placeholder="link ứng dụng từ vựng  ..." class="form-control" >
+                                    </div>
+                                </div>              
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link sách giáo viên tập 2</label><span style="color:red;"></span>
+                                        <input type="text" name="linksachgv2"  parsley-trigger="change"
+                                            placeholder="link sách giáo viên tập 2 ..." class="form-control" >
+                                    </div>
+                                </div>     
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link ứng dụng luyện nghe nói</label><span style="color:red;"></span>
+                                        <input type="text" name="linkudnghenoi"  parsley-trigger="change"
+                                            placeholder="link ứng dụng luyện nghe nói..." class="form-control" >
+                                    </div>
+                                </div>              
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link đề kiểm tra</label><span style="color:red;"></span>
+                                        <input type="text" name="linkdekiemtra"  parsley-trigger="change"
+                                            placeholder="link đề kiểm tra ..." class="form-control" >
+                                    </div>
+                                </div>     
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link story land</label><span style="color:red;"></span>
+                                        <input type="text" name="linkstoryland"  parsley-trigger="change"
+                                            placeholder="link story land ..." class="form-control" >
+                                    </div>
+                                </div>              
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link phân phối chương trình</label><span style="color:red;"></span>
+                                        <input type="text" name="linkppct"  parsley-trigger="change"
+                                            placeholder="link phân phối chương trình ..." class="form-control" >
+                                    </div>
+                                </div>                
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link ứng dụng luyện từ vựng</label><span style="color:red;"></span>
+                                        <input type="text" name="linkudluyentuvung"  parsley-trigger="change"
+                                            placeholder="link ứng dụng luyện từ vựng ..." class="form-control" >
+                                    </div>
+                                </div>                
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link ứng dụng luyện nghe nói</label><span style="color:red;"></span>
+                                        <input type="text" name="linkudluyennghenoi"  parsley-trigger="change"
+                                            placeholder="link ứng dụng luyện nghe nói ..." class="form-control" >
+                                    </div>
+                                </div>                
+                            </div>
                             <label for="">Mô tả</label>
                             <textarea id="editor1"  style="height: 300px;width:100%" name="description" >                            
                                 <?=$oneRecode["description"]?>

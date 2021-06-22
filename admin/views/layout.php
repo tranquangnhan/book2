@@ -229,15 +229,6 @@
 
                         <ul class="metismenu" id="side-menu">
                             <li>
-                                <a href="?ctrl=banner">
-                                    <i class="mdi mdi-page-layout-sidebar-left"></i>
-                                    <span>Banner</span>
-                                    
-                                </a>
-                                
-                            </li>
-
-                            <li>
                                 <a href="javascript: void(0);">
                                     <i class="mdi mdi-page-layout-sidebar-left"></i>
                                     <span> Sản phẩm </span>

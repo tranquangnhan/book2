@@ -121,19 +121,7 @@
                                                     }
                                                 }
                                             ?>
-                                            <!-- <option value="0">Mầm Non</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option> -->
+                                        
                                         </select>
                                     </div>                                                
                                 </div>      
@@ -174,11 +162,93 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="">Link sách giáo viên</label><span style="color:red;"> (*)</span>
-                                        <input type="text" name="linksachgv"  parsley-trigger="change"
-                                            placeholder="link sách giáo viên ..." value="<?=$oneRecode['linkgv']?>" class="form-control" >
+                                        <label for="">Link sách mềm giáo viên</label><span style="color:red;"></span>
+                                        <input type="text" name="linksachmengv"  value="<?=$oneRecode['linksachmengv']?>" parsley-trigger="change"
+                                            placeholder="link sách mềm giáo viên ..." class="form-control" >
+                                    </div>
+                                </div>   
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link sách mềm học sinh</label><span style="color:red;"></span>
+                                        <input type="text" name="linksachmemhs" value="<?=$oneRecode['linksachmemhs']?>"  parsley-trigger="change"
+                                            placeholder="link sách mềm học sinh ..." class="form-control" >
                                     </div>
                                 </div>              
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link sách giáo viên tập 1</label><span style="color:red;"></span>
+                                        <input type="text" name="linksachgv" value="<?=$oneRecode['linkgv']?>" parsley-trigger="change"
+                                            placeholder="link sách giáo viên tập 1 ..." class="form-control" >
+                                    </div>
+                                </div>     
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link ứng dụng luyện từ vựng</label><span style="color:red;"></span>
+                                        <input type="text" name="linkudtuvung" value="<?=$oneRecode['linkudtuvung']?>" parsley-trigger="change"
+                                            placeholder="link ứng dụng từ vựng  ..." class="form-control" >
+                                    </div>
+                                </div>              
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link sách giáo viên tập 2</label><span style="color:red;"></span>
+                                        <input type="text" name="linksachgv2" value="<?=$oneRecode['linksachgv2']?>"  parsley-trigger="change"
+                                            placeholder="link sách giáo viên tập 2 ..." class="form-control" >
+                                    </div>
+                                </div>     
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link ứng dụng luyện nghe nói</label><span style="color:red;"></span>
+                                        <input type="text" name="linkudnghenoi" value="<?=$oneRecode['linkudnghenoi']?>"  parsley-trigger="change"
+                                            placeholder="link ứng dụng luyện nghe nói..." class="form-control" >
+                                    </div>
+                                </div>              
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link đề kiểm tra</label><span style="color:red;"></span>
+                                        <input type="text" name="linkdekiemtra" value="<?=$oneRecode['linkdekiemtra']?>"  parsley-trigger="change"
+                                            placeholder="link đề kiểm tra ..." class="form-control" >
+                                    </div>
+                                </div>     
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link story land</label><span style="color:red;"></span>
+                                        <input type="text" name="linkstoryland" value="<?=$oneRecode['linkstoryland']?>"  parsley-trigger="change"
+                                            placeholder="link story land ..." class="form-control" >
+                                    </div>
+                                </div>              
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link phân phối chương trình</label><span style="color:red;"></span>
+                                        <input type="text" name="linkppct" value="<?=$oneRecode['linkppct']?>"  parsley-trigger="change"
+                                            placeholder="link phân phối chương trình ..." class="form-control" >
+                                    </div>
+                                </div>                
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link ứng dụng luyện từ vựng</label><span style="color:red;"></span>
+                                        <input type="text" name="linkudluyentuvung" value="<?=$oneRecode['linkudluyentuvung']?>"  parsley-trigger="change"
+                                            placeholder="link ứng dụng luyện từ vựng ..." class="form-control" >
+                                    </div>
+                                </div>                
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Link ứng dụng luyện nghe nói</label><span style="color:red;"></span>
+                                        <input type="text" name="linkudluyennghenoi" value="<?=$oneRecode['linkudluyennghenoi']?>"  parsley-trigger="change"
+                                            placeholder="link ứng dụng luyện nghe nói ..." class="form-control" >
+                                    </div>
+                                </div>                
                             </div>
                             
                             <label for="">Mô tả</label>

@@ -7,10 +7,30 @@ class Model_product extends Model_db{
         return $this->result1(0,$sql);
     }
    
-    public function addNewProduct($name, $slug, $imgs, $type, $class, $author, $publishing, $year, $description, $link,$linkSachGv, $idcate)
+    public function addNewProduct( 
+                $name, $slug, $imgs, $type, $class, 
+                $author, $publishing, $year, $description, $link,
+                $linksachmengv,$linksachmemhs ,$linkSachGv,
+                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linkdekiemtra,$linkstoryland,$linkppct,
+                $linkudluyentuvung,$linkudluyennghenoi,
+                $idcate
+    )
     {
-        $sql = "INSERT INTO book(name, slug, img, type, class, author, publishing, year, description, link,linkgv, idcate) VALUE(?,?,?,?,?,?,?,?,?,?,?,?)";
-        return $this->getLastId($sql, $name, $slug, $imgs, $type, $class, $author, $publishing, $year, $description, $link,$linkSachGv, $idcate);
+        $sql = "
+                INSERT INTO book(
+                name, slug, img, type, class, author, publishing, 
+                year, description,link,linksachmengv,linksachmemhs,
+                linkgv,linkudtuvung,linksachgv2,linkudnghenoi,
+                linkdekiemtra,linkstoryland,linkppct,linkudluyentuvung,
+                linkudluyennghenoi, idcate) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        return $this->getLastId($sql,  $name, $slug, $imgs, $type, $class, 
+                $author, $publishing, $year, $description, $link,
+                $linksachmengv,$linksachmemhs ,$linkSachGv,
+                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linkdekiemtra,$linkstoryland,$linkppct,
+                $linkudluyentuvung,$linkudluyennghenoi,
+                $idcate);
     }
 
     function deleteProduct($id)
@@ -19,15 +39,53 @@ class Model_product extends Model_db{
         return $this->exec1($sql,$id);
     }
     
-    function editProduct($name, $slug, $imgs, $type, $class, $author, $publishing, $year, $description, $link,$part,$linkSachGv, $idcate, $id){
+    function editProduct( 
+                $name, $slug, $imgs, $type, $class, 
+                $author, $publishing, $year, $description, $link,$part,
+                $linksachmengv,$linksachmemhs ,$linkSachGv,
+                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linkdekiemtra,$linkstoryland,$linkppct,
+                $linkudluyentuvung,$linkudluyennghenoi,
+                $idcate, $id
+        ){
         if($imgs == "")
         {
-            $sql = "UPDATE book SET  name = ?, slug = ?, type = ?, class = ?, author = ?, publishing = ?, year = ?, description = ?, link = ?, part=?,linkgv=? , idcate = ? WHERE id=?";
-            return $this->exec1($sql, $name, $slug, $type, $class, $author, $publishing, $year, $description, $link,$part,$linkSachGv, $idcate, $id);
+        $sql = "UPDATE book SET name = ?, slug = ?,
+                type = ?, class = ?, author = ?, publishing = ?,
+                year = ?, description = ?, link = ?, part=?,linksachmengv=?,
+                linksachmemhs=?,linkgv=?,linkudtuvung=?,linksachgv2=?,
+                linkudnghenoi=?,linkdekiemtra=?,linkstoryland=?,linkppct=?,
+                linkudluyentuvung=?,linkudluyennghenoi	=?,
+                idcate = ?  WHERE id=?";
+        return $this->SqlExecDebug(
+                $sql,  $name, $slug, $type, $class, 
+                $author, $publishing, $year, 
+                $description,
+                $link,$part,
+                $linksachmengv,$linksachmemhs ,$linkSachGv,
+                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linkdekiemtra,$linkstoryland,$linkppct,
+                $linkudluyentuvung,$linkudluyennghenoi,
+                $idcate, $id
+        );
+
         }else
         {
-            $sql = "UPDATE book SET name = ?, slug = ?, img= ?, type = ?, class = ?, author = ?, publishing = ?, year = ?, description = ?, link = ?, part=?,linkgv=? , idcate = ? WHERE id=?";
-            return $this->exec1($sql, $name, $slug, $imgs, $type, $class, $author, $publishing, $year, $description, $link,$part,$linkSachGv, $idcate, $id);
+        $sql = "UPDATE book SET name = ?, slug = ?, img= ?,
+                type = ?, class = ?, author = ?, publishing = ?,
+                year = ?, description = ?, link = ?, part=?,linksachmengv=?,
+                linksachmemhs=?,linkgv=?,linkudtuvung=?,linksachgv2=?,
+                linkudnghenoi=?,linkdekiemtra=?,linkstoryland=?,linkppct=?,
+                linkudluyentuvung=?,linkudluyennghenoi	=?,
+                idcate = ?  WHERE id=?";
+        return $this->exec1(
+                $sql,$name, $slug, $imgs, $type, $class, 
+                $author, $publishing, $year, $description, $link,$part,
+                $linksachmengv,$linksachmemhs ,$linkSachGv,
+                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linkdekiemtra,$linkstoryland,$linkppct,
+                $linkudluyentuvung,$linkudluyennghenoi,
+                $idcate, $id);
         }
     }
 
