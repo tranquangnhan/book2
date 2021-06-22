@@ -103,6 +103,7 @@ class Home
     {
         $page_title   = "Trang Chủ - EngBook";
         $viewFile     = "views/home.php";
+        $abouts       = $this->model->getAbouts();
         require_once "views/layout.php";
     }
 
@@ -110,16 +111,21 @@ class Home
         $page_title   = "Giới Thiệu - EngBook";
         $viewFile     = "views/about.php";
         $css          = "about.css";
-        $namePage     = "Giới Thiệu";
+        if (isset($_GET['id'])) {
+            $id          = $_GET['id'];
+            $aboutDetail = $this->model->getAboutDetail($id);
+            $namePage2 = $aboutDetail['name'];
+        }   
+        $namePage     = "Giới Thiệu";        
         require_once "views/layout.php";
     }
 
     public function products() {
         $page_title     = "Sản Phẩm - EngBook";
         $viewFile       = "views/product-list.php";
-        $namePage       = "Sản Phẩm";
+        $namePage       = "Sản Phẩm";        
         $js             = "product-list.js";
-        $ajax           = "product-list.js";
+        $ajax           = ["product-list.js"];
         $categories     = $this->model->getCategories();
         $getLastestNews = $this->modelBlogs->getLastestNews();
         $idCateFirst    = $categories[0]['id'];
@@ -131,14 +137,15 @@ class Home
                 $listProduct   = $this->model->getProductsByClass('0');                
                 $AmountProduct = $this->model->countProductsByTypes('', '0', '');
             } else if ($level == 2) {
-                $listProduct   = $this->model->getProductsByTypes('', '1', '');
-                $AmountProduct = $this->model->countProductsByTypes('1', '1', '');
+                $listProduct   = $this->model->getProductsByTypes('1', '1', $idCateFirst);
+                $AmountProduct = $this->model->countProductsByTypes('1', '1', $idCateFirst);
+                
             } else if ($level == 3) {
-                $listProduct   = $this->model->getProductsByTypes('', '6', '');
-                $AmountProduct = $this->model->countProductsByTypes('', '6', '');
+                $listProduct   = $this->model->getProductsByTypes('1', '6', $idCateFirst);
+                $AmountProduct = $this->model->countProductsByTypes('1', '6', $idCateFirst);
             } else if ($level == 4) {
-                $listProduct   = $this->model->getProductsByTypes('', '10', '');
-                $AmountProduct = $this->model->countProductsByTypes('', '10', '');
+                $listProduct   = $this->model->getProductsByTypes('1', '10', $idCateFirst);
+                $AmountProduct = $this->model->countProductsByTypes('1', '10', $idCateFirst);
             }
             
         } else {
@@ -182,21 +189,52 @@ class Home
     }
 
     public function student() {
+        $page_title     = "Học Sinh - EngBook";
+        $viewFile       = "views/student.php";
+        $css            = "student.css";        
+        $namePage       = "Học Sinh";               
+        $ajax           = ["product-list.js", "student.js"];
+
+        $categories     = $this->model->getCategories();
         $getLastestNews = $this->modelBlogs->getLastestNews();
-        $page_title   = "Học Sinh - EngBook";
-        $viewFile     = "views/student.php";
-        $css          = "student.css";        
-        $namePage     = "Học Sinh";        
+        $idCateFirst    = $categories[0]['id'];
+
+        $where          = ' type = 1 ';
+        $listProduct    = $this->model->getProductLimit($where);        
+        $allproduct     = $this->model->getProductStudent();        
+        $AmountProduct  = count($allproduct);
+        
+        if ($AmountProduct == 0) {
+            $mess = '<h3 class="text-center w-100 notice-h3">Không tìm thấy sản phẩm !</h3>';
+        }
+
+        $limitItem      = 9;
+        $pageNumber     = ceil($AmountProduct / $limitItem);
+
         require_once "views/layout.php";
     }
 
     public function teacher() {
+        $page_title     = "Giáo Viên - EngBook";
+        $viewFile       = "views/teacher.php";
+        $css            = "teacher.css";    
+        $js             = "teacher.js";    
+        $namePage       = "Giáo Viên";            
+        $ajax           = ["product-list.js", "teacher.js"];
+        $where          = ' type = 2 ';
+
+        $categories     = $this->model->getCategories();
         $getLastestNews = $this->modelBlogs->getLastestNews();
-        $page_title   = "Giáo Viên - EngBook";
-        $viewFile     = "views/teacher.php";
-        $css          = "teacher.css";    
-        $js           = "teacher.js";    
-        $namePage     = "Giáo Viên";                
+        $listProduct    = $this->model->getProductLimit($where);        
+        $allproduct     = $this->model->getProductTeacher();        
+        $AmountProduct  = count($allproduct);
+        
+        if ($AmountProduct == 0) {
+            $mess = '<h3 class="text-center w-100 notice-h3">Không tìm thấy sản phẩm !</h3>';
+        }
+
+        $limitItem      = 9;
+        $pageNumber     = ceil($AmountProduct / $limitItem);        
         require_once "views/layout.php";
     }
 

@@ -63,3 +63,16 @@ $(function() {
 //     })
 // });
 
+$(function() {
+    $("#formabout").validate({
+        rules: {
+            name: { required: true, maxlength: 30 },
+        },
+        messages: {
+            name: {
+                required: "<span class='badge badge-danger'>Không được để trống</span>",
+                maxlength: "<span class='badge badge-danger'>Không được dài quá 30 kí tự</span>",
+            },
+        }
+    });
+});

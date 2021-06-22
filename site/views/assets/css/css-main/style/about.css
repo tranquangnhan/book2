@@ -81,3 +81,7 @@ a.new-name {
     border-radius: 26px;
     /* box-shadow: 8px 12px 5px #fbb11f9e; */
 }
+
+img {
+    width: 100%;
+}
