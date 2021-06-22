@@ -35,6 +35,10 @@ class Model_blogs extends Model_db{
         return $this->result1(1,$sql,$id);
     }
   
+    function getAllBlogCate(){
+        $sql = "SELECT * FROM categoriesnews ";
+        return $this->result1(0,$sql);
+    }
 
 
 

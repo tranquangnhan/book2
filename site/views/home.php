@@ -294,99 +294,22 @@
                 </div>
             </div>
             <div class="owl-carousel owl-theme slide-video" id="video-carousel">
-               <div class="item slide-video-item">
-                    <iframe  class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/xmpRkauS2ss"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="title color-main">
-                        <h4 class="m-0 p-0 title-2"><a class="color-black limit-content-2"
-                                href="https://www.youtube.com/watch?v=xmpRkauS2ss">Tiết dạy SGK Tiếng Anh 6 Unit 9
-                                Lesson 7 - Looking back & Project</a></h4>
-                    </div>
-                </div>
-                <div class="item slide-video-item">
-                    <iframe class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/GibB1q4kr3M"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="title color-main">
-                        <h4 class="m-0 p-0 title-2"><a class="color-black limit-content-2"
-                                href="https://www.youtube.com/watch?v=GibB1q4kr3M">Tiết dạy minh họa SGK Tiếng Anh 6
-                                Unit 9 Lesson 2 - A closer look 1</a></h4>
-                    </div>
-                </div>
+               <?php
+                foreach ( $video as $row) {
+                  echo '    <div class="item slide-video-item">
+                                <iframe  class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/'.$row['linkyoutube'].'"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                                <div class="title color-main">
+                                    <h4 class="m-0 p-0 title-2"><a class="color-black limit-content-2"
+                                            href="https://www.youtube.com/watch?v='.$row['linkyoutube'].'">'.$row['name'].'</a></h4>
+                                </div>
+                            </div>';
+                }
+                           
+               ?>
 
-                <div class="item slide-video-item">
-                    <iframe class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/d2gBvI8PMWU"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="title color-main">
-                        <h4 class="m-0 p-0 title-2"><a class="color-black"
-                                href="https://www.youtube.com/watch?v=d2gBvI8PMWU">Tiết dạy minh họa SGK Tiếng Anh 6
-                                Unit 9 Lesson 3 - A closer look 2</a></h4>
-                    </div>
-                </div>
-
-                <div class="item slide-video-item">
-                    <iframe class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/c4uz5_VTrhk"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="title color-main">
-                        <h4 class="m-0 p-0 title-2"><a class="color-black"
-                                href="https://www.youtube.com/watch?v=c4uz5_VTrhk">Tiết dạy minh họa SGK Tiếng Anh 2
-                                Unit 10 Lesson 1</a></h4>
-                    </div>
-                </div>
-
-                <div class="item slide-video-item">
-                    <iframe class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/W0LT5CtmXUw"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="title color-main">
-                        <h4 class="m-0 p-0 title-2"><a class="color-black"
-                                href="https://www.youtube.com/watch?v=W0LT5CtmXUw">Tiết dạy minh họa SGK Tiếng Anh 6
-                                Unit 9 Lesson 5 - Skill 1</a></h4>
-                    </div>
-                </div>
-                <div class="item slide-video-item">
-                    <iframe class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/xmpRkauS2ss"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="title color-main">
-                        <h4 class="m-0 p-0 title-2"><a class="color-black"
-                                href="https://www.youtube.com/watch?v=vNg69E1yS4w">Tiết dạy minh họa SGK Tiếng Anh 6
-                                Unit 9 Lesson 4 - Communication</a></h4>
-                    </div>
-                </div>
-                <div class="item slide-video-item">
-                    <iframe class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/W2nB1uB0JOE"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="title color-main">
-                        <h4 class="m-0 p-0 title-2"><a class="color-black"
-                                href="https://www.youtube.com/watch?v=W2nB1uB0JOE">Tiết dạy minh họa SGK Tiếng Anh 2
-                                Unit 10 Lesson 2</a></h4>
-                    </div>
-                </div>
-
-                <div class="item slide-video-item">
-                    <iframe class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/M3AFJcoc26Y"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <div class="title color-main">
-                        <h4 class="m-0 p-0 title-2"><a class="color-black"
-                                href="https://www.youtube.com/watch?v=vNg69E1yS4w">Tiết giảng minh họa SGK Tiếng Anh 1
-                                Unit 3 Lesson 3
-                            </a></h4>
-                    </div>
-                </div> 
             </div>
         </div>
     </section>
@@ -427,7 +350,7 @@
                     <div class="block-18 d-flex align-items-center">
                         <!-- <div class="icon"><span class="flaticon-tools"></span></div> -->
                         <div class="text text-center">
-                            <strong class="number" data-number="1000000">0 </strong> <strong class="number">+</strong>
+                                <strong class="number" data-number="1000000">0 </strong> <strong class="number">+</strong>
                             <p class="text-white counter-item-text p-1 fz-1em">Hơn 1 triệu tài khoản <br> người dùng
                                 Sách Mềm</p>
                         </div>

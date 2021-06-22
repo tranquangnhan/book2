@@ -154,5 +154,10 @@ class Model_blog extends Model_db{
         $sql = "SELECT  * FROM news ORDER BY id DESC";
         return $this->result1(0,$sql);
     }
+
+    function getAllBlogCate(){
+        $sql = "SELECT * FROM categoriesnews ";
+        return $this->result1(0,$sql);
+    }
 }
 ?>

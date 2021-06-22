@@ -104,6 +104,7 @@ class Home
         $page_title   = "Trang Chủ - EngBook";
         $viewFile     = "views/home.php";
         $abouts       = $this->model->getAbouts();
+        $video        = $this->model->getAllVideo();
         require_once "views/layout.php";
     }
 
@@ -248,7 +249,7 @@ class Home
 
     public function blog() {
         $getLastestNews = $this->modelBlogs->getLastestNews();
-        $showDmBlog = array(['id'=>1,'name'=>'Tin tức - Sự kiện','slug'=>'tin-tuc-su-kien'],['id'=>2,'name'=>'Hội Nghị - Hội Thảo','slug'=>'hoi-nghi-hoi-thao'],['id'=>3,'name'=>' Văn Bản Pháp Quy','slug'=>'van-ban-phap-quy']);
+        $showDmBlog =  $this->modelBlogs->getAllBlogCate();
 
         if(isset($_GET['maloai'])==true&&($_GET['maloai']>0))
         $maLoai= $_GET['maloai'];
@@ -266,7 +267,7 @@ class Home
         {
             $ds =  $this->modelBlogs->getHangHoaTheoLoai($maLoai,$pageNum,$pageSize);
          
-            $TotalProduct = (int)  $this->modelBlog->demHangHoaTheoLoai($maLoai);
+            $TotalProduct = (int)  $this->modelBlogs->demHangHoaTheoLoai($maLoai);
         }
         if(!$maLoai)
         {    

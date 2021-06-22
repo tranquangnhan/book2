@@ -747,5 +747,8 @@ class Model_home extends Model_db{
         $sql = "SELECT * FROM `about` WHERE id = ?";
         return $this->result1(1, $sql, $id);
     }
-   
+    function getAllVideo(){
+        $sql = "SELECT * FROM `video` WHERE 1";
+        return $this->result1(0, $sql);
+    }
 }

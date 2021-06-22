@@ -273,6 +273,16 @@
                                 </ul>
                             </li>
                             <li>
+                                <a href="javascript: void(0);">
+                                    <i class="mdi mdi-page-layout-sidebar-left"></i>
+                                    <span> Danh mục bài viết</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="?ctrl=categories_news&act=index">Danh sách</a></li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="?ctrl=contact">
                                     <i class="mdi mdi-page-layout-sidebar-left"></i>
                                     <span>Liên hệ</span>
@@ -302,6 +312,16 @@
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="?ctrl=supportresources&act=addnew">Thêm mới </a></li>
                                     <li><a href="?ctrl=supportresources&act=index">Danh sách</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="mdi mdi-page-layout-sidebar-left"></i>
+                                    <span> VIDEO</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="?ctrl=video&act=index">Danh sách</a></li>
                                 </ul>
                             </li>
                           

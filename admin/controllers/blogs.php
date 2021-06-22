@@ -41,7 +41,7 @@ class blogs
     }
     public function addNew()
     {
-        $showDmBlog = array(['id'=>1,'name'=>'Tin tức - Sự kiện','slug'=>'tin-tuc-su-kien'],['id'=>2,'name'=>'Hội Nghị - Hội Thảo','slug'=>'hoi-nghi-hoi-thao'],['id'=>3,'name'=>' Văn Bản Pháp Quy','slug'=>'van-ban-phap-quy']);
+        $showDmBlog =  $this->modelBlogs->getAllBlogCate();
         if (isset($_GET['id']) && ($_GET['ctrl'] = 'blogs')) {
             $oneRecode = $this->modelBlogs->getDetailblog($_GET['id']);
             $page_title = "Sửa bài viết";
