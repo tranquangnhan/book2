@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="col-lg-12" id="nav-chil">
+                    <?php if ($level != 7) { ?>
                     <div class="container" style="width: fit-content; margin-bottom: 5%;">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="type btn <?php echo ($level != 1) ? 'btn-primary' : 'btn-dark';?> font-weight-600">
@@ -15,42 +16,44 @@
                             </label>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
                 <?php if ($level > 1) { ?>
                 <div class="col-12 text-center">
                     <div class="block-27">
                         <div class="row">
                             <div class="col-12">
-                                <ul>
-                                    <?php if ($level == 6) { ?>
-                                        <li class="active"><a href="#" class="big filter class" data-type="1">Mầm Non</a></li>
-                                    <?php } else { ?>
-                                        <li class="big class">Lớp</li>
+                                <ul><?php if ($level != 7) { ?>
+                                        <?php if ($level == 6) { ?>
+                                            <li class="active"><a href="#" class="big filter class" data-type="1">Mầm Non</a></li>
+                                        <?php } else { ?>
+                                            <li class="big class">Lớp</li>
+                                            <?php } ?>
+                                        <?php if ($level == 2 || $level == 6) { ?>
+                                        <li <?php echo ($level != 6) ? 'class="active"' : ''?>><a href="#" class="filter class" data-type="1">1</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">2</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">3</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">4</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">5</a></li>
+                                        <?php }
+                                        if ($level == 3 || $level == 6) { ?>
+                                        <li <?php echo ($level == 3) ? 'class="active"' : ''?>><a href="#" class="filter class" data-type="1">6</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">7</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">8</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">9</a></li>
+                                        <?php }
+                                        if ($level == 4 || $level == 6) { ?>
+                                        <li <?php echo ($level == 4) ? 'class="active"' : ''?>><a href="#" class="filter class" data-type="1">10</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">11</a></li>
+                                        <li><a href="#" class="filter class" data-type="1">12</a></li>
                                         <?php } ?>
-                                    <?php if ($level == 2 || $level == 6) { ?>
-                                    <li <?php echo ($level != 6) ? 'class="active"' : ''?>><a href="#" class="filter class" data-type="1">1</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">2</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">3</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">4</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">5</a></li>
-                                    <?php }
-                                    if ($level == 3 || $level == 6) { ?>
-                                    <li <?php echo ($level == 3) ? 'class="active"' : ''?>><a href="#" class="filter class" data-type="1">6</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">7</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">8</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">9</a></li>
-                                    <?php }
-                                    if ($level == 4 || $level == 6) { ?>
-                                    <li <?php echo ($level == 4) ? 'class="active"' : ''?>><a href="#" class="filter class" data-type="1">10</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">11</a></li>
-                                    <li><a href="#" class="filter class" data-type="1">12</a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?php } if ($level > 1) { ?>             
+                <?php } if ($level > 1 && $level != 7) { ?>             
                 <div class="col-lg-12 ">
                     <div class="container" style="width: fit-content; margin-bottom: 5%;">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">

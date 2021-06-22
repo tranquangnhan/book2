@@ -4,10 +4,16 @@
 }?>
 <div class="col-lg-3 sidebar">
     <div class="sidebar-box bg-white ftco-animate">
-        <form action="#" class="search-form">
+        <form action="<?=ROOT_URL?>/san-pham" method="post" class="search-form">
             <div class="form-group">
-                <span class="icon fa fa-search"></span>
-                <input type="text" class="form-control" placeholder="Search...">
+                <div class="row">               
+                    <div class="col-lg-10 p-r-0">
+                    <input type="text" name="keysearch" class="form-control" placeholder="Search...">
+                </div>
+                <div class="col-lg-2">
+                    <button style="background: none;border: none;" type="submit"><span type="submit" class="icon fa fa-search"></button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>

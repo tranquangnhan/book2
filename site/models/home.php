@@ -781,4 +781,13 @@ class Model_home extends Model_db{
         $sql = "SELECT id,part FROM `book` WHERE part != 0";
         return $this->result1(0, $sql);
     }
+    function getBookByKeyWordLimit($keyWord) {
+        $sql = "SELECT * FROM `book` WHERE name like '%$keyWord%' OR author like '%$keyWord%' ORDER BY id DESC limit 9";
+        return $this->result1(0, $sql);
+    }
+
+    function getAmountBookByKeyWord($keyWord) {
+        $sql = "SELECT count(*) AS sodong FROM `book` WHERE name like '%$keyWord%' OR author like '%$keyWord%'";
+        return $this->result1(1, $sql)['sodong'];
+    }
 }
