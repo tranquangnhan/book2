@@ -13,7 +13,7 @@
                         <div class="meta">
                             <a href="<?=$link?>">
                                 <div class="photo"
-                                    style="background-image: url(<?=$img?>)">
+                                    style="background-image: url('<?=$img?>')">
                                 </div>                            
                             </div>
                         </a>

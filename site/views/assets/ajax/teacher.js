@@ -78,7 +78,7 @@ function htmlResourcesItem(data) {
     var html = `
     <div class="col-md-4 Resources-item d-flex align-items-stretch ftco-animate fadeInUp ftco-animated">
         <div class="project-wrap">
-            <a href="${data['link']}" class="img" style="background-image: url(${baseUrlSite}/uploads/${data['img']});">
+            <a href="${data['link']}" class="img" style="background-image: url('${baseUrlSite}/uploads/${data['img']}');">
                 <span class="price">${classz}</span>
             </a>
             <div class="text p-4">
