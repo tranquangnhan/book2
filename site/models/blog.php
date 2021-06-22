@@ -19,13 +19,26 @@ class Model_blog extends Model_db{
         return $this->result1(0,$sql,$maloai);
     }
     function getAllHangHoa($pagenum,$pagesize){
-        $startrow= ($pagenum - 1) *$pagesize;
-        $sql = "SELECT * FROM news WHERE 1"
+        $startrow= ($pagenum - 1) * $pagesize;
+        $sql = "SELECT * FROM news WHERE iddm != 4"
                 ." ORDER BY id DESC LIMIT $startrow, $pagesize";
         return $this->result1(0,$sql);
     }
+
+    function getAllHangHoaFour($pagenum,$pagesize) {
+        $startrow= ($pagenum - 1) * $pagesize;
+        $sql = "SELECT * FROM news WHERE iddm = 4"
+                ." ORDER BY id DESC LIMIT $startrow, $pagesize";
+        return $this->result1(0,$sql);
+    }
+
+    function demAllHangHoaFour() {
+        $sql = "select count(*) as sodong from news where iddm = 4";
+        return $this->result1(1,$sql)['sodong'];
+    }
+
     function demAllHangHoa(){
-        $sql = "select count(*) as sodong from news where 1";
+        $sql = "select count(*) as sodong from news where iddm != 4";
         return $this->result1(1,$sql)['sodong'];
     }
     function demHangHoaTheoLoai($iddm){
@@ -151,12 +164,17 @@ class Model_blog extends Model_db{
     }
     
     function getLastestNews(){
-        $sql = "SELECT  * FROM news ORDER BY id DESC";
+        $sql = "SELECT  * FROM news ORDER BY id DESC limit 3";
         return $this->result1(0,$sql);
     }
 
     function getAllBlogCate(){
         $sql = "SELECT * FROM categoriesnews ";
+        return $this->result1(0,$sql);
+    }
+    
+    function getbloglistlimit($limit) {
+        $sql = "SELECT * FROM news ORDER BY id DESC $limit";
         return $this->result1(0,$sql);
     }
 }

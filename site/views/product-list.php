@@ -82,7 +82,7 @@
                             </a>
                             <div class="text p-4">
                                 <h3><a href="<?=$link?>"><?= $product['name'] ?></a></h3>
-                                <p class="advisor">Tác Giả: <span><?= $product['author'] ?></span></p>
+                                <p class="advisor limit-content-2">Tác Giả: <span><?= $product['author'] ?></span></p>
                             </div>
                         </div>
                     </div>
