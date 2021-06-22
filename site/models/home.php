@@ -776,4 +776,9 @@ class Model_home extends Model_db{
         $sql = "SELECT count(*) AS sodong FROM `supportresources` WHERE class = ?";
         return $this->result1(1, $sql, $class)['sodong'];
     }
+
+    function checkOnePart(){
+        $sql = "SELECT id,part FROM `book` WHERE part != 0";
+        return $this->result1(0, $sql);
+    }
 }

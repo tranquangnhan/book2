@@ -175,8 +175,16 @@ class Home
         $getLastestNews = $this->modelBlogs->getLastestNews();
         $slugPart1      =  $this->model->getSlugByPart($oneproduct['id']);        
         $slugPart2      =   $this->model->getSlugById($oneproduct['id']);
-
-
+        $checkOnePart   = $this->model->checkOnePart();
+        // print_r($checkOnePart[0]);
+        foreach ($checkOnePart as $row) {
+            if($row['part'] == $oneproduct['id'] ||$row['id']==  $oneproduct['id'] ){
+                echo "11";
+            }
+        }
+        // if (in_array($oneproduct['id'], $checkOnePart['id'])) {
+        //     echo "Got Irix";
+        // }
         if($this->model->getSlugByPart($oneproduct['id']) == ''){
             $slugPart1 = $this->model->getSlugById($oneproduct['id']);
             $slugPart2 =  $this->model->getSlugById($oneproduct['part']);

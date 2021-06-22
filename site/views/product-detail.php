@@ -9,7 +9,7 @@
                                 <div class="col-md-6 d-flex">
                                     <div class="d-flex about-wrap">
                                         <div class="imgbig-detail d-flex align-items-center justify-content-center"
-                                            style="background-image:url(<?=PATH_IMG_SITE.explode(',',$oneproduct['img'])[0]?>);">
+                                            style="background-image:url('<?=PATH_IMG_SITE.explode(',',$oneproduct['img'])[0]?>');">
                                         </div>
                                     </div>
                                 </div>
@@ -22,18 +22,27 @@
                                             <p>Tác giả: <?=$oneproduct['author']?>
                                             </p>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-success dropdown-toggle"
-                                                    data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    Chọn Tập
-                                                </button>
-                                                <div class="dropdown-menu">
+                                            <?php 
+                                              foreach ($checkOnePart as $row) {
+                                                if($row['part'] == $oneproduct['id'] ||$row['id']==  $oneproduct['id'] ){?>
+                                                            
+                                                  
+                                                        <button type="button" class="btn btn-success dropdown-toggle"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            Chọn Tập
+                                                        </button>
+                                                        <div class="dropdown-menu">
 
-                                                    <a class="dropdown-item" href="<?=ROOT_URL?>/sach/<?=$slugPart1?>">Tập 1</a>
-                                                    <a class="dropdown-item" href="<?=ROOT_URL?>/sach/<?=$slugPart2?>">Tập 2</a>
-                                                </div>
-                                                <a href="<?=$oneproduct['link']?>" class="mx-2"><button type="button"
-                                                        class="btn btn-primary">edubook.com.vn</button></a>
+                                                            <a class="dropdown-item" href="<?=ROOT_URL?>/sach/<?=$slugPart1?>">Tập 1</a>
+                                                            <a class="dropdown-item" href="<?=ROOT_URL?>/sach/<?=$slugPart2?>">Tập 2</a>
+                                                        </div>
+                                                     
+                                                    
+                                               <?php   }
+                                            }?>
+                                               <a href="<?=$oneproduct['link']?>" class="mx-2"><button type="button"
+                                                                class="btn btn-primary">edubook.com.vn</button></a>
                                             </div>
                                         </div>
                                     </div>

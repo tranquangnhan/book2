@@ -17,7 +17,7 @@
                                     <th width="55px">Loại</th>
                                     <th width="55px">Lớp</th>
                                     <th width="55px">Loại Sách</th>
-                                    <th width="5px">Phần </th>
+                                   
                                     <th width="5px">Xóa</th>
                                     <th width="5px">Sửa</th>
                                 </tr>
@@ -47,7 +47,7 @@
                                         <td> ' . $type . '</td>
                                         <td> ' . $class . '</td>
                                         <td> ' . $categoryName . '</td>
-                                        <td> ' . $part . '</td>
+                                      
                                         <td><div  onclick="checkDelete(' . $linkDel . ')"  class="btn btn-danger" role="button"><i class="fa fa-trash"></i></div></td>
                                         <td><a href=""><a name="" id="" class="btn btn-primary" href="' . $linkEdit . '" role="button"><span class="mdi mdi-pencil"></span></a></a></a></td>
                                     </tr>';
@@ -59,7 +59,7 @@
                                         <td> ' . $type . '</td>
                                         <td> ' . $class . '</td>
                                         <td> ' . $categoryName . '</td>
-                                        <td> ' . $part . '</td>
+                                     
                                         <td><div  onclick="checkDelete(' . $linkDel . ')"  class="btn btn-danger" role="button"><i class="fa fa-trash"></i></div></td>
                                         <td><a href=""><a name="" id="" class="btn btn-primary" href="' . $linkEdit . '" role="button"><span class="mdi mdi-pencil"></span></a></a></a></td>
                                     </tr>';
