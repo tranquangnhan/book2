@@ -87,7 +87,7 @@
                             ?>
                             <div class="col-md-4 product-item d-flex align-items-stretch ftco-animate">
                                 <div class="project-wrap">
-                                    <a href="<?=$link?>" class="img" style="background-image: url(<?=PATH_IMG_SITE?>/<?= $product['img']?>);">
+                                    <a href="<?=$link?>" class="img" style="background-image: url('<?=PATH_IMG_SITE?>/<?= $product['img']?>');">
                                         <span class="price">Sách</span>
                                     </a>
                                     <div class="text p-4">
