@@ -35,11 +35,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="w-100">
+                    <form class="w-100" method="post" action="<?=ROOT_URL?>/san-pham">
                         <div class="row">
                             <div class="col-9 p-r-0">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="" placeholder="Tìm ...">
+                                    <input type="text" name="keysearch" class="form-control" id="" placeholder="Tìm ...">
 
                                 </div>
                             </div>

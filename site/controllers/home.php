@@ -55,7 +55,6 @@ class Home
             case "updateSlug":
                 $this->updateSlug();
                 break;
-            
         }
 
     }
@@ -135,32 +134,43 @@ class Home
         $idCateFirst    = $categories[0]['id'];
         $abouts         = $this->model->getAbouts();
 
-        if (isset($_GET['level'])) {            
-            $level = $_GET['level'];
-                    
-            if ($level == 1) {
-                $listProduct   = $this->model->getProductsByClass('0');                
-                $AmountProduct = $this->model->countProductsByTypes('', '0', '');
-            } else if ($level == 2) {
-                $listProduct   = $this->model->getProductsByTypes('1', '1', $idCateFirst);
-                $AmountProduct = $this->model->countProductsByTypes('1', '1', $idCateFirst);
-                
-            } else if ($level == 3) {
-                $listProduct   = $this->model->getProductsByTypes('1', '6', $idCateFirst);
-                $AmountProduct = $this->model->countProductsByTypes('1', '6', $idCateFirst);
-            } else if ($level == 4) {
-                $listProduct   = $this->model->getProductsByTypes('1', '10', $idCateFirst);
-                $AmountProduct = $this->model->countProductsByTypes('1', '10', $idCateFirst);
-            }
-            
+        
+        if (isset($_POST['keysearch'])) {
+            $key = $_POST['keysearch'];
+            $listProduct   = $this->model->getBookByKeyWordLimit($key);            
+            $AmountProduct = $this->model->getAmountBookByKeyWord($key);   
+            $level = 7;                     
         } else {
-            $level = 6;
-            $listProduct    = $this->model->getProducts();
-            $AmountProduct  = $this->model->getAmountProducts();
+            if (isset($_GET['level'])) {            
+                $level = $_GET['level'];
+                        
+                if ($level == 1) {
+                    $listProduct   = $this->model->getProductsByClass('0');                
+                    $AmountProduct = $this->model->countProductsByTypes('', '0', '');
+                } else if ($level == 2) {
+                    $listProduct   = $this->model->getProductsByTypes('1', '1', $idCateFirst);
+                    $AmountProduct = $this->model->countProductsByTypes('1', '1', $idCateFirst);
+                    
+                } else if ($level == 3) {
+                    $listProduct   = $this->model->getProductsByTypes('1', '6', $idCateFirst);
+                    $AmountProduct = $this->model->countProductsByTypes('1', '6', $idCateFirst);
+                } else if ($level == 4) {
+                    $listProduct   = $this->model->getProductsByTypes('1', '10', $idCateFirst);
+                    $AmountProduct = $this->model->countProductsByTypes('1', '10', $idCateFirst);
+                }
+                
+            } else {
+                $level = 6;
+                $listProduct    = $this->model->getProducts();
+                $AmountProduct  = $this->model->getAmountProducts();
+            }
         }
 
         if ($AmountProduct == 0) {
-            $mess = '<h3 class="text-center w-100 notice-h3">Không tìm thấy sản phẩm !</h3>';
+            $mess  = '<h3 class="text-center w-100 notice-h3">Không tìm thấy sản phẩm !</h3>';
+            if (isset($_POST['keysearch'])) {
+                $mess .= '<a href="/book2/san-pham" class="text-center w-100 notice-h3">Quay lại trang sản phẩm</a>';
+            }
         }
 
         $limitItem      = 9;
@@ -347,5 +357,4 @@ class Home
         $namePage     = "Liên Hệ";
         require_once "views/layout.php";
     }
-
 }
