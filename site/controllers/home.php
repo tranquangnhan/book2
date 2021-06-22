@@ -105,6 +105,8 @@ class Home
         $viewFile     = "views/home.php";
         $abouts       = $this->model->getAbouts();
         $video        = $this->model->getAllVideo();
+        $bloglist1    = $this->modelBlogs->getbloglistlimit(' limit 0, 2');
+        $bloglist2    = $this->modelBlogs->getbloglistlimit(' limit 2, 3');        
         require_once "views/layout.php";
     }
 
@@ -112,6 +114,7 @@ class Home
         $page_title   = "Giới Thiệu - EngBook";
         $viewFile     = "views/about.php";
         $css          = "about.css";
+        $abouts       = $this->model->getAbouts();
         if (isset($_GET['id'])) {
             $id          = $_GET['id'];
             $aboutDetail = $this->model->getAboutDetail($id);
@@ -130,6 +133,7 @@ class Home
         $categories     = $this->model->getCategories();
         $getLastestNews = $this->modelBlogs->getLastestNews();
         $idCateFirst    = $categories[0]['id'];
+        $abouts         = $this->model->getAbouts();
 
         if (isset($_GET['level'])) {            
             $level = $_GET['level'];
@@ -165,12 +169,12 @@ class Home
     }
 
     public function productdetail() {
-        $slug = $_GET['slug'];
-        $oneproduct = $this->model->getOnePro($slug);
+        $abouts         = $this->model->getAbouts();
+        $slug           = $_GET['slug'];
+        $oneproduct     = $this->model->getOnePro($slug);
         $getLastestNews = $this->modelBlogs->getLastestNews();
-        $slugPart1 =  $this->model->getSlugByPart($oneproduct['id']);
-        
-        $slugPart2 =   $this->model->getSlugById($oneproduct['id']);
+        $slugPart1      =  $this->model->getSlugByPart($oneproduct['id']);        
+        $slugPart2      =   $this->model->getSlugById($oneproduct['id']);
 
 
         if($this->model->getSlugByPart($oneproduct['id']) == ''){
@@ -190,6 +194,7 @@ class Home
     }
 
     public function student() {
+        $abouts         = $this->model->getAbouts();
         $page_title     = "Học Sinh - EngBook";
         $viewFile       = "views/student.php";
         $css            = "student.css";        
@@ -216,6 +221,7 @@ class Home
     }
 
     public function teacher() {
+        $abouts         = $this->model->getAbouts();
         $page_title     = "Giáo Viên - EngBook";
         $viewFile       = "views/teacher.php";
         $css            = "teacher.css";    
@@ -245,21 +251,23 @@ class Home
     }
 
     public function parent() {
+        $abouts         = $this->model->getAbouts();
         $getLastestNews = $this->modelBlogs->getLastestNews();
-        $page_title   = "Phụ Huynh - EngBook";
-        $viewFile     = "views/parent.php";          
-        $namePage     = "Phụ Huynh";
+        $page_title     = "Phụ Huynh - EngBook";
+        $viewFile       = "views/parent.php";          
+        $namePage       = "Phụ Huynh";
         require_once "views/layout.php";
     }
 
     public function blog() {
+        $abouts         = $this->model->getAbouts();
         $getLastestNews = $this->modelBlogs->getLastestNews();
-        $showDmBlog =  $this->modelBlogs->getAllBlogCate();
+        $showDmBlog     =  $this->modelBlogs->getAllBlogCate();
 
         if(isset($_GET['maloai'])==true&&($_GET['maloai']>0))
-        $maLoai= $_GET['maloai'];
+        $maLoai = $_GET['maloai'];
 
-        $pageNum=1;
+        $pageNum = 1;
         if(isset($_GET['Page'])==true) $pageNum = $_GET['Page'];
        
         settype($maLoai,"int");
@@ -276,8 +284,13 @@ class Home
         }
         if(!$maLoai)
         {    
-            $ds =  $this->modelBlogs->getAllHangHoa($pageNum,$pageSize);
-            $TotalProduct = (int) $this->modelBlogs->demAllHangHoa();
+            if ($maLoai != 4) {            
+                $ds = $this->modelBlogs->getAllHangHoa($pageNum,$pageSize);
+                $TotalProduct = (int) $this->modelBlogs->demAllHangHoa();
+            } else {
+                $ds = $this->modelBlogs->getAllHangHoaFour($pageNum,$pageSize);
+                $TotalProduct = (int) $this->modelBlogs->demAllHangHoaFour();
+            }
         }
 
         if($TotalProduct == 0) $TotalProduct =1;
@@ -285,15 +298,22 @@ class Home
 
 
         $Pagination =  $this->modelBlogs->Page($TotalProduct, $pageNum,$pageSize,$BaseLink);
-
-        $page_title   = "Tin Tức - EngBook";
-        $viewFile     = "views/blog-list.php";          
-        $namePage     = "Tin Tức";
+      
+        if ($maLoai == 4) {            
+            $page_title   = "Phụ Huynh - EngBook";
+            $viewFile     = "views/parent.php";          
+            $namePage     = "Phụ Huynh";
+        } else {                    
+            $page_title   = "Tin Tức - EngBook";
+            $viewFile     = "views/blog-list.php";  
+            $namePage     = "Tin Tức";
+        }
         require_once "views/layout.php";
     }
 
     public function blogdetail() {
-        $slug = $_GET['slug'];
+        $abouts         = $this->model->getAbouts();
+        $slug           = $_GET['slug'];
         $getLastestNews = $this->modelBlogs->getLastestNews();
         $oneBlog = $this->modelBlogs->getBlogDetail($slug);
    
@@ -306,6 +326,7 @@ class Home
     }
 
     public function contact() {
+        $abouts = $this->model->getAbouts();
         if(isset($_POST['submitMessage'])){
             $name = strip_tags(trim($_POST['name']));
             $email = strip_tags(trim($_POST['email']));

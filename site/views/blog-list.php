@@ -7,23 +7,24 @@
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <?php 
                             foreach ($showDmBlog as $row) {
-                                $id = $row['id'];
-                                $slug =  $row['slug'];
-                                $linksp = ROOT_URL.'/bai-viet/'.$slug.'-'.$id.'/page-1';
-                                if($_GET['slug'] == $row['slug']){
-                                    echo '  <label class="btn btn-primary active " for="danhmuc'.$row['id'].'">
-                                                <input type="radio" name="options"  autocomplete="off">
-                                                <a class="text-white" id="danhmuc'.$row['id'].'" href="'.$linksp.'">'.$row['name'].' </a>
-                                            </label>
-                                        ';
-                                }else{
-                                    echo '  <label class="btn btn-dark " for="danhmuc'.$row['id'].'>
-                                                <input type="radio" name="options"  autocomplete="off">
-                                                <a class="text-white" id="danhmuc'.$row['id'].'" href="'.$linksp.'">'.$row['name'].' </a>
-                                            </label>
-                                        ';
+                                if ($row['id'] != 4) {                                                                
+                                    $id = $row['id'];
+                                    $slug =  $row['slug'];
+                                    $linksp = ROOT_URL.'/bai-viet/'.$slug.'-'.$id.'/page-1';
+                                    if($_GET['slug'] == $row['slug']){
+                                        echo '  <label class="btn btn-primary active " for="danhmuc'.$row['id'].'">
+                                                    <input type="radio" name="options"  autocomplete="off">
+                                                    <a class="text-white" id="danhmuc'.$row['id'].'" href="'.$linksp.'">'.$row['name'].' </a>
+                                                </label>
+                                            ';
+                                    }else{
+                                        echo '  <label class="btn btn-dark " for="danhmuc'.$row['id'].'>
+                                                    <input type="radio" name="options"  autocomplete="off">
+                                                    <a class="text-white" id="danhmuc'.$row['id'].'" href="'.$linksp.'">'.$row['name'].' </a>
+                                                </label>
+                                            ';
+                                    }
                                 }
-                              
                             }
                             ?>
                         </div>
@@ -32,7 +33,7 @@
                 <div class="row">
                     <?php
                         foreach ($ds as $row) {
-                            
+                            $date = date('m/d/Y', $row['date']);
                             $img =PATH_IMG_SITE.explode(",",$row['img'])[0];
                             $link = ROOT_URL."/bai-viet/".$row['slug'].'-'.$id;
                             echo ' <div class="blog-card">
@@ -45,7 +46,7 @@
                                         </div>
                                         <div class="description">
                                             <a href="'.$link .'"><h1>'.addslashes($row['name']).'</h1></a>
-                                            <h6>09/03/2021</h6>
+                                            <h6>'.$date.'</h6>
                                             <p>'.addslashes($row['description']) .'</p>
                                             <p class="read-more">
                                                 <a href="'.$link .'">Đọc thêm</a>

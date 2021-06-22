@@ -108,8 +108,8 @@
                     <li class="nav-item <?php echo ($viewFile == "views/teacher.php") ? 'bar-active active' : '' ?>">
                         <a href="<?=ROOT_URL?>/giao-vien" class="nav-link">Giáo Viên</a>
                     </li>
-                    <li class="nav-item <?php echo ($viewFile == "views/parent.php") ? 'bar-active active' : '' ?>">
-                        <a href="<?=ROOT_URL?>/phu-huynh" class="nav-link">Phụ Huynh</a>
+                    <li class="nav-item <?php echo ($maLoai == 4) ? 'bar-active active' : '' ?>">
+                        <a href="<?=ROOT_URL?>/bai-viet/phu-huynh-4/page-1" class="nav-link">Phụ Huynh</a>
                     </li>
                     <li class="nav-item <?php echo ($viewFile == "views/blog-list.php" || $viewFile == "views/blog-detail.php") ? 'bar-active active' : '' ?>">
                         <a href="<?=ROOT_URL?>/bai-viet" class="nav-link">Tin Tức</a>

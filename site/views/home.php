@@ -207,79 +207,46 @@
 
                 <div class="row">
                     <div class="col-12 col-md-8">
+                        <?php foreach($bloglist1 as $blog1) { 
+                            $img   = PATH_IMG_SITE.explode(",",$blog1['img'])[0];
+                            $date  = date('m/d/Y', $blog1['date']);
+                            $link  = ROOT_URL."/bai-viet/".$blog1['slug'].'-'.$blog1['iddm'];    
+                        ?>
                         <div class="w-100 right-item-video">
                             <div class="row">
-                                <div class="col-4 p-0 bg-image-fix" style="background: url(<?=PATH_URL?>images/tin-4.png);">
-                                    <!-- <img src="images/tin-4.png" alt="" class="img-fluid"> -->
-                                </div>
+                                <a href="<?=$link?>" class="col-4 p-0 bg-image-fix"  style="background: url(<?=$img?>);"></a>
                                 <div class="col-8">
-                                    <h4 c2ass="m-0 p-0 title-1"> Sách giáo khoa tiếng Anh 6 theo chương trình THPT 2018
-                                    </h4>
-                                    <small class="m-0 p-0">Thứ tư, 28/04/2001 | 18:00</small>
-                                    <p class="description-1 mt-2">Sách giáo khoa Tiếng Anh 6 nằm trong bộ sách giáo khoa
-                                        theo Chương trình THPT 2018 do GS.TS. Hoàng Văn Vân là Tổng Chủ biên...</p>
+                                    <a href="<?=$link?>"><h4 c2ass="m-0 p-0 title-1"> <?=$blog1['name']?>
+                                    </h4></a>
+                                    <small class="m-0 p-0"><?=$date?></small>
+                                    <p class="description-1 mt-2"><?=$blog1['description']?></p>
                                 </div>
                             </div>
                             <hr />
                         </div>
-                        <div class="w-100 right-item-video">
-                            <div class="row">
-                                <div class="col-4 p-0 bg-image-fix" style="background: url(<?=PATH_URL?>images/video-1.png);">
-                                    <!-- <img src="images/video-1.png" alt="" class="img-fluid"> -->
-                                </div>
-                                <div class="col-8">
-                                    <h4 c2ass="m-0 p-0 title-1">Sách giáo khoa tiếng Anh 2 theo chương trình THPT 2018
-                                    </h4>
-                                    <small class="m-0 p-0">Thứ tư, 28/04/2001 | 18:00</small>
-                                    <p class="description-1 mt-2">Sách Tiếng Anh 2 của NXB Giáo dục Việt Nam theo Chương
-                                        trình GDPT 2018 là sản phẩm kết hợp của các tác giả uy tín của Việt Nam...</p>
-                                </div>
-                            </div>
-                            <hr />
-                        </div>
+                        <?php } ?>                       
                     </div>
                     <div class="col-0 col-md-4">
+                        <?php foreach($bloglist2 as $blog2) { 
+                            $img2   = PATH_IMG_SITE.explode(",",$blog2['img'])[0];
+                            $date2  = date('m/d/Y', $blog2['date']);
+                            $link2  = ROOT_URL."/bai-viet/".$blog2['slug'].'-'.$blog2['iddm'];    
+                        ?>
                         <div class="w-100 left-item-video">
                             <div class="row">
                                 <div class="col-4 p-0">
-                                    <img src="<?=PATH_URL?>images/tin-1.png" alt="" class="img-fluid">
+                                    <a href="<?=$link2?>"><img src="<?=$img2?>" alt="" class="img-fluid"></a>
                                 </div>
                                 <div class="col-8">
-                                    <h4 class="m-0 p-0 title-1">Sách giáo khoa tiếng Anh 6 theo chương trình THPT 2018
-                                    </h4>
-                                    <small class="m-0 p-0">Thứ tư, 28/04/2021 | 18:00</small>
+                                    <a href="<?=$link2?>"><h4 class="m-0 p-0 title-1"><?=$blog2['name']?>
+                                    </h4></a>
+                                    <small class="m-0 p-0"><?=$date?></small>
+                                    <!-- Thứ tư, 28/04/2021 | 18:00 -->
                                 </div>
                             </div>
                             <hr />
                         </div>
-                        <div class="w-100 left-item-video">
-                            <div class="row">
-                                <div class="col-4 p-0">
-                                    <img src="<?=PATH_URL?>images/tin-2.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-8">
-                                    <h4 class="m-0 p-0 title-1">Tập huấn giáo viên sử dụng SGK Tiếng Anh 2 và Tiếng Anh
-                                        6
-                                        NXBGDVN</h4>
-                                    <small class="m-0 p-0">Thứ tư, 28/04/2021 | 18:00</small>
-                                </div>
-                            </div>
-                            <hr />
-                        </div>
-                        <div class="w-100 left-item-video">
-                            <div class="row">
-                                <div class="col-4 p-0">
-                                    <img src="<?=PATH_URL?>images/tin-3.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-8">
-                                    <h4 class="m-0 p-0 title-1">NXBGDVN tiếp tục mở miễn phí kho học liệu điện tử Sách
-                                        Mềm
-                                    </h4>
-                                    <small class="m-0 p-0">Thứ tư, 28/04/2021 | 18:00</small>
-                                </div>
-                            </div>
-                            <hr />
-                        </div>
+                       <?php } ?>
                     </div>
                 </div>
             </div>

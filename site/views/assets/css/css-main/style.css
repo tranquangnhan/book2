@@ -15021,3 +15021,11 @@ button.navbar-toggler {
     width: 70%;
     text-align: center;
 }
+
+.limit-content-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
