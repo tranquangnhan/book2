@@ -13,7 +13,7 @@ require_once "../../../system/config.php";
             $array      = array();   
             $notOr      = true;   
             $sqlCheck   = false;   
-
+            $where      = false;
             $filter     = $_POST['filterOb'];
             $data       = json_decode($filter);
 
@@ -26,18 +26,26 @@ require_once "../../../system/config.php";
             $class      = $data['1']->class;
             $idcate     = $data['2']->category;
 
-            $sql        = 'SELECT * FROM `book` WHERE ';
+            $sql        = 'SELECT * FROM `book` ';
 
-            if (count($type) > 0) {  
+            if (count($type) > 0 && $type != "") {
+                if ($where == false) {
+                    $sql  .= 'WHERE ';
+                    $where = true;
+                } 
                 $sqlCheck  = true;   
                 $notOr     = false;          
 
                 $sql      .= 'type in (';
-                $sql .= implode(',', $type);
-                $sql .= ')';
+                $sql      .= implode(',', $type);
+                $sql      .= ')';
             }
 
-            if (count($class) > 0) {
+            if (count($class) > 0 && $class[0] != "") {
+                if ($where == false) {
+                    $sql  .= 'WHERE ';
+                    $where = true;
+                } 
                 $sqlCheck = true;
                 if ($notOr == false) {
                     $sql  .= ' AND ';
@@ -50,7 +58,11 @@ require_once "../../../system/config.php";
                 $sql .= ')';
             }
 
-            if (count($idcate) > 0) {
+            if (count($idcate) > 0 && $idcate[0] > 0) {
+                if ($where == false) {
+                    $sql  .= 'WHERE ';
+                    $where = true;
+                } 
                 $sqlCheck = true;
                 if ($notOr == false) {
                     $sql  .= ' AND ';
@@ -62,20 +74,15 @@ require_once "../../../system/config.php";
                 $sql .= implode(',', $idcate);
                 $sql .= ')';
             }
-
-            if ($sqlCheck === true) {
-                $amountProduct = $model->getAmountProduct($sql);
-                $amountProduct = count($amountProduct);
-            } else {
-                $amountProduct = 0;
-            }
             
 
             $sql .= ' ORDER BY id DESC limit ';
             $sql .= $form . ' , 9';
 
-            if ($sqlCheck === true) {
+            if ($sqlCheck === true || $form > 0) {
                 $dataProducts = $model->getProductsBySql($sql);
+                $amountProduct = $model->getAmountProduct($sql);
+                $amountProduct = count($amountProduct);
             } else {                                           
                 $dataProducts = $model->getProductNoWhere();
 
@@ -84,7 +91,9 @@ require_once "../../../system/config.php";
                 // $dataProducts = '';
             }
 
-            echo json_encode([$dataProducts, $amountProduct, $sql]);
+            echo json_encode([$dataProducts, $amountProduct, $sql]);            
+
+            // echo json_encode($sql);  
             break;        
         default:
             # code...

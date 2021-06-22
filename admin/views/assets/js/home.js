@@ -22,6 +22,7 @@ function submitForm() {
 }
 
 function checkDelete(link) {
+    console.log(link);
     Swal.fire({
         title: 'Xóa?',
         text: "Bạn chắc chắn muốn xóa!",
@@ -190,11 +191,20 @@ $(document).ready(function() {
         });
 
     })
-
-
-
-
-
-
-
 });
+
+$("input[name='checkabout']").change(function(){
+    var val = $(this).val();
+    console.log(val);
+    if (val == 0) {
+        $("#editor1").removeAttr('disabled');
+        $("#iplink").attr("disabled", 'disabled');
+    }
+    if (val == 1) {
+        $("#editor1").attr("disabled", 'disabled');
+        $("#iplink").removeAttr('disabled');       
+    }
+});
+
+
+   

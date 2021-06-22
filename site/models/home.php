@@ -722,5 +722,30 @@ class Model_home extends Model_db{
         $sql = "INSERT INTO contact(name,email,subject,message) VALUE(?,?,?,?)";
         return $this->exec1($sql,$name,$email,$subject,$message);
     }
+
+    function getProductStudent() {
+        $sql = "SELECT * FROM `book` WHERE type = 1";
+        return $this->result1(0, $sql);
+    }
+
+    function getProductTeacher() {
+        $sql = "SELECT * FROM `book` WHERE type = 2";
+        return $this->result1(0, $sql);
+    }
+
+    function getProductLimit($where) {
+        $sql = "SELECT * FROM `book` WHERE $where ORDER BY id DESC limit 0, 9";
+        return $this->result1(0, $sql);        
+    }
+
+    function getAbouts() {
+        $sql = "SELECT * FROM `about` ORDER BY id DESC";
+        return $this->result1(0, $sql);
+    }
+
+    function getAboutDetail($id) {
+        $sql = "SELECT * FROM `about` WHERE id = ?";
+        return $this->result1(1, $sql, $id);
+    }
    
 }

@@ -17,9 +17,11 @@
         <!-- App Css-->
         <link href="views/assets/css/app.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        <link rel="stylesheet" href="views/assets/css/main.css">
         <link href="views/assets/css/SweetAlert2.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     </head>
 
     <body>
@@ -258,6 +260,7 @@
                                     <li><a href="?ctrl=categories&act=index">Danh sách</a></li>
                                 </ul>
                             </li>
+
                             <li>
                                 <a href="javascript: void(0);">
                                     <i class="mdi mdi-page-layout-sidebar-left"></i>
@@ -276,6 +279,30 @@
                                     
                                 </a>
                                 
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="mdi mdi-page-layout-sidebar-left"></i>
+                                    <span> Giới thiệu </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="?ctrl=about&act=addnew">Thêm mới </a></li>
+                                    <li><a href="?ctrl=about&act=index">Danh sách</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <i class="mdi mdi-page-layout-sidebar-left"></i>
+                                    <span> Tài nguyên hỗ trợ </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="?ctrl=supportresources&act=addnew">Thêm mới </a></li>
+                                    <li><a href="?ctrl=supportresources&act=index">Danh sách</a></li>
+                                </ul>
                             </li>
                           
                         </ul>

@@ -406,8 +406,7 @@ function renderPage(pageCur) {
 var obj = {
     url: '',
     filterOb: '',
-    getData: function(form) {
-        console.log(form);
+    getData: function(form) {        
         goToByScroll('nav-chil');
         if ($('.ftco-loader').hasClass('show') == false) {
             $('.product-box .product-item').remove();

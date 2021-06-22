@@ -82,10 +82,13 @@
                         <a href="<?=ROOT_URL?>/gioi-thieu" class="nav-link">Giới Thiệu</a>
                         <ul class="dropdown-hover-2">
                             <li><a href="<?=ROOT_URL?>/gioi-thieu">Giới thiệu chung</a></li>
-                            <!-- <li><a href="gdpt.html">Chương trình GDPT 2018</a></li>
-                            <li><a href="thidiem.html">CHƯƠNG TRÌNH THÍ ĐIỂM</a></li>
-                            <li><a href="https://phuongnam.edu.vn/">FAMILY AND FRIENDS</a></li>
-                            <li><a href="https://tienganh3s.vn/">TIẾNG ANH TĂNG CƯỜNG</a></li> -->
+                            <?php foreach($abouts as $about) { 
+                                if ($about['link'] == '') { ?>
+                                    <li><a href="<?=SITE_URL?>?act=about&id=<?=$about['id']?>"><?=$about['name']?></a></li>
+                                <?php } else { ?>
+                                    <li><a href="<?=$about['link']?>"><?=$about['name']?></a></li>
+                            <?php } 
+                            }?>                            
                         </ul>
                     </li>
 
@@ -141,7 +144,7 @@
                             <i class="fa fa-chevron-right"></i>
                         </span>
                     </p>
-                    <h1 class="mb-0 bread"> <?=$namePage?> </h1>
+                    <h1 class="mb-0 bread"> <?php echo (isset($namePage2)) ? $namePage2 : $namePage?> </h1>
                 </div>
             </div>
         </div>
@@ -226,9 +229,15 @@ if (file_exists($viewFile)) {
     <script src="<?=PATH_URL?>js/js-main/main/<?=$js?>"></script>
     <?php }?>
 
-    <?php if (isset($ajax)) { ?>
+    <?php if (isset($ajax)) { 
+        if (count($ajax) > 0) {
+            for ($i = 0; $i < count($ajax); $i++) { ?>
+                <script src="<?=PATH_URL?>ajax/<?=$ajax[$i]?>"></script>
+            <?php }
+        } else { ?>
     <script src="<?=PATH_URL?>ajax/<?=$ajax?>"></script>
-    <?php } ?>
+    <?php }
+    } ?>
 </body>
 
 </html>

@@ -103,7 +103,7 @@
                             <div class="title-categories d-flex align-items-center justify-content-center">
                                 <h2 class="card-title color-white font-family-Neo-Sans-bold">MẦM NON</h2>
                             </div>
-                            <a href="#" class="btn btn-primary mr-0-auto mt-auto button-to-right">Xem thêm <i
+                            <a href="<?=SITE_URL?>?act=products&level=1" class="btn btn-primary mr-0-auto mt-auto button-to-right">Xem thêm <i
                                     class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                             </a>
 
@@ -120,7 +120,7 @@
                                 <h2 class="card-title color-white font-family-Neo-Sans-bold">TIỂU HỌC</h2>
                             </div>
 
-                            <a href="#" class="btn btn-primary mr-0-auto mt-auto button-to-right">Xem thêm <i
+                            <a href="<?=SITE_URL?>?act=products&level=2" class="btn btn-primary mr-0-auto mt-auto button-to-right">Xem thêm <i
                                     class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -136,7 +136,7 @@
                                 <h2 class="card-title color-white font-family-Neo-Sans-bold">TRUNG HỌC <br> CƠ SỞ</h2>
                             </div>
 
-                            <a href="#" class="btn btn-primary mr-0-auto mt-auto button-to-right">Xem thêm <i
+                            <a href="<?=SITE_URL?>?act=products&level=3" class="btn btn-primary mr-0-auto mt-auto button-to-right">Xem thêm <i
                                     class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -153,7 +153,7 @@
                                 </h2>
                             </div>
 
-                            <a href="#" class="btn btn-primary mr-0-auto mt-auto button-to-right">Xem thêm <i
+                            <a href="<?=SITE_URL?>?act=products&level=4" class="btn btn-primary mr-0-auto mt-auto button-to-right">Xem thêm <i
                                     class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                             </a>
                         </div>

@@ -7,10 +7,10 @@
                 <div class="col-lg-12" id="nav-chil">
                     <div class="container" style="width: fit-content; margin-bottom: 5%;">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn <?php echo ($level == 6) ? 'btn-primary' : 'btn-dark';?> font-weight-600">
+                            <label class="type btn <?php echo ($level != 1) ? 'btn-primary' : 'btn-dark';?> font-weight-600">
                                 <input type="radio" class="filter type" data-type="0" value="1" name="options">Học Sinh
                             </label>
-                            <label class="btn btn-dark font-weight-600">
+                            <label class="type btn btn-dark font-weight-600">
                                 <input type="radio" class="filter type" data-type="0" value="2" name="options"> Giáo Viên
                             </label>
                         </div>
@@ -57,7 +57,7 @@
                             <?php                                                                 
                                 $num = 1;
                                 foreach ($categories as $cate) { ?>
-                                    <label class="btn btn-<?php echo ($num == 1 && $level == 6) ? 'primary' : 'dark' ?> font-weight-600 ">
+                                    <label class="category btn btn-<?php echo ($num == 1 && $level != 1) ? 'primary' : 'dark' ?> font-weight-600 ">
                                         <input type="radio" class="filter category" data-type="2" value="<?= $cate['id'] ?>" name="" id="" class="filter" ><?=$cate['name']?>
                                     </label>                                    
                                 <?php $num++; 
@@ -73,7 +73,7 @@
                         }
                     ?>                                
                     <?php foreach ($listProduct as $product) { 
-                        $link = ROOT_URL."/sach/".$row['slug'];
+                        $link = ROOT_URL."/sach/".$product['slug'];
                     ?>
                     <div class="col-md-4 product-item d-flex align-items-stretch ftco-animate">
                         <div class="project-wrap">

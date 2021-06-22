@@ -169,4 +169,5 @@ class Model_product extends Model_db{
         $sql = "SELECT id FROM book WHERE part=?";
         return $this->result1(1,$sql,$part)['id'];
     }
+
 }

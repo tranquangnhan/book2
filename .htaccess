@@ -10,7 +10,7 @@ php_value max_input_time 300
 
 
 
-
+RewriteRule ^trang-chu$ /book2/site/?act=home [L]
 RewriteRule ^gioi-thieu$ /book2/site/?act=about [L]
 RewriteRule ^san-pham$ /book2/site/?act=products [L]
 RewriteRule ^hoc-sinh$ /book2/site/?act=student [L]

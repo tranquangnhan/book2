@@ -39,19 +39,19 @@
                         <div class="row">
                             <div class="col-12">
                                 <ul>
-                                    <li><a href="#" class="big ">Mầm Non</a></li>
-                                    <li class="active "><span>1</span></li>
-                                    <li><a href="#" class="">2</a></li>
-                                    <li><a href="#" class="">3</a></li>
-                                    <li><a href="#" class="">4</a></li>
-                                    <li><a href="#" class="">5</a></li>
-                                    <li><a href="#" class="">6</a></li>
-                                    <li><a href="#" class="">7</a></li>
-                                    <li><a href="#" class="">8</a></li>
-                                    <li><a href="#" class="">9</a></li>
-                                    <li><a href="#" class="">10</a></li>
-                                    <li><a href="#" class="">11</a></li>
-                                    <li><a href="#" class="">12</a></li>
+                                    <li><a href="#" class="big filter class" data-type="1">Mầm Non</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">1</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">2</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">3</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">4</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">5</a></li>                             
+                                    <li><a href="#" class="filter class" data-type="1">6</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">7</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">8</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">9</a></li>                             
+                                    <li><a href="#" class="filter class" data-type="1">10</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">11</a></li>
+                                    <li><a href="#" class="filter class" data-type="1">12</a></li>                                    
                                 </ul>
                             </div>
                         </div>
@@ -78,72 +78,68 @@
                 </div>
                 <div class="row">
                     <div class="option-item active option_1 w-100" data-option="1">
-                        <div class="row">
-                            <div class="col-md-4 d-flex align-items-stretch ftco-animate">
+                        <div class="row product-box">    
+                            <?php 
+                                if (isset($mess)) {
+                                    echo $mess;
+                                }
+                            ?>                                
+                            <?php foreach ($listProduct as $product) { 
+                                $link = ROOT_URL."/sach/".$product['slug'];
+                            ?>
+                            <div class="col-md-4 product-item d-flex align-items-stretch ftco-animate">
                                 <div class="project-wrap">
-                                    <a href="#" class="img" style="background-image: url(<?=PATH_URL?>images/S6-AB.png);">
+                                    <a href="<?=$link?>" class="img" style="background-image: url(<?=PATH_IMG_SITE?><?= $product['img']?>);">
                                         <span class="price">Sách</span>
                                     </a>
                                     <div class="text p-4">
-                                        <h3><a href="course-detail.html">Smiles 1 Special Edition</a></h3>
-                                        <p class="advisor">Tác Giả: <span>Jenny Dooley</span></p>
+                                        <h3><a href="<?=$link?>"><?= $product['name'] ?></a></h3>
+                                        <p class="advisor">Tác Giả: <span><?= $product['author'] ?></span></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex align-items-stretch ftco-animate">
-                                <div class="project-wrap">
-                                    <a href="#" class="img" style="background-image: url(<?=PATH_URL?>images/S2-AB.png);">
-                                        <span class="price">Sách</span>
-                                    </a>
-                                    <div class="text p-4">
-                                        <h3><a href="course-detail.html">Smiles 1 Special Edition</a></h3>
-                                        <p class="advisor">Tác Giả: <span>Jenny Dooley</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-flex align-items-stretch ftco-animate">
-                                <div class="project-wrap">
-                                    <a href="#" class="img" style="background-image: url(<?=PATH_URL?>images/S6-AB.png);">
-                                        <span class="price">Sách</span>
-                                    </a>
-                                    <div class="text p-4">
-                                        <h3><a href="course-detail.html">Smiles 1 Special Edition</a></h3>
-                                        <p class="advisor">Tác Giả: <span>Jenny Dooley</span></p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php } ?>
 
-                            <div class="col-md-4 d-flex align-items-stretch ftco-animate">
-                                <div class="project-wrap">
-                                    <a href="#" class="img" style="background-image: url(<?=PATH_URL?>images/S6-AB.png);">
-                                        <span class="price">Sách</span>
-                                    </a>
-                                    <div class="text p-4">
-                                        <h3><a href="course-detail.html">Smiles 1 Special Edition</a></h3>
-                                        <p class="advisor">Tác Giả: <span>Jenny Dooley</span></p>
-                                    </div>
+                            <div class="w-100 text-center">
+                                <div class="ftco-loader mr-0-auto">
+                                    <svg class="circular" width="48px" height="48px">
+                                        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+                                        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+                                    </svg>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex align-items-stretch ftco-animate">
-                                <div class="project-wrap">
-                                    <a href="#" class="img" style="background-image: url(<?=PATH_URL?>images/S2-AB.png);">
-                                        <span class="price">Sách</span>
-                                    </a>
-                                    <div class="text p-4">
-                                        <h3><a href="course-detail.html">Smiles 1 Special Edition</a></h3>
-                                        <p class="advisor">Tác Giả: <span>Jenny Dooley</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-flex align-items-stretch ftco-animate">
-                                <div class="project-wrap">
-                                    <a href="#" class="img" style="background-image: url(<?=PATH_URL?>images/S6-AB.png);">
-                                        <span class="price">Sách</span>
-                                    </a>
-                                    <div class="text p-4">
-                                        <h3><a href="course-detail.html">Smiles 1 Special Edition</a></h3>
-                                        <p class="advisor">Tác Giả: <span>Jenny Dooley</span></p>
-                                    </div>
+                            <!-- <div class="box-on-top hide"></div> -->
+                        </div>
+
+                        <div class="row mt-5 pagina-box " style="<?php echo ($pageNumber == 0) ? 'display: none' : ''?>">
+                            <div class="col">
+                                <div class="block-27 text-center">
+                                    <input type="hidden" class="pageNumber" value="<?=$pageNumber?>">
+                                    <ul class="page-num">
+                                            <li><a href="javascript:void(0)" class="pagination-control prev" onclick="moveBack();">&lt;</a></li>                
+                                            <div class="page-list d-inline-block">
+                                            <?php 
+                                            if ($pageNumber <= 6) {
+                                                for ($i = 1; $i < $pageNumber + 1; $i++) { 
+                                                    ?>
+                                                        <li <?php echo ($i == 1) ? 'class="active"' : ''?>><a href="javascript:void(0)" data-item="<?=$i?>" onclick="movePage(<?=$i?>)" class="pagination-item"><?= $i ?></a></li>                                    
+                                                    <?php 
+                                                }
+                                            } else {
+                                                for ($i = 1; $i < $pageNumber + 1; $i++) {
+                                                    if ($i < 4) { 
+                                                    ?>
+                                                        <li <?php echo ($i == 1) ? 'class="active"' : ''?>><a href="javascript:void(0)" data-item="<?=$i?>" onclick="movePage(<?=$i?>)" class="pagination-item"><?= $i ?></a></li>                                    
+                                                    <?php } 
+                                                } if ($pageNumber > 6) { ?>       
+                                                    <li><span data-item="near-end">...</span></li>
+                                                    <li><a href="javascript:void(0)" data-item="<?=$pageNumber - 1?>" onclick="movePage(<?=$i?>)" class="pagination-item"><?= $pageNumber - 1 ?></a></li>                                    
+                                                    <li><a href="javascript:void(0)" data-item="<?=$pageNumber ?>" onclick="movePage(<?=$i?>)" class="pagination-item"><?= $pageNumber ?></a></li>                                    
+                                            <?php } 
+                                            } ?>
+                                            </div>                            
+                                        <li><a href="javascript:void(0)" class="pagination-control next" onclick="moveNext()">&gt;</a></li>                                                             
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -247,22 +243,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col">
-                        <div class="block-27">
-                            <ul>
-                                <li><a href="#">&lt;</a></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">&gt;</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>

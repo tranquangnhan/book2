@@ -1,4 +1,4 @@
-const baseUrlSite = '/book';
+const baseUrlSite = '/book2';
 var level = $('.levelType').val();
 var firstIdCategory = $('.category').first().val();
 
@@ -18,21 +18,21 @@ if (level == 1) {
     ];
 } else if (level == 2) {
     filterOb = [
-        { 'type': [] },
+        { 'type': ["1"] },
         { 'class': ["1"] },
-        { 'category': [] }
+        { 'category': [firstIdCategory] }
     ];
 } else if (level == 3) {
     filterOb = [
-        { 'type': [] },
+        { 'type': ["1"] },
         { 'class': ["6"] },
-        { 'category': [] }
+        { 'category': [firstIdCategory] }
     ];
 } else if (level == 4) {
     filterOb = [
-        { 'type': [] },
+        { 'type': ["1"] },
         { 'class': ["10"] },
-        { 'category': [] }
+        { 'category': [firstIdCategory] }
     ];
 } else {
     var filterOb = [
@@ -46,8 +46,7 @@ var checkReloadPage = false;
 
 var timeRequest;
 
-$('.filter').click(function(e) {
-    console.log(filterOb);
+$('.filter').click(function(e) {    
     checkReloadPage = true;
     if ($('.ftco-loader').hasClass('show') == false) {
         $('.product-box .product-item').remove();
@@ -70,8 +69,12 @@ $('.filter').click(function(e) {
 
             findAndDeleteItemInArray(dataClass, keyFilter);
         } else {
+            var elementActive = $('.filter.class').parent('.active');            
+            elementActive.removeClass('active');
+            
             $(this).parent().addClass('active');
-            dataClass.push(keyFilter);
+
+            filterOb[1].class[0] = keyFilter;
         }
     } else {
         var keyFilter = $(this).val();
@@ -82,12 +85,26 @@ $('.filter').click(function(e) {
             $(this).parent().removeClass('btn-primary');
             $(this).parent().addClass('btn-dark');
 
+                // console.log(data);
             findAndDeleteItemInArray(data, keyFilter);
-        } else { // add
-            $(this).parent().removeClass('btn-dark');
-            $(this).parent().addClass('btn-primary');
 
-            data.push(keyFilter);
+        } else { // add
+            if ($(this).hasClass('type')) {
+                var elementActive = $('.type.btn-primary');
+                elementActive.removeClass('btn-primary');
+                elementActive.addClass('btn-dark');
+                filterOb[0].type[0] = keyFilter;
+            }
+
+            if ($(this).hasClass('category')) {
+                var elementActive = $('.category.btn-primary');
+                elementActive.removeClass('btn-primary');
+                elementActive.addClass('btn-dark');
+                filterOb[2].category[0] = keyFilter;
+            }
+
+            $(this).parent().removeClass('btn-dark');
+            $(this).parent().addClass('btn-primary');                    
         }
     }
 
@@ -97,6 +114,8 @@ $('.filter').click(function(e) {
         function() {
             setDataAndRequest(filterOb, 0, url);
         }, 600);
+        console.log(filterOb);
+
 });
 
 function findAndDeleteItemInArray(array, find) {
@@ -138,7 +157,7 @@ function getDataByFilterOb(data, url) {
 
             if (response[1] > 0) {
                 response[0].forEach(element => {
-                    console.log(element);
+                    // console.log(element);
                     var html = htmlProductItem(element);
                     $('.product-box').append(html);
                 });
