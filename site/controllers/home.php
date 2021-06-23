@@ -210,7 +210,7 @@ class Home
     }
 
     public function student() {
-        // $abouts         = $this->model->getAbouts(); 
+        $abouts         = $this->model->getAbouts(); 
         $video          = $this->model->getVideoNew();      
         $page_title     = "Học Sinh - EngBook";
         $viewFile       = "views/student.php";
@@ -222,7 +222,7 @@ class Home
         $getLastestNews = $this->modelBlogs->getLastestNews();
         $idCateFirst    = $categories[0]['id'];
         $where          = ' type = 1 ';
-        
+
         $listProduct    = $this->model->getProductLimit($where);        
         $allproduct     = $this->model->getProductStudent();        
         $AmountProduct  = count($allproduct);

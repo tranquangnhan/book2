@@ -191,29 +191,30 @@ $(document).ready(function() {
         });
 
     })
+
+    $("input[name='checkabout']").change(function(){
+        var val = $(this).val();
+        console.log(val);
+        if (val == 0) {
+            $("#editor1").removeAttr('disabled');
+            $("#iplink").attr("disabled", 'disabled');
+        }
+        if (val == 1) {
+            $("#editor1").attr("disabled", 'disabled');
+            $("#iplink").removeAttr('disabled');       
+        }
+    }); 
+    
+
+    $('#anhienAbout').change(function () {        
+        var attr = $('#thutu').attr('disabled');
+        
+        if (typeof attr == 'undefined' || attr == false) {
+            $("#thutu").attr("disabled", 'disabled');            
+        } else {
+            $("#thutu").removeAttr("disabled");            
+        }
+                   
+    });
 });
 
-$("input[name='checkabout']").change(function(){
-    var val = $(this).val();
-    console.log(val);
-    if (val == 0) {
-        $("#editor1").removeAttr('disabled');
-        $("#iplink").attr("disabled", 'disabled');
-    }
-    if (val == 1) {
-        $("#editor1").attr("disabled", 'disabled');
-        $("#iplink").removeAttr('disabled');       
-    }
-});
-
-imageresources.onchange = evt => {
-    const [file] = imageresources.files
-    if (file) {
-        reviewImage.src = URL.createObjectURL(file)
-    }
-}
-
-$('#clearReviewImage').click(function (e) { 
-    e.preventDefault();
-    reviewImage.src = '';
-});

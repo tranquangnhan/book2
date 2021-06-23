@@ -54,7 +54,11 @@ class about
             $name = $this->lib->stripTags($_POST['name']);
             $content = $_POST['content-about'];
             $link = $_POST['link'];
-
+            $ordinal = $_POST['ordinal']; 
+            if ($ordinal == '') {
+                $ordinal = 0;
+            }           
+            
             $slug = $this->lib->slug($name);           
                                           
             $_SESSION['message'] = "";
@@ -72,15 +76,14 @@ class about
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                     settype($id, "int");
-
                     $slug = $slug . '-' . $id;
 
-                     $this->edit($name, $slug, $content, $link, $id);
+                    $this->edit($name, $slug, $content, $link, $ordinal, $id);
 
                 } else {                    
                     $slug = $slug . '-' . ($this->modelAbout->getLastestIdAbout() + 1);
 
-                    $this->store($name, $slug, $content, $link);
+                    $this->store($name, $slug, $content, $link, $ordinal);
                 }
             }
 
@@ -89,9 +92,9 @@ class about
         require_once "views/layout.php";
     }
 
-    public function store($name, $slug, $content, $link)
+    public function store($name, $slug, $content, $link, $ordinal)
     {
-        if ($this->modelAbout->addNewAbout($name, $slug, $content, $link)) {
+        if ($this->modelAbout->addNewAbout($name, $slug, $content, $link, $ordinal)) {
             header("location: ?ctrl=about");
         } else {
             echo "<script>alert('Thêm thất bại')</script>";
@@ -100,11 +103,11 @@ class about
         require_once "views/layout.php";
     }
 
-    public function edit($name, $slug, $content, $link, $id)
+    public function edit($name, $slug, $content, $link, $ordinal, $id)
     {
         if (isset($_GET['id'])) {
 
-            if ($this->modelAbout->editAbouts($name, $slug, $content, $link, $id)) {
+            if ($this->modelAbout->editAbouts($name, $slug, $content, $link, $ordinal, $id)) {
                 header("location: ?ctrl=about");
             } else {
                 echo "<script>alert('Sửa thất bại')</script>";

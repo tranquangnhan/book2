@@ -6,10 +6,10 @@ class Model_about extends Model_db{
         return $this->result1(0,$sql);
     }
    
-    public function addNewAbout($name, $slug, $content, $link)
+    public function addNewAbout($name, $slug, $content, $link, $ordinal)
     {
-        $sql = "INSERT INTO about(name, slug, content, link) VALUE (?,?,?,?)";
-        return $this->SqlExecDebug($sql, $name, $slug, $content, $link);
+        $sql = "INSERT INTO about(name, slug, content, link, ordinal) VALUE (?,?,?,?,?)";
+        return $this->SqlExecDebug($sql, $name, $slug, $content, $link, $ordinal);
     }
 
     function deleteAbout($id)
@@ -18,9 +18,9 @@ class Model_about extends Model_db{
         return $this->exec1($sql,$id);
     }
     
-    function editAbouts($name, $slug, $content, $link, $id) {
-        $sql = "UPDATE about SET name = ?, slug = ?, content = ?, link = ? WHERE id = ?";
-        return $this->exec1($sql, $name, $slug, $content, $link, $id);
+    function editAbouts($name, $slug, $content, $link, $ordinal, $id) {
+        $sql = "UPDATE about SET name = ?, slug = ?, content = ?, link = ?, ordinal = ? WHERE id = ?";
+        return $this->exec1($sql, $name, $slug, $content, $link, $ordinal, $id);
     }
     
     function getDetailAbout($id){

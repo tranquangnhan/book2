@@ -80,3 +80,4 @@
         </div>
     </div>
 </div>
+<script src="views/assets/js/reviewimage.js"></script>

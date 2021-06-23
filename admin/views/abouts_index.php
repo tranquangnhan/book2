@@ -13,7 +13,8 @@
                                 <tr>
                                     <th width="">STT</th>
                                     <th width="">Tên</th>                                                                       
-                                    <th width="50%">Nội dung/Link</th>                                    
+                                    <th width="50%">Nội dung/Link</th> 
+                                    <th width="150px" class="text-center" >Thứ tự</th>                                                                                                          
                                     <th width="">Xóa</th>
                                     <th width="">Sửa</th>
                                 </tr>
@@ -41,7 +42,8 @@
                                             <!-- content-about -->
                                     <?php } ?>
                                                                   
-                                    
+                                    <td class="text-center"><?= ($row['ordinal'] == 0) ? 'Ẩn' : $row['ordinal']?></td>
+
                                     <td><div  onclick="checkDelete(<?=$linkDel?>)"  class="btn btn-danger" role="button"><i class="fa fa-trash"></i></div></td>
                                     <td><a class="btn btn-primary" href="<?=$linkEdit?>" role="button"><span class="mdi mdi-pencil"></span></a></td>
                                 </tr>   

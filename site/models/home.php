@@ -734,12 +734,12 @@ class Model_home extends Model_db{
     }
 
     function getProductLimit($where) {
-        $sql = "SELECT * FROM `book` WHERE $where ORDER BY id DESC limit 0, 9";
+        $sql = "SELECT * FROM `book` WHERE $where ORDER BY class DESC limit 0, 9";
         return $this->result1(0, $sql);        
     }
 
     function getAbouts() {
-        $sql = "SELECT * FROM `about` ORDER BY id DESC";
+        $sql = "SELECT * FROM `about` ORDER BY ordinal DESC";
         return $this->result1(0, $sql);
     }
 
@@ -783,7 +783,7 @@ class Model_home extends Model_db{
     }
 
     function getBookByKeyWordLimit($keyWord) {
-        $sql = "SELECT * FROM `book` WHERE name like '%$keyWord%' OR author like '%$keyWord%' ORDER BY id DESC limit 9";
+        $sql = "SELECT * FROM `book` WHERE name like '%$keyWord%' OR author like '%$keyWord%' ORDER BY class DESC limit 9";
         return $this->result1(0, $sql);
     }
 
