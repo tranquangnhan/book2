@@ -1,20 +1,21 @@
 .project-wrap .img-product {
     display: block;
-    width: 100%;
+    width: 70%;
     height: 270px;
     position: relative;
     z-index: 1;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    margin: 0 auto;
 }
 
 .project-wrap .img-product .price {
     position: absolute;
     bottom: -8px;
-    left: 20px;
+    left: 10px;
     display: inline-block;
-    background: #4986fc;
+    background: var(--color-main);
     color: #fff;
     padding: 2px 10px;
     font-size: 16px;
@@ -24,6 +25,7 @@
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    z-index: 20;
 }
 
 .project-wrap .img-product .price:before {
@@ -32,7 +34,7 @@
     height: 0;
     border-style: solid;
     border-width: 0 8px 8px 0;
-    border-color: transparent #0456f4 transparent transparent;
+    border-color: transparent var(--color-main) transparent transparent;
 }
 
 .project-wrap .img-product .price:after, .project-wrap .img-product .price:before {
@@ -47,7 +49,7 @@
     height: 0;
     border-style: solid;
     border-width: 8px 8px 0 0;
-    border-color: #0456f4 transparent transparent transparent;
+    border-color:  var(--color-main) transparent transparent transparent;
 }
 
 .kind .title {
@@ -72,4 +74,96 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+
+.project-wrap .img-product::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #0000002e;    
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.project-wrap .img-product::before {
+    content: 'Xem chi tiết';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 270px;
+    z-index: 10;
+    color: white;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.project-wrap .img-product:hover::before, .project-wrap .img-product:hover::after  {    
+    opacity: 1;
+}
+
+.project-wrap .text {    
+    min-height: 180px;
+}
+
+div#kind-carousel {
+    position: relative;
+}
+
+.owl-nav {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+    margin-top: 0% !important;
+    transition: 0.5s;
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+    border-radius: 0px!important;
+    height: 100% !important;
+    /* width: 40px; */
+    /* line-height: 33px !important; */
+    background: #00000045!important;
+}
+
+.owl-theme .owl-nav {
+    margin-top: 0px!important;
+}
+
+.owl-nav .owl-prev {
+    transition: 0.4s;
+    left: 0px;
+    padding: 0px!important;
+    margin: 0px!important;
+    opacity: 0;
+}
+
+.owl-nav .owl-next {
+    transition: 0.4s;
+    right: 0px;
+    margin: 0px!important;
+    opacity: 0;
+}
+
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
+    padding: 0px 0px !important;
+}
+
+.owl-nav .owl-prev:hover {
+    opacity: 1;
+}
+
+.owl-nav .owl-next:hover {
+    opacity: 1;
 }

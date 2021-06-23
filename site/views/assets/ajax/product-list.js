@@ -1,7 +1,7 @@
 const baseUrlSite = '/book2';
 
 var level = $('.levelType').val();
-var firstIdCategory = $('.category').first().val();
+var firstIdCategory = $('.filter.category').first().val();
 
 var filterOb = [];
 
@@ -51,7 +51,7 @@ var timeRequest;
 var classe = 100;
 $('.btn.show-option').click(function (e) { 
     e.preventDefault();
-    if (!$(this).hasClass('active')) {
+    if (!$(this).hasClass('active')) {        
         if ($(this).hasClass('product')) {
             if ($('.filter.class').parent('.active')) {
                 $('.filter.class').parent('.active').removeClass('active');
@@ -76,24 +76,26 @@ $('.btn.show-option').click(function (e) {
 $('.filter').click(function(e) { 
     e.preventDefault();
     if ($('.support-resources').hasClass('option-active')) {
-        checkReloadPage = true;
-        if ($('.ftco-loader.teacher').hasClass('show') == false) {
-            $('.spre .Resources-item').remove();
-            $('.ftco-loader.teacher').addClass('show');
-        }
+        // checkReloadPage = true;
+        // if ($('.ftco-loader.teacher').hasClass('show') == false) {
+        //     $('.spre .Resources-item').remove();
+        //     $('.ftco-loader.teacher').addClass('show');
+        // }
 
-        var keyFilter = $(this).text();
+        // var keyFilter = $(this).text();
         
-        classe = keyFilter;
-        if ($(this).parent().hasClass('active')) {
-            $(this).parent().removeClass('active');  
-            getDataSupportResource(100, 0);          
-        } else {
-            var elementActive = $('.filter.class').parent('.active');            
-            elementActive.removeClass('active');            
-            $(this).parent().addClass('active');    
-            getDataSupportResource(keyFilter, 0);
-        }
+        // classe = keyFilter;
+        // if ($(this).parent().hasClass('active')) {
+        //     $(this).parent().removeClass('active');  
+        //     getDataSupportResource(100, 0);          
+        // } else {
+        //     var elementActive = $('.filter.class').parent('.active');            
+        //     elementActive.removeClass('active');            
+        //     $(this).parent().addClass('active');    
+        //     getDataSupportResource(keyFilter, 0);
+        // }        
+        alert('Phần này không có lọc');
+        
 
     } else {
         checkReloadPage = true;
@@ -121,47 +123,46 @@ $('.filter').click(function(e) {
                 elementActive.removeClass('active');
                 
                 $(this).parent().addClass('active');
-
                 filterOb[1].class[0] = keyFilter;
             }
         } else {
             var keyFilter = $(this).val();
-
             var data = getDataByTypeCheck(checkType);
 
             if ($(this).parent().hasClass('btn-primary')) { // remove
                 $(this).parent().removeClass('btn-primary');
                 $(this).parent().addClass('btn-dark');
-
                 findAndDeleteItemInArray(data, keyFilter);
-
             } else { // add
                 if ($(this).hasClass('type')) {
                     var elementActive = $('.type.btn-primary');
                     elementActive.removeClass('btn-primary');
                     elementActive.addClass('btn-dark');
-                    filterOb[0].type[0] = keyFilter;
-                }
+                    if (keyFilter == 2) {
+                        filterOb[0].type = [1, 2];                       
+                        
+                    } else {        
+                        findAndDeleteItemInArray(filterOb[0].type, 2);    
 
+                        filterOb[0].type[0] = keyFilter;
+                    }
+                }
                 if ($(this).hasClass('category')) {
                     var elementActive = $('.category.btn-primary');
                     elementActive.removeClass('btn-primary');
                     elementActive.addClass('btn-dark');
                     filterOb[2].category[0] = keyFilter;
                 }
-
                 $(this).parent().removeClass('btn-dark');
                 $(this).parent().addClass('btn-primary');                    
             }
         }
-
         var url = `${baseUrlSite}/site/controllers/ajax/product.php`;
-
         timeRequest = setTimeout(
             function() {
                 setDataAndRequest(filterOb, 0, url);
             }, 600);            
-    }
+    } 
 });
 
 function findAndDeleteItemInArray(array, find) {
@@ -197,6 +198,7 @@ function getDataByFilterOb(data, url) {
                 $('.notice-h3').remove();
                 $('.pagina-box').show();
             }
+
             if ($('.ftco-loader').hasClass('show') == true) {
                 $('.ftco-loader').removeClass('show');
             }

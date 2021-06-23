@@ -51,44 +51,12 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="">Tên tài nguyên</label><span style="color:red;"> (*)</span>
                                         <input type="text" name="name"  parsley-trigger="change" required value="<?=$oneRecode['name']?>" placeholder="Tài nguyên" class="form-control" >
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="">Class</label><span style="color:red;"> (*)</span>
-                                        <select class="form-control" name="class">      
-                                            <option value="<?=$oneRecode['class']?>">Lớp - <?= $class ?></option>  
-                                            <?php 
-                                                for ($i = 0; $i < 13; $i++) {
-                                                    if ($i != $oneRecode['class']) { 
-                                                        if ($i == 0) { ?>
-                                                            <option value="<?= $i ?>">Mầm Non</option>
-                                                        <?php } else { ?>
-                                                        <option value="<?= $i ?>">Lớp - <?= $i ?></option>
-                                                    <?php }
-                                                    }
-                                                }
-                                            ?>
-                                            <!-- <option value="0">Mầm Non</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option> -->
-                                        </select>
-                                    </div>                                                
-                                </div> 
+                                </div>                 
           
                             </div>          
 

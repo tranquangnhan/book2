@@ -662,7 +662,7 @@ class Model_home extends Model_db{
     }
 
     function getProducts() {
-        $sql = 'SELECT * FROM `book` WHERE class = 1 AND type = 0 AND idcate = 1 ORDER BY id DESC limit 0, 9';
+        $sql = 'SELECT * FROM `book` WHERE class = 0 AND type = 1 AND idcate = 1 ORDER BY id DESC limit 0, 9';
         return $this->result1(0, $sql);
     }
 
@@ -758,12 +758,12 @@ class Model_home extends Model_db{
     }
 
     function getSpResouceslimit() {
-        $sql = "SELECT * FROM `supportresources` ORDER BY class ASC limit 9";
+        $sql = "SELECT * FROM `supportresources` ORDER BY id desc limit 9";
         return $this->result1(0, $sql);
     }
 
     function getAllSupportResourceLimit() {
-        $sql = "SELECT * FROM `supportresources` ORDER BY class ASC limit 9";
+        $sql = "SELECT * FROM `supportresources` ORDER BY id ASC limit 9";
         return $this->result1(0, $sql);
     }
 
@@ -781,6 +781,7 @@ class Model_home extends Model_db{
         $sql = "SELECT id,part FROM `book` WHERE part != 0";
         return $this->result1(0, $sql);
     }
+
     function getBookByKeyWordLimit($keyWord) {
         $sql = "SELECT * FROM `book` WHERE name like '%$keyWord%' OR author like '%$keyWord%' ORDER BY id DESC limit 9";
         return $this->result1(0, $sql);
@@ -788,6 +789,21 @@ class Model_home extends Model_db{
 
     function getAmountBookByKeyWord($keyWord) {
         $sql = "SELECT count(*) AS sodong FROM `book` WHERE name like '%$keyWord%' OR author like '%$keyWord%'";
+        return $this->result1(1, $sql)['sodong'];
+    }
+
+    function getVideoNew() {
+        $sql = "SELECT * FROM video limit 1";
+        return $this->result1(1, $sql);
+    }
+
+    function getProductDefault($form) {
+        $sql = "SELECT * FROM `book` ORDER BY idcate ASC, class limit $form, 9";
+        return $this->result1(0, $sql);
+    }
+
+    function getAmountProductDefault() {
+        $sql = "SELECT count(*) AS sodong FROM `book` ORDER BY idcate ASC, class";
         return $this->result1(1, $sql)['sodong'];
     }
 }

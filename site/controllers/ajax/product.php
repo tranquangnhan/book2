@@ -74,24 +74,25 @@ require_once "../../../system/config.php";
                 $sql .= implode(',', $idcate);
                 $sql .= ')';
             }
-            
+            if ($sqlCheck === true || $form > 0) {
+                $amountProduct = $model->getAmountProduct($sql);
+                $amountProduct = count($amountProduct);
+            }
 
             $sql .= ' ORDER BY id DESC limit ';
             $sql .= $form . ' , 9';
 
             if ($sqlCheck === true || $form > 0) {
                 $dataProducts = $model->getProductsBySql($sql);
-                $amountProduct = $model->getAmountProduct($sql);
-                $amountProduct = count($amountProduct);
+                
             } else {                                           
                 $dataProducts = $model->getProductNoWhere();
-
                 $amountProduct = $model->getAmountAllProduct();
                 
                 // $dataProducts = '';
             }
 
-            echo json_encode([$dataProducts, $amountProduct, $sql]);            
+            echo json_encode([$dataProducts, $amountProduct, $sql, $form]);            
 
             // echo json_encode($sql);  
             break;    

@@ -52,8 +52,7 @@ class supportresources
         if (isset($_POST['them']) && $_POST['them']) {
             $name   = $this->lib->stripTags($_POST['name']);            
             $link   = $_POST['link'];
-            $img    = $_FILES['img'];
-            $class  = $_POST['class'];
+            $img    = $_FILES['img'];            
             $imgs   = $this->lib->checkUpLoadMany($img);
             if ($imgs) {                
                 $checkIMG = explode(",", $imgs);                
@@ -61,8 +60,8 @@ class supportresources
                 for ($i = 0; $i < count($checkIMG); $i++) {
                     $checkIMG[$i] = explode(".", $checkIMG[$i]);
                     $checkIMG[$i][1] = strtolower($checkIMG[$i][1]);
-                    if ($checkIMG[$i][1] != "jpg" && $checkIMG[$i][1] != "jpeg" && $checkIMG[$i][1] != "png" && $checkIMG[$i][1] != "gif" && $checkIMG[$i][1] != "webp") {
-                        $checkimg = "Chỉ chấp nhận file .jpg, .jpeg, .png";
+                    if ($checkIMG[$i][1] != "jpg" && $checkIMG[$i][1] != "jpeg" && $checkIMG[$i][1] != "png" && $checkIMG[$i][1] != "gif" && $checkIMG[$i][1] != "webp" && $checkIMG[$i][1] != "svg") {
+                        $checkimg = "Chỉ chấp nhận file .jpg, .jpeg, .png, .svg";
                         break;
                     }
                 }
@@ -90,20 +89,20 @@ class supportresources
                     $id = $_GET['id'];
                     settype($id, "int");
                     
-                    $this->edit($name, $class, $imgs, $link, $id);
+                    $this->edit($name, $imgs, $link, $id);
                     exit();
 
                 } else {                                        
-                    $this->store($name, $class, $imgs, $link);
+                    $this->store($name, $imgs, $link);
                 }
             }
         }
         require_once "views/layout.php";
     }
 
-    public function store($name, $class, $img, $link)
+    public function store($name, $img, $link)
     {
-        if ($this->modelSpResources->addNewSpResources($name, $class, $img, $link)) {
+        if ($this->modelSpResources->addNewSpResources($name, $img, $link)) {
             header("location: ?ctrl=supportresources");
         } else {
             echo "<script>alert('Thêm thất bại')</script>";
@@ -112,11 +111,11 @@ class supportresources
         require_once "views/layout.php";
     }
 
-    public function edit($name, $class, $imgs, $link, $id)
+    public function edit($name, $imgs, $link, $id)
     {
         if (isset($_GET['id'])) {
 
-            if ($this->modelSpResources->editSpResources($name, $class, $imgs, $link, $id)) {
+            if ($this->modelSpResources->editSpResources($name, $imgs, $link, $id)) {
                 header("location: ?ctrl=supportresources");
             } else {
                 echo "<script>alert('Sửa thất bại')</script>";

@@ -129,13 +129,13 @@
     <!-- END nav -->
 
     <?php if ($viewFile != "views/home.php") {?>
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('<?=PATH_URL?>images/banner.jpg'); ">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('<?=PATH_URL?>images/bia3.jpg'); ">
         <div class="container">
             <div class="row no-gutters slider-text align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
                     <p class="breadcrumbs">
                         <span class="mr-2">
-                            <a href="index.html">Trang Chủ
+                            <a href="/book2">Trang Chủ
                                 <i class="fa fa-chevron-right"></i>
                             </a>
                         </span>
@@ -181,11 +181,11 @@ if (file_exists($viewFile)) {
                                         class="text">lienhe@sachmem.vn</span></li>
                             </ul>
                             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mb-0">
-                                <li class="ftco-animate mb-0"><a href="#" class="m-0"><span
+                                <li class="ftco-animate mb-0"><a href="https://www.facebook.com/sachmem.vn" class="m-0"><span
                                             class="fa fa-facebook"></span></a></li>
                             </ul>
                             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mb-0">
-                                <li class="ftco-animate mb-0"><a href="#" class="m-0"><span
+                                <li class="ftco-animate mb-0"><a href="https://www.youtube.com/channel/UCGzhS0mRNympJQQ0PStn7CQ" class="m-0"><span
                                             class="fa fa-youtube-play"></span></a></li>
                             </ul>
                         </div>
@@ -225,8 +225,10 @@ if (file_exists($viewFile)) {
     <script src="<?=PATH_URL?>js/js-main/scrollax.min.js"></script>
     <script src="<?=PATH_URL?>js/js-main/main.js"></script>
     <script src="<?=PATH_URL?>js/js-main/lazysizes.js"></script>
-    <?php if (isset($js)) {?>
-    <script src="<?=PATH_URL?>js/js-main/main/<?=$js?>"></script>
+    <?php if (isset($js)) { 
+        for ($j = 0; $j < count($js); $j++) { ?>
+            <script src="<?=PATH_URL?>js/js-main/main/<?=$js[$j]?>"></script>
+        <?php } ?>
     <?php }?>
 
     <?php if (isset($ajax)) { 
@@ -235,7 +237,7 @@ if (file_exists($viewFile)) {
                 <script src="<?=PATH_URL?>ajax/<?=$ajax[$i]?>"></script>
             <?php }
         } else { ?>
-    <script src="<?=PATH_URL?>ajax/<?=$ajax?>"></script>
+    
     <?php }
     } ?>
 </body>

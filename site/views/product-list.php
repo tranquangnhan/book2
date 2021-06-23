@@ -8,7 +8,7 @@
                     <?php if ($level != 7) { ?>
                     <div class="container" style="width: fit-content; margin-bottom: 5%;">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="type btn <?php echo ($level != 1) ? 'btn-primary' : 'btn-dark';?> font-weight-600">
+                            <label class="type btn btn-dark font-weight-600">
                                 <input type="radio" class="filter type" data-type="0" value="1" name="options">Học Sinh
                             </label>
                             <label class="type btn btn-dark font-weight-600">
@@ -25,7 +25,7 @@
                             <div class="col-12">
                                 <ul><?php if ($level != 7) { ?>
                                         <?php if ($level == 6) { ?>
-                                            <li class="active"><a href="#" class="big filter class" data-type="1">Mầm Non</a></li>
+                                            <li><a href="#" class="big filter class" data-type="1">Mầm Non</a></li>
                                         <?php } else { ?>
                                             <li class="big class">Lớp</li>
                                             <?php } ?>
@@ -60,7 +60,7 @@
                             <?php                                                                 
                                 $num = 1;
                                 foreach ($categories as $cate) { ?>
-                                    <label class="category btn btn-<?php echo ($num == 1 && $level != 1) ? 'primary' : 'dark' ?> font-weight-600 ">
+                                    <label class="category btn btn-dark font-weight-600 ">
                                         <input type="radio" class="filter category" data-type="2" value="<?= $cate['id'] ?>" name="" id="" class="filter" ><?=$cate['name']?>
                                     </label>                                    
                                 <?php $num++; 

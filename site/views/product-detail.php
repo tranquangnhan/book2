@@ -85,30 +85,48 @@
                                 <div class="detail-tittle">
                                     <h2 style="color: white;">Sách Cùng Khối Lớp</h2>
                                 </div>                                    
-                                <div class="row">
-                                    <div class="owl-carousel owl-theme slide-video" id="kind-carousel">
-                                        <?php 
-                                            foreach ($getProductsSameClass as $row) {
-                                                $link =SITE_URL . '?act=productdetail&slug='.$row['slug'];
-                                                $img = PATH_IMG_SITE.explode(",",$row['img'])[0];
-                                                echo '<div class="item slide-video-item">
-                                                        <div class="w-100 d-flex align-items-stretch ftco-animate">
-                                                            <div class="project-wrap">
-                                                                <a href="'.$link .'" class="img-product position-relative"
-                                                                    style="background-image: url(\''.$img.'\');">
-                                                                    <span class="price">Sách</span>
-                                                                </a>
-                                                                <div class="text p-4">
-                                                                    <h3><a href="'.$link .'">'.$row['name'].'</a></h3>
-                                                                    <p class="advisor">Tác Giả: <span>'.$row['author'].'</span></p>
-                                                                </div>
-                                                            </div>
+                                <div class="row product-box">
+                                    <?php  if (count($getProductsSameClass) < 3) { ?>
+                                        <?php foreach ($getProductsSameClass as $row) {
+                                            $link =SITE_URL . '?act=productdetail&slug='.$row['slug'];
+                                            $img = PATH_IMG_SITE.explode(",",$row['img'])[0]; ?>
+                                            
+                                            <div class="col-md-4 product-item d-flex align-items-stretch ftco-animate">
+                                                <div class="project-wrap">
+                                                    <a href="<?=$link?>" class="img" style="background-image: url('<?=PATH_IMG_SITE?>/<?= $product['img']?>');">
+                                                        <span class="price">Sách</span>
+                                                    </a>
+                                                    <div class="text p-4">
+                                                        <h3><a href="<?=$link?>"><?= $product['name'] ?></a></h3>
+                                                        <p class="advisor limit-content-2">Tác Giả: <span><?= $product['author'] ?></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php } ?> 
+                                    <?php } else { ?>
+                                    <div class="owl-carousel owl-theme slide-video d-flex" id="kind-carousel">                                                                                                                             
+                                        <?php foreach ($getProductsSameClass as $row) {
+                                            $link =SITE_URL . '?act=productdetail&slug='.$row['slug'];
+                                            $img = PATH_IMG_SITE.explode(",",$row['img'])[0]; ?>
+                                            
+                                            <div class="item slide-video-item">
+                                                <div class="w-100 d-flex align-items-stretch ftco-animate">
+                                                    <div class="project-wrap">
+                                                        <a href="'.$link .'" class="img-product position-relative"
+                                                            style="background-image: url('<?=$img?>');">
+                                                            <span class="price">Sách</span>
+                                                        </a>
+                                                        <div class="text p-4">
+                                                            <h3><a class="limit-content-2" href="'.$link .'"><?=$row['name']?></a></h3>
+                                                            <p class="advisor limit-content-2">Tác Giả: <span><?=$row['author']?></span></p>
                                                         </div>
-                                                    </div>';
-                                            }
-                                        ?>
-  
+                                                    </div>
+                                                </div>
+                                            </div>  
+
+                                        <?php } ?>                                    
                                     </div>
+                                <?php }?>  
                                 </div>
                             </div>
                             <hr>
@@ -149,6 +167,5 @@
                 </div>
             </div>
             <?php require 'right.php'; ?>
-            
         </div>
 </section>

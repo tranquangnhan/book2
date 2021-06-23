@@ -10,7 +10,7 @@
                     <h1 class="text-center text-uppercase">GIỚI THIỆU VỀ NHÀ XUẤT BẢN GIÁO DỤC VIỆT NAM</h1>
                     <div class="col-8 my-4 mr-0-auto">
                         <div class="about-img w-100 ">
-                            <img src="/book/site/views/assets/images/about-cat-1.jpg" class="img-fluid" alt="">
+                            <img src="<?=PATH_URL?>/images/about-cat-1.jpg" class="img-fluid" alt="">
                         </div>
                     </div>
                     <p>Nhà xuất bản Giáo dục Việt Nam (trước đây là Nhà xuất bản Giáo dục) trực thuộc Bộ Giáo dục và Đào tạo, được thành lập ngày 01 tháng 6 năm 1957. Nhà xuất bản Giáo dục Việt Nam có nhiệm vụ tổ chức biên soạn, biên tập, in, phát hành sách giáo khoa và các sản phẩm giáo dục phục vụ nghiên cứu, giảng dạy, học tập của các ngành học, bậc học; giúp Bộ Giáo dục và Đào tạo chỉ đạo công tác thiết bị giáo dục và thư viện trường học trên toàn quốc.</p>

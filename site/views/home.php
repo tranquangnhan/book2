@@ -182,7 +182,7 @@
                             luận.Nội dung do cộng đồng đóng góp, đã qua kiểm duyệt để đảm bảo chất lượng.</p>
                         <div>
                             <a href="https://www.sachmem.vn/">
-                                <button class="btn btn-secondary py-2 px-3">sachmem.vn</button>
+                                <button class="btn btn-primary py-2 px-3">sachmem.vn</button>
                             </a>
                         </div>
                     </div>

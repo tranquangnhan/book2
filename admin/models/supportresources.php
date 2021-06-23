@@ -18,13 +18,13 @@ class Model_SpResources extends Model_db{
         return $this->exec1($sql,$id);
     }
     
-    function editSpResources($name, $class, $img, $link, $id) {
+    function editSpResources($name, $img, $link, $id) {
         if ($img != '') {
-            $sql = "UPDATE supportresources SET name = ?, class = ?, img = ?, link = ? WHERE id = ?";
-            return $this->exec1($sql, $name, $class, $img, $link, $id);
+            $sql = "UPDATE supportresources SET name = ?, img = ?, link = ? WHERE id = ?";
+            return $this->exec1($sql, $name, $img, $link, $id);
         } else {
-            $sql = "UPDATE supportresources SET name = ?, class = ?, link = ? WHERE id = ?";
-            return $this->exec1($sql, $name, $class, $link, $id);
+            $sql = "UPDATE supportresources SET name = ?, link = ? WHERE id = ?";
+            return $this->exec1($sql, $name, $link, $id);
         }
         
     }

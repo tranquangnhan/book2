@@ -13,10 +13,9 @@
                                 <tr>
                                     <th width="">STT</th>
                                     <th width="">Tên</th>           
-                                    <th width="">Hình</th>   
-                                    <th width="">Lớp</th>                                                            
-                                    <th width="">Link</th>                                    
-                                    <th width="10%">Xóa</th>
+                                    <th width="">Hình</th>                                                                                                
+                                    <th width="20%">Link</th>                                    
+                                    <!-- <th width="10%">Xóa</th> -->
                                     <th width="10%">Sửa</th>
                                 </tr>
                             </thead>
@@ -25,11 +24,6 @@
                             $stt = 0;
 
                             foreach ( $list as $row) {  
-                                if ($row['class'] == 0) {
-                                    $class = 'Mầm non';
-                                } else {
-                                    $class = 'Lớp ' . $row['class'];
-                                }
                                 $stt++;
                                 $img = PATH_IMG_SITE . $row['img'];
                                 
@@ -40,11 +34,9 @@
                                 <tr>
                                     <td><?=$stt?></td>
                                     <td class="" ><?=$row['name']?></td>
-                                    <td><img style="object-fit:cover;" class="img-admin" width="100" height="100" src="<?=$img?>"></td>
-                                    <td class="" ><?=$class?></td>
+                                    <td><img style="object-fit:cover;" class="img-admin" width="100" height="100" src="<?=$img?>"></td>                                    
                                     <td class="" ><a href="<?=$row['link']?>"><?=$row['link']?></a></td>                                                                  
-                                    
-                                    <td><div  onclick="checkDelete(<?=$linkDel?>)"  class="btn btn-danger" role="button"><i class="fa fa-trash"></i></div></td>
+                                                                        
                                     <td><a class="btn btn-primary" href="<?=$linkEdit?>" role="button"><span class="mdi mdi-pencil"></span></a></td>
                                 </tr>   
                                 <?php } ?>
