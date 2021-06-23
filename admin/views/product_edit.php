@@ -78,19 +78,13 @@
                                         </select>
                                     </div>                                                
                                 </div>  
-                                <?php
-                                    if($this->model->checkIsHavePart($_GET['id'])>=1){?>  
-                                    <div class="col-lg-3">
-                                        <input type="hidden" value="0" name="part">
-                                    </div>
                               
-                                <?php }else{?>
 
                                     <div class="col-lg-3">
                                     <div class="form-group">
-                                        <label for="">Phần 2</label><span style="color:red;"> (*)</span>
+                                        <label for="">Phần 1</label><span style="color:red;"> (*)</span>
                                             <select class="form-control" name="part"> 
-                                                <option value="0" selected>Chọn phần 2</option>                                 
+                                                <option value="0" selected>Chọn phần 1</option>                                 
                                                 <?php 
                                                     foreach ($productList as $row) {
                                                         if($row['id'] ==$oneRecode['part']){
@@ -103,7 +97,6 @@
                                             </select>
                                         </div>                                                
                                     </div>  
-                                <?php } ?>
 
                                 <div class="col-lg-2">
                                     <div class="form-group">
@@ -144,20 +137,26 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-6">
+                                <!-- <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Nhà xuất bản</label><span style="color:red;"> (*)</span>
                                         <input type="text" name="publishing"  parsley-trigger="change" required
-                                            placeholder="Nhà xuất bản ..." value="<?=$oneRecode['publishing']?>" class="form-control" >
+                                            placeholder="Nhà xuất bản ..." value="" class="form-control" >
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Link sản phẩm</label><span style="color:red;"> (*)</span>
                                         <input type="text" name="link"  parsley-trigger="change" required
                                             placeholder="link ..." value="<?=$oneRecode['link']?>" class="form-control" >
                                     </div>
-                                </div>              
+                                </div> 
+                                <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <label for="">Sách Mềm</label><span style="color:red;"></span>
+                                        <input type="checkbox" <?=($oneRecode['sachmem'] == 1)? 'checked':''?>  name="sachmem" class="form-control" >
+                                    </div>
+                                </div>                   
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -186,10 +185,10 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Link ứng dụng luyện từ vựng</label><span style="color:red;"></span>
-                                        <input type="text" name="linkudtuvung" value="<?=$oneRecode['linkudtuvung']?>" parsley-trigger="change"
-                                            placeholder="link ứng dụng từ vựng  ..." class="form-control" >
+                                        <input type="text" name="linkudluyentuvung" value="<?=$oneRecode['linkudluyentuvung']?>"  parsley-trigger="change"
+                                            placeholder="link ứng dụng luyện từ vựng ..." class="form-control" >
                                     </div>
-                                </div>              
+                                </div> 
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -230,17 +229,16 @@
                                         <input type="text" name="linkppct" value="<?=$oneRecode['linkppct']?>"  parsley-trigger="change"
                                             placeholder="link phân phối chương trình ..." class="form-control" >
                                     </div>
-                                </div>                
-                            </div>
-                            <div class="row">
+                                </div>  
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="">Link ứng dụng luyện từ vựng</label><span style="color:red;"></span>
-                                        <input type="text" name="linkudluyentuvung" value="<?=$oneRecode['linkudluyentuvung']?>"  parsley-trigger="change"
-                                            placeholder="link ứng dụng luyện từ vựng ..." class="form-control" >
+                                        <label for="">Link ảnh chi tiết</label><span style="color:red;"></span>
+                                        <input type="text" name="linkhoverimg" value="<?=$oneRecode['linkhoverimg']?>"  parsley-trigger="change"
+                                            placeholder="Link ảnh chi tiết ..." class="form-control" >
                                     </div>
-                                </div>                
+                                </div>                   
                             </div>
+                        
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">

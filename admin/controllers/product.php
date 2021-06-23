@@ -73,20 +73,18 @@ class Product
 
         if (isset($_POST['them']) && $_POST['them']) {
             $name = $this->lib->stripTags($_POST['name']);
-            $author = $_POST['author'];
-            $idcate = $_POST['idcate'];
-            $class = $_POST['class'];
-            $type = $_POST['type'];
-            $year = $_POST['year'];
-            $publishing = $_POST['publishing'];
-            $link = $_POST['link'];
-            $description = $_POST['description'];
-            $img = $_FILES['img'];
-
+            $author                 =   $_POST['author'];
+            $idcate                 =   $_POST['idcate'];
+            $class                  =   $_POST['class'];
+            $type                   =   $_POST['type'];
+            $year                   =   $_POST['year'];
+            // $publishing             =   $_POST['publishing'];
+            $link                   =   $_POST['link'];
+            $description            =   $_POST['description'];
+            $img                    =   $_FILES['img'];
             $linksachmengv          =   $_POST['linksachmengv'];
             $linksachmemhs          =   $_POST['linksachmemhs'];
             $linkSachGv             =   $_POST['linksachgv'];
-            $linkudtuvung           =   $_POST['linkudtuvung'];
             $linksachgv2            =   $_POST['linksachgv2'];
             $linkudnghenoi          =   $_POST['linkudnghenoi'];
             $linkdekiemtra          =   $_POST['linkdekiemtra'];
@@ -94,11 +92,12 @@ class Product
             $linkppct               =   $_POST['linkppct']; 
             $linkudluyentuvung      =   $_POST['linkudluyentuvung'];
             $linkudluyennghenoi     =   $_POST['linkudluyennghenoi'];      
+            $linkhoverimg           =   $_POST['linkhoverimg'];   
+            if (strcmp($_POST['sachmem'], 'on') === 0) $sachmem= 1; else $sachmem = 0;   
 
-
-            if(isset($_GET['id']) && $_GET['id'] && $_POST['part'] !=0){
-                $checkIsHavePart = $this->model->checkIsHavePart($_GET['id']);
-            }
+            // if(isset($_GET['id']) && $_GET['id'] && $_POST['part'] !=0){
+            //     $checkIsHavePart = $this->model->checkIsHavePart($_GET['id']);
+            // }
 
             $slug = $this->lib->slug($name);
 
@@ -133,11 +132,13 @@ class Product
                 $_SESSION['message'] = "Bạn chưa nhập tên tác giả";
             } else if ($year == "") {
                 $_SESSION['message'] = "Bạn chưa nhập năm";
-            } else if ($publishing == "") {
-                $_SESSION['message'] = "Bạn chưa nhập nhà xuất bản";
-            }else if($checkIsHavePart>=1) {
-                $_SESSION['message'] = "Lỗi! Sản phẩm đang là phần 2 ";
-            }
+            } 
+            // else if ($publishing == "") {
+            //     $_SESSION['message'] = "Bạn chưa nhập nhà xuất bản";
+            // }
+            // else if($checkIsHavePart>=1) {
+            //     $_SESSION['message'] = "Lỗi! Sản phẩm đang là phần 2 ";
+            // }
                 
         
             if ($_SESSION['message']) {
@@ -153,27 +154,28 @@ class Product
 
                     $slug = $slug . '-' . $id;
   
-
                   
                     $this->edit(
                      $name, $slug, $imgs, $type, $class, 
-                     $author, $publishing, $year, $description, $link,$part,
+                     $author, $year, $description, $link,$part,
                      $linksachmengv,$linksachmemhs ,$linkSachGv,
-                     $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                     $linksachgv2,$linkudnghenoi,
                      $linkdekiemtra,$linkstoryland,$linkppct,
                      $linkudluyentuvung,$linkudluyennghenoi,
+                     $linkhoverimg,$sachmem,
                      $idcate, $id);
 
                 } else {                    
                     $slug = $slug . '-' . ($this->model->getLastestIdProduct() + 1);
-
+                  
                     $this->store(
                      $name, $slug, $imgs, $type, $class, 
-                     $author, $publishing, $year, $description, $link,
+                     $author, $year, $description, $link,
                      $linksachmengv,$linksachmemhs ,$linkSachGv,
-                     $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                     $linksachgv2,$linkudnghenoi,
                      $linkdekiemtra,$linkstoryland,$linkppct,
                      $linkudluyentuvung,$linkudluyennghenoi,
+                     $linkhoverimg,$sachmem,
                     $idcate);
                 }
             }
@@ -185,21 +187,23 @@ class Product
 
     public function store(
         $name, $slug, $imgs, $type, $class, 
-        $author, $publishing, $year, $description, $link,
+        $author, $year, $description, $link,
         $linksachmengv,$linksachmemhs ,$linkSachGv,
-        $linkudtuvung,$linksachgv2,$linkudnghenoi,
+        $linksachgv2,$linkudnghenoi,
         $linkdekiemtra,$linkstoryland,$linkppct,
         $linkudluyentuvung,$linkudluyennghenoi,
+        $linkhoverimg,$sachmem,
         $idcate
         )
         {
         $idLastBook = $this->model->addNewProduct(
          $name, $slug, $imgs, $type, $class, 
-         $author, $publishing, $year, $description, $link,
+         $author, $year, $description, $link,
          $linksachmengv,$linksachmemhs ,$linkSachGv,
-         $linkudtuvung,$linksachgv2,$linkudnghenoi,
+         $linksachgv2,$linkudnghenoi,
          $linkdekiemtra,$linkstoryland,$linkppct,
          $linkudluyentuvung,$linkudluyennghenoi,
+         $linkhoverimg,$sachmem,
         $idcate);
         
         if($idLastBook != null) {
@@ -215,24 +219,24 @@ class Product
     }
 
     public function edit(
-    $name, $slug, $imgs, $type, $class, 
-    $author, $publishing, $year, $description, $link,$part,
-    $linksachmengv,$linksachmemhs ,$linkSachGv,
-    $linkudtuvung,$linksachgv2,$linkudnghenoi,
-    $linkdekiemtra,$linkstoryland,$linkppct,
-    $linkudluyentuvung,$linkudluyennghenoi,
-    $idcate, $id
-    )
-    {
-        
-
-        if($this->model->editProduct(
         $name, $slug, $imgs, $type, $class, 
-        $author, $publishing, $year, $description, $link,$part,
+        $author, $year, $description, $link,$part,
         $linksachmengv,$linksachmemhs ,$linkSachGv,
-        $linkudtuvung,$linksachgv2,$linkudnghenoi,
+        $linksachgv2,$linkudnghenoi,
         $linkdekiemtra,$linkstoryland,$linkppct,
         $linkudluyentuvung,$linkudluyennghenoi,
+        $linkhoverimg,$sachmem,
+        $idcate, $id
+    )
+    {   
+        if($this->model->editProduct(
+        $name, $slug, $imgs, $type, $class, 
+        $author, $year, $description, $link,$part,
+        $linksachmengv,$linksachmemhs ,$linkSachGv,
+        $linksachgv2,$linkudnghenoi,
+        $linkdekiemtra,$linkstoryland,$linkppct,
+        $linkudluyentuvung,$linkudluyennghenoi,
+        $linkhoverimg,$sachmem,
         $idcate, $id))
         {
             echo "<script>alert('Sửa thành công')</script>";

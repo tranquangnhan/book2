@@ -76,12 +76,16 @@
                         }
                     ?>                                
                     <?php foreach ($listProduct as $product) { 
-                        $link = ROOT_URL."/sach/".$product['slug'];
+                        if($product['sachmem'] ==1 ){
+                            $link =$product['link'];
+                        }else{
+                            $link = ROOT_URL."/sach/".$product['slug'];
+                        }
                     ?>
                     <div class="col-md-4 product-item d-flex align-items-stretch ftco-animate">
                         <div class="project-wrap">
                             <a href="<?=$link?>" class="img" style="background-image: url('<?=PATH_IMG_SITE?>/<?= $product['img']?>');">
-                                <span class="price">Sách</span>
+                                <span class="price">Sách <?=($product['type'] == 1)? "Học Sinh": "Giáo Viên"?> </span>
                             </a>
                             <div class="text p-4">
                                 <h3><a href="<?=$link?>"><?= $product['name'] ?></a></h3>

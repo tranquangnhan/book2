@@ -13,11 +13,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 pl-md-5 py-5">
+                                <div class="col-md-6 pl-md-5 ">
                                     <div class="row justify-content-start pb-3">
                                         <div class="col-md-12 heading-section ftco-animate">
-                                            <span class="subheading"><?=$oneproduct['publishing']?></span>
-                                            <h2 class="mb-4"><?=$oneproduct['name']?></h2>
+                                            <h2><?=$oneproduct['name']?></h2>
                                             <p>Năm xuất bản: <?=$oneproduct['year']?></p>
                                             <p>Tác giả: <?=$oneproduct['author']?>
                                             </p>
@@ -55,14 +54,14 @@
                                     Dành Cho Giáo Viên
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Sách Mềm giáo viên</a>
-                                    <a class="dropdown-item" href="#">Sách Mềm học sinh</a>
-                                    <a class="dropdown-item" href="<?=$oneproduct['linkgv']?>">Sách giáo viên </a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linksachmengv']?>">Sách Mềm giáo viên</a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linkgv']?>">Sách mềm giáo viên tập 1 </a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linksachgv2']?>">Sách mềm giáo viên tập 2 </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Đề kiểm tra</a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linkdekiemtra']?>">Đề kiểm tra</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Ứng dụng Luyện từ vựng</a>
-                                    <a class="dropdown-item" href="#">Story Land</a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linkppct']?>">Phân phối chương trình</a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linkudluyennghenoi']?>">Ứng dụng luyện nghe - nói</a>
                                 </div>
                             </div>
                             <div class="btn-group">
@@ -71,11 +70,10 @@
                                     Dành Cho Học Sinh
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linksachmemhs']?>">Sách mềm học sinh</a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linkudluyentuvung']?>">Ứng dụng luyện từ vựng</a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linkudluyennghenoi']?>">Ứng dụng luyện nghe nói</a>
+                                    <a class="dropdown-item" href="<?=$oneproduct['linkstoryland']?>">Story land</a>
                                 </div>
                             </div>
                             <br><br>

@@ -153,7 +153,7 @@ class blogs
             $id = $_GET['id'];
             settype($id, "int");
 
-            if ($this->model->deleteBlog($id)) {
+            if ($this->modelBlogs->deleteBlog($id)) {
                 echo "<script>alert('Xoá thành công')</script>";
                 header("location: ?ctrl=blogs");
             } else {

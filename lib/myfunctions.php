@@ -59,6 +59,41 @@ class lib{
         }
         return $thuoctinh;
     }
+    
+    function makeCleanText(string $String)
+    {
+        
+        $String = str_replace("`", "", $String);
+        $String = str_replace("~", "", $String);
+        $String = str_replace("!", "", $String);
+        $String = str_replace("@", "", $String);
+        $String = str_replace("#", "", $String);
+        $String = str_replace("$", "", $String);
+        $String = str_replace("%", "", $String);
+        $String = str_replace("%", "", $String);
+        $String = str_replace("^", "", $String);
+        $String = str_replace("&", "", $String);
+        $String = str_replace("*", "", $String);
+        $String = str_replace("(", "", $String);
+        $String = str_replace(")", "", $String);
+        $String = str_replace("-", "", $String);
+        $String = str_replace("_", "", $String);
+        $String = str_replace("+", "", $String);
+        $String = str_replace("=", "", $String);
+        $String = str_replace("[", "", $String);
+        $String = str_replace("]", "", $String);
+        $String = str_replace(";", "", $String);
+        $String = str_replace(":", "", $String);
+        $String = str_replace('"', "", $String);
+        $String = str_replace("/", "", $String);
+        $String = str_replace(".", "", $String);
+        $String = str_replace(",", "", $String);
+        $String = str_replace("<", "", $String);
+        $String = str_replace(">", "", $String);
+        $String = str_replace("?", "", $String);
+        return $String;
+    }
+
     function slug($str)
     {
         // $str = strtolower($str) ;
@@ -81,7 +116,7 @@ class lib{
                 $arr=explode("|",$codau);
                 $str = str_replace($arr,$khongdau,$str);
         }
-        $str = str_replace(["%","$","*","&","?","!","#","@","^","+","=",":",",",".","/","|",";","'",'"',"-","“","”","{","}",")","("],"",$str);
+        $str = $this->makeCleanText($str);
         $str = trim($str);
         $str = strtolower($str);
         $str = preg_replace('/\s+/', ' ', $str);
