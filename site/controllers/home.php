@@ -187,18 +187,12 @@ class Home
         $slug           = $_GET['slug'];
         $oneproduct     = $this->model->getOnePro($slug);
         $getLastestNews = $this->modelBlogs->getLastestNews();
-        $slugPart1      =  $this->model->getSlugByPart($oneproduct['id']);        
-        $slugPart2      =   $this->model->getSlugById($oneproduct['id']);
+        
+        $slugPart1      =   $this->model->getSlugById($oneproduct['id']);
+        $slugPart2      =  $this->model->getSlugByPart($oneproduct['id']);        
+     
         $checkOnePart   = $this->model->checkOnePart();
-        // print_r($checkOnePart[0]);
-        foreach ($checkOnePart as $row) {
-            if($row['part'] == $oneproduct['id'] ||$row['id']==  $oneproduct['id'] ){
-                echo "11";
-            }
-        }
-        // if (in_array($oneproduct['id'], $checkOnePart['id'])) {
-        //     echo "Got Irix";
-        // }
+        
         if($this->model->getSlugByPart($oneproduct['id']) == ''){
             $slugPart1 = $this->model->getSlugById($oneproduct['id']);
             $slugPart2 =  $this->model->getSlugById($oneproduct['part']);
@@ -228,6 +222,7 @@ class Home
         $getLastestNews = $this->modelBlogs->getLastestNews();
         $idCateFirst    = $categories[0]['id'];
         $where          = ' type = 1 ';
+        
         $listProduct    = $this->model->getProductLimit($where);        
         $allproduct     = $this->model->getProductStudent();        
         $AmountProduct  = count($allproduct);
@@ -354,21 +349,56 @@ class Home
     }
 
     public function contact() {
+        require '../lib/vendor/autoload.php'; 
+       
+
         $abouts = $this->model->getAbouts();
+
         if(isset($_POST['submitMessage'])){
             $name = strip_tags(trim($_POST['name']));
-            $email = strip_tags(trim($_POST['email']));
+            $gmail = strip_tags(trim($_POST['email']));
             $subject = strip_tags(trim($_POST['subject']));
             $message = strip_tags(trim($_POST['message']));
-            if($name == '' || $email == ''|| $subject=='' ||$message == '' ){
-               echo '<script>alert("Bạn chưa điền đủ thông tin !")</script>';
-            }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) ){
+            if($name == '' || $gmail == ''|| $subject=='' ||$message == '' ){
+            echo '<script>alert("Bạn chưa điền đủ thông tin !")</script>';
+            }elseif(!filter_var($gmail, FILTER_VALIDATE_EMAIL) ){
                 echo '<script>alert("Email không đúng định dạng !")</script>';
             }else{
-               $this->model->storeContact($name,$email,$subject,$message);
-               echo '<script>alert("Cảm ơn! Chúng tôi sẽ liên hệ bạn sớm nhất !")</script>';
+            $this->model->storeContact($name,$gmail,$subject,$message);
+
+            $email = new \SendGrid\Mail\Mail();
+            
+
+            $email->addTo("tranquangnhan1606@gmail.com","Website book"); 
+            $email -> setFrom('thanhnutruyenky86@gmail.com', 'Website book');
+
+            $email->setSubject("Thư liên hệ từ website");
+
+            $email -> addDynamicTemplateData('UserName', $name);
+            $email -> addDynamicTemplateData('email', $gmail);
+            $email -> addDynamicTemplateData('subject', $subject);
+            $email -> addDynamicTemplateData('message', $message);
+            
+            $email -> setTemplateId('d-e8b90235142b4e9b9b1ed83f66b01b51');
+       
+            
+            $sendgrid = new \SendGrid('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');
+            
+            try {
+                $response = $sendgrid->send($email);
+                if($response->statusCode()){
+                    echo '<script>alert("Cảm ơn! Chúng tôi sẽ liên hệ bạn sớm nhất !")</script>';
+                }
+            } catch (Exception $e) {
+                echo 'Caught exception: '. $e->getMessage() ."\n";
+            }   
+
             } 
-         }
+        
+
+            
+        }
+      
         $page_title   = "Liên Hệ - EngBook";
         $viewFile     = "views/contact.php";     
         $css          = "contact.css";         

@@ -9,27 +9,29 @@ class Model_product extends Model_db{
    
     public function addNewProduct( 
                 $name, $slug, $imgs, $type, $class, 
-                $author, $publishing, $year, $description, $link,
+                $author, $year, $description, $link,
                 $linksachmengv,$linksachmemhs ,$linkSachGv,
-                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linksachgv2,$linkudnghenoi,
                 $linkdekiemtra,$linkstoryland,$linkppct,
                 $linkudluyentuvung,$linkudluyennghenoi,
+                $linkhoverimg,$sachmem,
                 $idcate
     )
     {
         $sql = "
                 INSERT INTO book(
-                name, slug, img, type, class, author, publishing, 
+                name, slug, img, type, class, author, 
                 year, description,link,linksachmengv,linksachmemhs,
-                linkgv,linkudtuvung,linksachgv2,linkudnghenoi,
+                linkgv,linksachgv2,linkudnghenoi,
                 linkdekiemtra,linkstoryland,linkppct,linkudluyentuvung,
-                linkudluyennghenoi, idcate) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                linkudluyennghenoi,linkhoverimg,sachmem, idcate) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         return $this->getLastId($sql,  $name, $slug, $imgs, $type, $class, 
-                $author, $publishing, $year, $description, $link,
+                $author, $year, $description, $link,
                 $linksachmengv,$linksachmemhs ,$linkSachGv,
-                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linksachgv2,$linkudnghenoi,
                 $linkdekiemtra,$linkstoryland,$linkppct,
                 $linkudluyentuvung,$linkudluyennghenoi,
+                $linkhoverimg,$sachmem,
                 $idcate);
     }
 
@@ -41,50 +43,55 @@ class Model_product extends Model_db{
     
     function editProduct( 
                 $name, $slug, $imgs, $type, $class, 
-                $author, $publishing, $year, $description, $link,$part,
+                $author, $year, $description, $link,$part,
                 $linksachmengv,$linksachmemhs ,$linkSachGv,
-                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linksachgv2,$linkudnghenoi,
                 $linkdekiemtra,$linkstoryland,$linkppct,
                 $linkudluyentuvung,$linkudluyennghenoi,
+                $linkhoverimg,$sachmem,
                 $idcate, $id
         ){
         if($imgs == "")
         {
         $sql = "UPDATE book SET name = ?, slug = ?,
-                type = ?, class = ?, author = ?, publishing = ?,
+                type = ?, class = ?, author = ?,
                 year = ?, description = ?, link = ?, part=?,linksachmengv=?,
-                linksachmemhs=?,linkgv=?,linkudtuvung=?,linksachgv2=?,
+                linksachmemhs=?,linkgv=?,linksachgv2=?,
                 linkudnghenoi=?,linkdekiemtra=?,linkstoryland=?,linkppct=?,
-                linkudluyentuvung=?,linkudluyennghenoi	=?,
+                linkudluyentuvung=?,linkudluyennghenoi	=?,linkhoverimg=?,
+                sachmem=?,
                 idcate = ?  WHERE id=?";
         return $this->SqlExecDebug(
                 $sql,  $name, $slug, $type, $class, 
-                $author, $publishing, $year, 
+                $author, $year, 
                 $description,
                 $link,$part,
                 $linksachmengv,$linksachmemhs ,$linkSachGv,
-                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linksachgv2,$linkudnghenoi,
                 $linkdekiemtra,$linkstoryland,$linkppct,
                 $linkudluyentuvung,$linkudluyennghenoi,
+                $linkhoverimg,$sachmem,
                 $idcate, $id
         );
 
         }else
         {
         $sql = "UPDATE book SET name = ?, slug = ?, img= ?,
-                type = ?, class = ?, author = ?, publishing = ?,
+                type = ?, class = ?, author = ?,
                 year = ?, description = ?, link = ?, part=?,linksachmengv=?,
-                linksachmemhs=?,linkgv=?,linkudtuvung=?,linksachgv2=?,
+                linksachmemhs=?,linkgv=?,linksachgv2=?,
                 linkudnghenoi=?,linkdekiemtra=?,linkstoryland=?,linkppct=?,
-                linkudluyentuvung=?,linkudluyennghenoi	=?,
+                linkudluyentuvung=?,linkudluyennghenoi	=?,linkhoverimg=?,
+                sachmem=?,
                 idcate = ?  WHERE id=?";
         return $this->exec1(
                 $sql,$name, $slug, $imgs, $type, $class, 
-                $author, $publishing, $year, $description, $link,$part,
+                $author, $year, $description, $link,$part,
                 $linksachmengv,$linksachmemhs ,$linkSachGv,
-                $linkudtuvung,$linksachgv2,$linkudnghenoi,
+                $linksachgv2,$linkudnghenoi,
                 $linkdekiemtra,$linkstoryland,$linkppct,
                 $linkudluyentuvung,$linkudluyennghenoi,
+                $linkhoverimg,$sachmem,
                 $idcate, $id);
         }
     }

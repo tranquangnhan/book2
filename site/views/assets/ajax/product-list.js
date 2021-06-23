@@ -37,9 +37,9 @@ if (level == 1) {
     ];
 } else {
     var filterOb = [
-        { 'type': ["1"] },
-        { 'class': ["0"] },
-        { 'category': [firstIdCategory] }
+        { 'type': [] },
+        { 'class': [] },
+        { 'category': [] }
     ];
 }
 
@@ -49,31 +49,31 @@ var timeRequest;
 
 //////// trang teacher ////////
 var classe = 100;
-$('.btn.show-option').click(function (e) { 
+$('.btn.show-option').click(function(e) {
     e.preventDefault();
     if (!$(this).hasClass('active')) {        
         if ($(this).hasClass('product')) {
             if ($('.filter.class').parent('.active')) {
                 $('.filter.class').parent('.active').removeClass('active');
-                var needActive = $('[data-class='+ filterOb[1].class[0] +']').parent();
+                var needActive = $('[data-class=' + filterOb[1].class[0] + ']').parent();
                 needActive.addClass('active');
-            }        
+            }
             pageNumber = $('.pageNumber').val();
         }
 
         if ($(this).hasClass('support-resources')) {
             if ($('.filter.class').parent('.active')) {
                 $('.filter.class').parent('.active').removeClass('active');
-                var needActive = $('[data-class='+ classe +']').parent();
+                var needActive = $('[data-class=' + classe + ']').parent();
                 needActive.addClass('active');
-            }        
+            }
             pageNumber = $('.pageNumberTeacher').val();
-        } 
-    }    
+        }
+    }
     console.log(pageNumber);
 });
 
-$('.filter').click(function(e) { 
+$('.filter').click(function(e) {
     e.preventDefault();
     if ($('.support-resources').hasClass('option-active')) {
         // checkReloadPage = true;
@@ -119,9 +119,9 @@ $('.filter').click(function(e) {
 
                 findAndDeleteItemInArray(dataClass, keyFilter);
             } else {
-                var elementActive = $('.filter.class').parent('.active');            
+                var elementActive = $('.filter.class').parent('.active');
                 elementActive.removeClass('active');
-                
+
                 $(this).parent().addClass('active');
                 filterOb[1].class[0] = keyFilter;
             }
@@ -154,7 +154,7 @@ $('.filter').click(function(e) {
                     filterOb[2].category[0] = keyFilter;
                 }
                 $(this).parent().removeClass('btn-dark');
-                $(this).parent().addClass('btn-primary');                    
+                $(this).parent().addClass('btn-primary');
             }
         }
         var url = `${baseUrlSite}/site/controllers/ajax/product.php`;
@@ -252,14 +252,21 @@ function setDataAndRequest(filterOb, form, url) {
 }
 
 function htmlProductItem(product) {
+    var link = '';
+    if (product['sachmem'] == 1) {
+        link = product['link'];
+    } else {
+        link = `${baseUrlSite}/sach/${product['slug']}`;
+    }
+
     var html = `
     <div class="col-md-4 d-flex product-item align-items-stretch ftco-animate fadeInUp ftco-animated">
         <div class="project-wrap">
-            <a href="${baseUrlSite}/sach/${product['slug']}" class="img" style="background-image: url('${baseUrlSite}/uploads/` + product['img'] + `');">
-                <span class="price">Sách</span>
+            <a href="${link}" class="img" style="background-image: url('${baseUrlSite}/uploads/` + product['img'] + `');">
+                <span class="price">Sách ${(product['type'] == 2)? 'Giáo Viên': 'Học Sinh'}</span>
             </a>
             <div class="text p-4">
-                <h3><a href="${baseUrlSite}/sach/${product['slug']}">${product['name']}</a></h3>
+                <h3><a href="${link}">${product['name']}</a></h3>
                 <p class="advisor limit-content-2">Tác Giả: <span>${product['author']}</span></p>
             </div>
         </div>

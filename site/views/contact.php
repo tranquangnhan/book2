@@ -44,7 +44,7 @@
                                             <div class="form-group">
                                                 <label class="label" for="#">Lời Nhắn</label>
                                                 <textarea name="message" class="form-control" id="message" cols="30"
-                                                    rows="4" placeholder="Message"><?php if(isset($_POST['message'])) echo $_POST['message'];?>"</textarea>
+                                                    rows="4" placeholder="Message"><?php if(isset($_POST['message'])) echo $_POST['message'];?></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">

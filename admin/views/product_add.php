@@ -113,20 +113,20 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="">Nhà xuất bản</label><span style="color:red;"> (*)</span>
-                                        <input type="text" name="publishing"  parsley-trigger="change" required
-                                            placeholder="Nhà xuất bản ..."  class="form-control" >
-                                    </div>
-                                </div>
+                              
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Link sản phẩm</label><span style="color:red;"> (*)</span>
                                         <input type="text" name="link"  parsley-trigger="change" required
                                             placeholder="link ..."  class="form-control" >
                                     </div>
-                                </div>              
+                                </div>       
+                                  <div class="col-lg-2">
+                                    <div class="form-group">
+                                        <label for="">Sách Mềm</label><span style="color:red;"></span>
+                                        <input type="checkbox" name="sachmem"  class="form-control" >
+                                    </div>
+                                </div>       
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -155,11 +155,12 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Link ứng dụng luyện từ vựng</label><span style="color:red;"></span>
-                                        <input type="text" name="linkudtuvung"  parsley-trigger="change"
-                                            placeholder="link ứng dụng từ vựng  ..." class="form-control" >
+                                        <input type="text" name="linkudluyentuvung"  parsley-trigger="change"
+                                            placeholder="link ứng dụng luyện từ vựng ..." class="form-control" >
                                     </div>
-                                </div>              
+                                </div>    
                             </div>
+                         
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -199,17 +200,16 @@
                                         <input type="text" name="linkppct"  parsley-trigger="change"
                                             placeholder="link phân phối chương trình ..." class="form-control" >
                                     </div>
-                                </div>                
-                            </div>
-                            <div class="row">
+                                </div>    
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="">Link ứng dụng luyện từ vựng</label><span style="color:red;"></span>
-                                        <input type="text" name="linkudluyentuvung"  parsley-trigger="change"
-                                            placeholder="link ứng dụng luyện từ vựng ..." class="form-control" >
+                                        <label for="">Link ảnh chi tiết</label><span style="color:red;"></span>
+                                        <input type="text" name="linkhoverimg"  parsley-trigger="change"
+                                            placeholder="Link ảnh chi tiết ..." class="form-control" >
                                     </div>
                                 </div>                
                             </div>
+                           
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">

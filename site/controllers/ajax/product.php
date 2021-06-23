@@ -86,8 +86,8 @@ require_once "../../../system/config.php";
                 $dataProducts = $model->getProductsBySql($sql);
                 
             } else {                                           
-                $dataProducts = $model->getProductNoWhere();
-                $amountProduct = $model->getAmountAllProduct();
+                $dataProducts = $model->getProductDefault($form);
+                $amountProduct = $model->getAmountProductDefault();
                 
                 // $dataProducts = '';
             }
