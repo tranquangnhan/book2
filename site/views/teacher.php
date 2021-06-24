@@ -94,11 +94,11 @@
                             <div class="col-md-4 product-item d-flex align-items-stretch ftco-animate">
                                 <div class="project-wrap">
                                     <a href="<?=$link?>" class="img" style="background-image: url(<?=PATH_IMG_SITE?><?= $product['img']?>);">
-                                        <span class="price">Sách <?=($product['type'] == 1)? "Học Sinh": "Giáo Viên"?></span>
                                     </a>
                                     <div class="text p-4">
-                                        <h3><a href="<?=$link?>"><?= $product['name'] ?></a></h3>
-                                        <p class="advisor">Tác Giả: <span><?= $product['author'] ?></span></p>
+                                        <p class="advisor m-0 limit-content-2"><span>Sách <?=($product['type'] == 1)? "Học Sinh": "Giáo Viên"?> </span></p>    
+                                        <h3><a class="limit-content-2" href="<?=$link?>"><?= $product['name'] ?></a></h3>
+                                        <p class="advisor limit-content-1">Tác Giả: <span><?= $product['author'] ?></span></p>
                                     </div>
                                 </div>
                             </div>
