@@ -239,6 +239,7 @@ class Home
 
     public function teacher() {
         $abouts         = $this->model->getAbouts();
+        
         $page_title     = "Giáo Viên - EngBook";
         $viewFile       = "views/teacher.php";
         $css            = "teacher.css";    

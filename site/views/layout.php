@@ -78,17 +78,17 @@
                     <li class="nav-item <?php echo ($viewFile == "views/home.php") ? 'bar-active active' : '' ?>">
                         <a href="<?=ROOT_URL?>" class="nav-link">Trang Chủ</a>
                     </li>
-                    <li class="nav-item dropdown-2 <?php echo ($viewFile == "views/about.php") ? 'bar-active active' : '' ?>">
+                    <li class="nav-item dropdown-2 aboutDropdown <?php echo ($viewFile == "views/about.php") ? 'bar-active active' : '' ?>">
                         <a href="<?=ROOT_URL?>/gioi-thieu" class="nav-link">Giới Thiệu</a>
                         <ul class="dropdown-hover-2">
-                            <li><a href="<?=ROOT_URL?>/gioi-thieu">Giới thiệu chung</a></li>
+                            <li class="about-item"><a href="<?=ROOT_URL?>/gioi-thieu">Giới thiệu chung</a></li>
                             <?php foreach($abouts as $about) { 
                                 if ($about['link'] == '') { ?>
-                                    <li><a href="<?=SITE_URL?>?act=about&id=<?=$about['id']?>"><?=$about['name']?></a></li>
+                                    <li class="about-item"><a href="<?=SITE_URL?>?act=about&id=<?=$about['id']?>"><?=$about['name']?></a></li>
                                 <?php } else { ?>
-                                    <li><a href="<?=$about['link']?>"><?=$about['name']?></a></li>
+                                    <li class="about-item"><a href="<?=$about['link']?>"><?=$about['name']?></a></li>
                             <?php } 
-                            }?>                            
+                            } ?>                            
                         </ul>
                     </li>
 

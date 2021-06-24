@@ -1,8 +1,4 @@
 // another config
-
-
-
-// another config
 (function($) {
 
 	
@@ -478,3 +474,22 @@ function reloadPage() {
     removeAndAddNewLi(html);
 }
 
+$('.aboutDropdown').hover(function () {
+    var lengthItem = $('.about-item').length;
+    for (let i = 0; i < lengthItem; i++) {
+        if (i > 0) {
+            var delay = i * 150;
+        } else {
+            var delay = -150;
+        }
+        
+        $('.about-item:eq('+i+')').css({            
+            'animation': 'rotaX 300ms ease-in-out forwards',
+            'animation-delay': delay + 'ms'
+        });
+    }
+        
+    }, function () {
+        // out
+    }
+);
