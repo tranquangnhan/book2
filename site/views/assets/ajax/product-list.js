@@ -262,10 +262,10 @@ function htmlProductItem(product) {
     var html = `
     <div class="col-md-4 d-flex product-item align-items-stretch ftco-animate fadeInUp ftco-animated">
         <div class="project-wrap">
-            <a href="${link}" class="img" style="background-image: url('${baseUrlSite}/uploads/` + product['img'] + `');">
-                <span class="price">Sách ${(product['type'] == 2)? 'Giáo Viên': 'Học Sinh'}</span>
+            <a href="${link}" class="img" style="background-image: url('${baseUrlSite}/uploads/` + product['img'] + `');">                
             </a>
             <div class="text p-4">
+                <p class="advisor m-0 limit-content-2"><span>Sách ${(product['type'] == 2)? 'Giáo Viên': 'Học Sinh'}</span></p>    
                 <h3><a href="${link}">${product['name']}</a></h3>
                 <p class="advisor limit-content-2">Tác Giả: <span>${product['author']}</span></p>
             </div>

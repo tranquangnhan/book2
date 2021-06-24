@@ -119,7 +119,7 @@ div#kind-carousel {
 .owl-nav {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 0%;
     top: 0px;
     left: 0px;
 }
@@ -156,8 +156,10 @@ div#kind-carousel {
     opacity: 0;
 }
 
-.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev, .owl-carousel {
     padding: 0px 0px !important;
+    position: absolute;    
+    height: 450px!important;
 }
 
 .owl-nav .owl-prev:hover {

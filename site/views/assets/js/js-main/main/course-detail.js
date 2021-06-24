@@ -3,12 +3,14 @@ $('#kind-carousel').owlCarousel({
     nav: true,
     pagination: true,
     loop:true,
-    dots: false,
+    dots: true,
     margin: 10,
 
-    // autoplay: true,
-    // autoplayTimeout: true,
-    // autoplaySpeed: 20000/true,
+    items:3,
+    autoplayHoverPause:true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    // autoplaySpeed: 1000/true,
     responsive:{
         0:{
             items:1
@@ -21,3 +23,4 @@ $('#kind-carousel').owlCarousel({
         }
     }
 })
+

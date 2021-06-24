@@ -6,7 +6,7 @@
                     <div class="row d-flex">
                         <div class="col-md-12 about-intro">
                             <div class="row">
-                                <div class="col-md-6 d-flex">
+                                <div class="col-md-6 d-flex" style="height: 360px">
                                     <div class="d-flex about-wrap">
                                         <div class="imgbig-detail d-flex align-items-center justify-content-center"
                                             style="background-image:url('<?=PATH_IMG_SITE.explode(',',$oneproduct['img'])[0]?>');">
@@ -102,21 +102,21 @@
                                             </div>
                                         <?php } ?> 
                                     <?php } else { ?>
-                                    <div class="owl-carousel owl-theme slide-video d-flex" id="kind-carousel">                                                                                                                             
+                                    <div class="owl-carousel owl-theme" id="kind-carousel">                                                                                                                             
                                         <?php foreach ($getProductsSameClass as $row) {
                                             $link =SITE_URL . '?act=productdetail&slug='.$row['slug'];
                                             $img = PATH_IMG_SITE.explode(",",$row['img'])[0]; ?>
                                             
-                                            <div class="item slide-video-item">
-                                                <div class="w-100 d-flex align-items-stretch ftco-animate">
+                                            <div class="item">
+                                                <div class="w-100 ">
                                                     <div class="project-wrap">
                                                         <a href="'.$link .'" class="img-product position-relative"
-                                                            style="background-image: url('<?=$img?>');">
-                                                            <span class="price">Sách</span>
+                                                            style="background-image: url('<?=$img?>');">                                                            
                                                         </a>
                                                         <div class="text p-4">
+                                                            <p class="advisor m-0 limit-content-1"><span>Sách <?=($row['type'] == 1)? "Học Sinh": "Giáo Viên"?> </span></p>    
                                                             <h3><a class="limit-content-2" href="'.$link .'"><?=$row['name']?></a></h3>
-                                                            <p class="advisor limit-content-2">Tác Giả: <span><?=$row['author']?></span></p>
+                                                            <p class="advisor limit-content-1">Tác Giả: <span><?=$row['author']?></span></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -124,10 +124,11 @@
 
                                         <?php } ?>                                    
                                     </div>
-                                <?php }?>  
+                                    <?php } ?>
+                                                                
                                 </div>
                             </div>
-                            <hr>
+                            <hr class="mt-4">
                             <div class="detail-tittle">
                                 <h2 style="color: white;">Đầu Mối Phát Hành</h2>
                             </div>

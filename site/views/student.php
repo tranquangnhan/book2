@@ -83,8 +83,8 @@
                                 }
                             ?>                                
                             <?php foreach ($listProduct as $product) { 
-                                if($product['sachmem'] ==1 ){
-                                    $link =$product['link'];
+                                if($product['sachmem'] == 1){
+                                    $link = $product['link'];
                                 }else{
                                     $link = ROOT_URL."/sach/".$product['slug'];
                                 }

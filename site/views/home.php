@@ -234,9 +234,8 @@
                         ?>
                         <div class="w-100 left-item-video">
                             <div class="row">
-                                <div class="col-4 p-0">
-                                    <a href="<?=$link2?>"><img src="<?=$img2?>" alt="" class="img-fluid"></a>
-                                </div>
+                                <a href="<?=$link2?>" class="col-4 p-0 bg-image-fix" style="background: url(<?=$img2?>); min-height: 80px;"></a>
+
                                 <div class="col-8">
                                     <a href="<?=$link2?>"><h4 class="m-0 p-0 title-1"><?=$blog2['name']?>
                                     </h4></a>
@@ -263,16 +262,17 @@
             <div class="owl-carousel owl-theme slide-video" id="video-carousel">
                <?php
                 foreach ( $video as $row) {
-                  echo '    <div class="item slide-video-item">
-                                <iframe  class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/'.$row['linkyoutube'].'"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                                <div class="title color-main">
-                                    <h4 class="m-0 p-0 title-2"><a class="color-black limit-content-2"
-                                            href="https://www.youtube.com/watch?v='.$row['linkyoutube'].'">'.$row['name'].'</a></h4>
-                                </div>
-                            </div>';
+                  echo '    
+                    <div class="item slide-video-item">
+                        <iframe  class="lazyload" width="100%" height="100%" data-src="https://www.youtube.com/embed/'.$row['linkyoutube'].'"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <div class="title color-main">
+                            <h4 class="m-0 p-0 title-2"><a class="color-black limit-content-2"
+                                    href="https://www.youtube.com/watch?v='.$row['linkyoutube'].'">'.$row['name'].'</a></h4>
+                        </div>
+                    </div>';
                 }
                            
                ?>

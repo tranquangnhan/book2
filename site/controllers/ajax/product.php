@@ -79,7 +79,7 @@ require_once "../../../system/config.php";
                 $amountProduct = count($amountProduct);
             }
 
-            $sql .= ' ORDER BY id DESC limit ';
+            $sql .= ' ORDER BY class ASC limit ';
             $sql .= $form . ' , 9';
 
             if ($sqlCheck === true || $form > 0) {

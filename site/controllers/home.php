@@ -126,8 +126,8 @@ class Home
     public function products() {
         $page_title     = "Sản Phẩm - EngBook";
         $viewFile       = "views/product-list.php";
-        $namePage       = "Sản Phẩm";        
-        $js             = ["product-list.js"];
+        $namePage       = "Sản Phẩm";                
+        $js             = ["product-list.js", "sticky.js"];
         $ajax           = ["product-list.js"];
         $categories     = $this->model->getCategories();
         $getLastestNews = $this->modelBlogs->getLastestNews();
@@ -146,8 +146,9 @@ class Home
                         
                 if ($level == 1) {
                     $namePage2     = 'SÁCH TIẾNG ANH MẦM NON';
-                    $listProduct   = $this->model->getProductsByClass('0');                
-                    $AmountProduct = $this->model->countProductsByTypes('', '0', '');
+                    $listProduct   = $this->model->getProductsByClass(0);                
+                    $AmountProduct = $this->model->getAmountProductsByClass(0);
+                    
                 } else if ($level == 2) {
                     $namePage2     = 'SÁCH TIẾNG ANH TIỂU HỌC';
                     $listProduct   = $this->model->getProductsByTypes('1', '1', $idCateFirst);

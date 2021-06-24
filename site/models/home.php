@@ -690,12 +690,17 @@ class Model_home extends Model_db{
     }
 
     function getProductsByClass($class) {
-        $sql = 'SELECT * FROM `book` WHERE class in (?) ORDER BY id DESC limit 0, 9';
+        $sql = 'SELECT * FROM `book` WHERE class in (?) ORDER BY class ASC limit 0, 9';
         return $this->result1(0, $sql, $class);
     }
 
+    function getAmountProductsByClass($class) {
+        $sql = 'SELECT count(*) AS sodong FROM `book` WHERE class in (?)';
+        return $this->result1(1, $sql, $class)['sodong'];
+    }
+
     function getProductsByTypes($type, $class, $idcate) {
-        $sql = 'SELECT * FROM `book` WHERE type in (?) AND class in (?) AND idcate in (?) ORDER BY id ASC limit 0, 9';
+        $sql = 'SELECT * FROM `book` WHERE type in (?) AND class in (?) AND idcate in (?) ORDER BY id desc limit 0, 9';
         return $this->result1(0, $sql, $type, $class, $idcate);
     }
 
@@ -734,7 +739,7 @@ class Model_home extends Model_db{
     }
 
     function getProductLimit($where) {
-        $sql = "SELECT * FROM `book` WHERE $where ORDER BY class DESC limit 0, 9";
+        $sql = "SELECT * FROM `book` WHERE $where ORDER BY class ASC limit 0, 9";
         return $this->result1(0, $sql);        
     }
 
