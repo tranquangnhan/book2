@@ -38,20 +38,20 @@
                                 </div>           
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <input type="radio" id="content" class="checkabout" name="checkabout" checked value="0">
                                     <label for="content">Nội dung</label>
                                     <input type="radio" id="link" class="checkabout" name="checkabout" value="1">
                                     <label for="Link">Link</label><br>
                                 </div>
-                                <div class="col-lg-6">
+                                <!-- <div class="col-lg-6">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="anhienAbout" value="1">
                                         <label class="form-check-label" for="anhienAbout">
                                             Ẩn
                                         </label>
                                     </div>                          
-                                </div>
+                                </div> -->
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -60,12 +60,25 @@
                                         <input type="text" name="link" id="iplink"  parsley-trigger="change" required placeholder="80 kí tự" class="form-control" disabled>
                                     </div>
                                 </div>  
+                                <!-- <div class="col-lg-6">
+                                
+                                    <div class="form-group">
+                                        <label for=""></label><span style="color:red;"> (* Lớn hơn 0)</span>
+                                        <input type="number" min="1"  parsley-trigger="change" required placeholder="80 kí tự" class="form-control">
+                                    </div>
+                                </div>       -->
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="">Thứ tự</label><span style="color:red;"> (* Lớn hơn 0)</span>
-                                        <input type="number" min="1" name="ordinal" id="thutu"  parsley-trigger="change" required placeholder="80 kí tự" class="form-control">
-                                    </div>
-                                </div>      
+                                        <label for="">Thứ tự</label><span style="color:red;"> (* đổi vị trí lên đầu)</span>
+                                        <select class="form-control" name="ordinal" id="thutu">
+                                            <option value="<?=$maxOrdinal + 1?>">1 - Đầu tiên</option>;
+                                                                                        
+                                            <?php $stt = 1; foreach ($list as $row) { $stt++; ?>                                                
+                                                <option value="<?=$row['ordinal']?>"><?=$stt?> - <?=$row['name']?></option>;
+                                            <?php } ?>
+                                        </select>
+                                    </div>                                                
+                                </div>   
                             </div>
                             
                             <label for="">Nội dung</label>

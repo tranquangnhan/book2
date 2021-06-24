@@ -37,20 +37,20 @@
                                 </div>           
                             </div>
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <input type="radio" id="content" class="checkabout" name="checkabout" checked value="0">
                                     <label for="content">Nội dung</label>
                                     <input type="radio" id="link" class="checkabout" name="checkabout" value="1">
                                     <label for="Link">Link</label><br>
                                 </div>
-                                <div class="col-lg-6">
+                                <!-- <div class="col-lg-6">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="anhienAbout" value="1">
                                         <label class="form-check-label" for="anhienAbout" <?=($oneRecode['ordinal'] == 0) ? 'checked' : ''?>>
                                             Ẩn
                                         </label>
                                     </div>                          
-                                </div>
+                                </div> -->
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
@@ -58,14 +58,32 @@
                                         <label for="">Link giới thiệu</label><span style="color:red;"> (* Ngắn)</span>
                                         <input type="text" name="link" id="iplink"  parsley-trigger="change" required placeholder="80 kí tự" class="form-control" disabled value="<?=$oneRecode['link']?>">
                                     </div>
-                                </div>           
+                                </div>    
+
                                 <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="">Thứ tự</label><span style="color:red;"> (* đổi vị trí)</span>
+                                        <select class="form-control" name="ordinal" id="thutu">
+                                            <option value="<?=$oneRecode['ordinal']?>">Giữ</option>
+
+                                            <?php $stt = 1; foreach ($list as $row) { $stt++;
+                                                
+                                                    if ($row['ordinal'] != $oneRecode['ordinal']) { ?>
+                                                        <option value="<?=$row['ordinal']?>"><?=$row['name']?></option>
+                                                
+                                                <?php }
+                                            } ?>
+                                        </select>
+                                    </div>                                                
+                                </div> 
+
+                                <!-- <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Thứ tự</label><span style="color:red;"> (* Lớn hơn 0)</span>
                                         <input type="number" min="1" name="ordinal" id="thutu"  parsley-trigger="change" required placeholder="80 kí tự" class="form-control" value="<?=($oneRecode['ordinal'] > 0) ? $oneRecode['ordinal'] : 'disabled'?>">
                                     </div>
-                                </div>      
-                            </div>
+                                </div>-->      
+                            </div> 
                             
                             <label for="">Nội dung</label>
                             <textarea id="editor1"  style="height: 300px;width:100%" name="content-about" ><?=$oneRecode['content']?></textarea>                            

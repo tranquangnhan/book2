@@ -26,6 +26,9 @@ class about
             case 'delete':
                 $this->delete();
                 break;
+            case 'move':
+                $this->move();
+                break;
             default:
 
                 break;
@@ -35,12 +38,16 @@ class about
     public function index()
     {
         $list = $this->modelAbout->listRecords();
+        $maxOrdinal = $this->modelAbout->getAmountAboutShowing();
         $page_title = "Danh sách bài viết";
         $page_file = "views/abouts_index.php";
         require_once "views/layout.php";
     }
     public function addNew()
     {        
+        $list = $this->modelAbout->listRecords();
+        $maxOrdinal = $this->modelAbout->getAmountAboutShowing();
+        
         if (isset($_GET['id']) && ($_GET['ctrl'] = 'blogs')) {
             $oneRecode = $this->modelAbout->getDetailAbout($_GET['id']);
             $page_title = "Sửa bài viết";
@@ -55,6 +62,7 @@ class about
             $content = $_POST['content-about'];
             $link = $_POST['link'];
             $ordinal = $_POST['ordinal']; 
+
             if ($ordinal == '') {
                 $ordinal = 0;
             }           
@@ -77,12 +85,16 @@ class about
                     $id = $_GET['id'];
                     settype($id, "int");
                     $slug = $slug . '-' . $id;
-
+                    
+                    $idB = $this->modelAbout->getIdMoveByOrdinal($ordinal);
+                    $this->modelAbout->updateOrdinalAbout($oneRecode['ordinal'], $idB); // A
                     $this->edit($name, $slug, $content, $link, $ordinal, $id);
-
                 } else {                    
                     $slug = $slug . '-' . ($this->modelAbout->getLastestIdAbout() + 1);
-
+                    if ($ordinal != $maxOrdinal) {
+                        $idB = $this->modelAbout->getIdMoveByOrdinal($ordinal);
+                        $this->modelAbout->updateOrdinalAbout($maxOrdinal, $idB); // A
+                    }
                     $this->store($name, $slug, $content, $link, $ordinal);
                 }
             }
@@ -124,12 +136,40 @@ class about
 
             if ($this->modelAbout->deleteAbout($id)) {
                 echo "<script>alert('Xoá thành công')</script>";
-                header("location: ?ctrl=about   ");
+                header("location: ?ctrl=about");
             } else {
                 echo "<script>alert('Xoá thất bại')</script>";
             }
         }
         require_once "views/layout.php";
+    }
+
+    function move() {
+        $action = $_GET['action'];
+        $ordinal = $_GET['ordinal'];
+        if ($action == 'down') {
+            $ordinalMove = $ordinal - 1;
+        } else if ($action == 'up') {
+            $ordinalMove = $ordinal + 1;
+        } else {
+            echo "<script>alert('Đã có lỗi xảy ra!')</script>";
+            header("location: ?ctrl=about");
+        }
+
+        $idB = $this->modelAbout->getIdMoveByOrdinal($ordinalMove);
+        
+        if ($idB) {
+            $idA = $this->modelAbout->getIdMoveByOrdinal($ordinal);
+            
+            $this->modelAbout->updateOrdinalAbout($ordinalMove, $idA); // A
+            $this->modelAbout->updateOrdinalAbout($ordinal, $idB); // B
+            header("location: ?ctrl=about");
+            exit();
+        } else {
+            echo "<script>alert('Đã có lỗi xảy ra!')</script>";
+            header("location: ?ctrl=about");
+            exit();
+        }                
     }
 
 }

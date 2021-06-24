@@ -67,7 +67,7 @@ $(function() {
     $("#formabout").validate({
         rules: {
             name: { required: true, maxlength: 80 },
-            ordinal: { required: true, min: 1}
+            // ordinal: { required: true, min: 1}
         },
         messages: {
             name: {
@@ -75,10 +75,10 @@ $(function() {
                 maxlength: "<span class='badge badge-danger'>Không được dài quá 80 kí tự</span>",
             },
 
-            ordinal: {
-                required: "<span class='badge badge-danger'>Không được để trống</span>",
-                min: "<span class='badge badge-danger'>Phải lớn hơn 0</span>",
-            }
+            // ordinal: {
+            //     required: "<span class='badge badge-danger'>Không được để trống</span>",
+            //     min: "<span class='badge badge-danger'>Phải lớn hơn 0</span>",
+            // }
         }
     });
 });

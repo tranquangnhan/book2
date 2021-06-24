@@ -14,7 +14,7 @@
                                     <th width="">STT</th>
                                     <th width="">Tên</th>                                                                       
                                     <th width="50%">Nội dung/Link</th> 
-                                    <th width="150px" class="text-center" >Thứ tự</th>                                                                                                          
+                                    <th width="10%">Thứ tự</th>                                                                                                          
                                     <th width="">Xóa</th>
                                     <th width="">Sửa</th>
                                 </tr>
@@ -26,9 +26,12 @@
                             foreach ( $list as $row) {  
                                 $stt++;
                                 
-                                $linkDel = "'?ctrl=about&act=delete&id=" . $row['id'] . "'";
+                                
+                                $linkDel  = "'?ctrl=about&act=delete&id=" . $row['id'] . "'";
                                 $linkEdit = '?ctrl=about&act=edit&id=' . $row['id'];                                
-                                $noidung = trim(strip_tags($row['content']));
+                                $noidung  = trim(strip_tags($row['content']));
+                                $linkDown = "?ctrl=about&act=move&action=down&ordinal=" . $row['ordinal'];
+                                $linkUp = "?ctrl=about&act=move&action=up&ordinal=" . $row['ordinal'];
                                 ?>
                                 <tr>
                                     <td><?=$stt?></td>
@@ -42,7 +45,14 @@
                                             <!-- content-about -->
                                     <?php } ?>
                                                                   
-                                    <td class="text-center"><?= ($row['ordinal'] == 0) ? 'Ẩn' : $row['ordinal']?></td>
+                                    <td>              
+                                        <?php if ($stt != 1) { ?>
+                                            <a href="<?=$linkUp?>"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>                                        
+                                        <?php } 
+                                        if ($maxOrdinal != $stt) { ?>
+                                            <a href="<?=$linkDown?>"><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                        <?php } ?>                                                                                                                                                        
+                                    </td>
 
                                     <td><div  onclick="checkDelete(<?=$linkDel?>)"  class="btn btn-danger" role="button"><i class="fa fa-trash"></i></div></td>
                                     <td><a class="btn btn-primary" href="<?=$linkEdit?>" role="button"><span class="mdi mdi-pencil"></span></a></td>

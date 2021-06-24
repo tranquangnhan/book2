@@ -2,7 +2,7 @@
 class Model_about extends Model_db{
     function listRecords() 
     {
-        $sql = "SELECT * FROM about order by id desc";
+        $sql = "SELECT * FROM about order by ordinal desc";
         return $this->result1(0,$sql);
     }
    
@@ -31,6 +31,21 @@ class Model_about extends Model_db{
     function getLastestIdAbout(){
         $sql = "SELECT id as lastid FROM about ORDER BY id DESC LIMIT 1";
         return $this->result1(1,$sql)['lastid'];
+    }
+
+    function getIdMoveByOrdinal($ordinal) {
+        $sql = "SELECT id as idmove FROM about WHERE ordinal = ?";
+        return $this->result1(1,$sql, $ordinal)['idmove'];
+    }
+
+    function getAmountAboutShowing() {
+        $sql = "SELECT count(*) AS sodong FROM `about`";
+        return $this->result1(1, $sql)['sodong'];
+    }
+
+    function updateOrdinalAbout($ordinal, $id) {
+        $sql = "UPDATE about SET ordinal = ? WHERE id = ?";
+        return $this->exec1($sql, $ordinal, $id); 
     }
 }
 
