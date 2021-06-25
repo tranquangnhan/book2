@@ -4,6 +4,33 @@ class lib{
         return trim(strip_tags($str));
     }
 
+    function checkUpLoadImageDateTimeMany($allFile, $dateTime){
+        $pathimg = '../uploads/';
+        foreach ($allFile['name'] as $file) {
+            $nameimg[] = $file;
+        }
+        foreach($allFile['tmp_name'] as $file){
+            $tmp_name[] = $file;
+        }
+        $imgupload = '';
+        for ($i=0; $i <count($nameimg) ; $i++) { 
+            $temp = preg_split('/[\/\\\\]+/',$nameimg[$i]);
+            $img = $temp[count($temp)-1];
+            $target_file = $pathimg . basename($img);
+            if (move_uploaded_file($tmp_name[$i], $target_file .'-'.$dateTime)) {
+                $uploadfile = 'Upload file thành công';
+            }
+            else{
+                $uploadfile = 'upload file không thành công';
+            }
+            if($i <(count($nameimg) -1)){
+                $imgupload .= $nameimg[$i].',';                
+            }else{
+                $imgupload .= $nameimg[$i];
+            }  
+        }
+    return $imgupload;
+    }
 
     function checkUpLoadMany($allFile){
         $pathimg = '../uploads/';

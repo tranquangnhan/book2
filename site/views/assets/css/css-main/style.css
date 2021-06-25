@@ -14310,7 +14310,7 @@ textarea.form-control {
         flex-basis: 60%;
     }
     .blog-card .description:before {
-        transform: skewX(-3deg);
+        /* transform: skewX(-3deg); */
         content: "";
         background: #fff;
         width: 30px;
