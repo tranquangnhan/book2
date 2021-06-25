@@ -5,7 +5,7 @@ class lib{
     }
 
     function checkUpLoadImageDateTimeMany($allFile, $dateTime){
-        $pathimg = '../uploads/';
+        $pathimg = '../uploads/'. $dateTime . '-';
         foreach ($allFile['name'] as $file) {
             $nameimg[] = $file;
         }
@@ -17,7 +17,7 @@ class lib{
             $temp = preg_split('/[\/\\\\]+/',$nameimg[$i]);
             $img = $temp[count($temp)-1];
             $target_file = $pathimg . basename($img);
-            if (move_uploaded_file($tmp_name[$i], $target_file .'-'.$dateTime)) {
+            if (move_uploaded_file($tmp_name[$i], $target_file)) {
                 $uploadfile = 'Upload file thành công';
             }
             else{

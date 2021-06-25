@@ -57,9 +57,11 @@ class supportresources
             $name      = $this->lib->stripTags($_POST['name']);            
             $link      = $_POST['link'];
             $img       = $_FILES['img'];                 
-            $dateTime  = date("Y-m-d H:i:s");   
+            $dateTime  = time();   
+
             $imgs      = $this->lib->checkUpLoadImageDateTimeMany($img, $dateTime);
-            if ($imgs) {                
+
+            if ($imgs) {                    
                 $checkIMG = explode(",", $imgs);                
                
                 for ($i = 0; $i < count($checkIMG); $i++) {
@@ -94,6 +96,7 @@ class supportresources
                     $id = $_GET['id'];
                     settype($id, "int");
                                      
+                    $imgs =   $dateTime . '-' . $imgs;
                     $this->edit($name, $imgs, $link, $id);                    
                 } else {                              
                     $this->store($name, $imgs, $link);

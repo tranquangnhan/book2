@@ -2,7 +2,7 @@
 class Model_SpResources extends Model_db{
     function listRecords() 
     {
-        $sql = "SELECT * FROM supportresources order by class, ordinal desc";
+        $sql = "SELECT * FROM supportresources order by ordinal asc";
         return $this->result1(0,$sql);
     }
 

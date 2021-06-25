@@ -45,9 +45,9 @@
                                             </a>
                                         </div>
                                         <div class="description">
-                                            <a href="'.$link .'"><h1>'.addslashes($row['name']).'</h1></a>
+                                            <a href="'.$link .'"><h1 class="limit-content-2">'.addslashes($row['name']).'</h1></a>
                                             <h6>'.$date.'</h6>
-                                            <p>'.addslashes($row['description']) .'</p>
+                                            <p class="limit-content-2">'.addslashes($row['description']) .'</p>
                                             <p class="read-more">
                                                 <a href="'.$link .'">Đọc thêm</a>
                                             </p>

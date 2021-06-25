@@ -111,14 +111,19 @@ require_once "../../../system/config.php";
             settype($form, "int");
 
             if ($class > 12) { // get all
-                $listSpResource   = $model->getAllSupportResourceLimit();
+                if ($form > 0) {
+                    $form = ($form - 1) * 9;
+                    $listSpResource   = $model->getAllSupportResourceLimitForm($form);                    
+                } else {                
+                    $listSpResource   = $model->getAllSupportResourceLimit();                    
+                }
                 $amountSupport    = $model->getAmountSpResources();
             } else {  // get by class                           
-                $listSpResource   = $model->getSupportResourceBy($class, $form);            
-                $amountSupport    = $model->getAmountSupportResourceBy($class);                                
+            $listSpResource   = $model->getSupportResourceBy($class, $form);            
+            $amountSupport    = $model->getAmountSupportResourceBy($class);                                
             }
 
-            echo json_encode([$listSpResource, $amountSupport]);
+            echo json_encode([$listSpResource, $amountSupport, $form]);
             
             break;   
         default:
