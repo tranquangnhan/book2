@@ -40,3 +40,12 @@
     font-size: 9em;
     color: #f60000;
 }
+
+.sprs {
+    padding-top: 2em;
+}
+
+.sprs .img {
+    width: 45%;
+    height: 90px;
+}

@@ -159,7 +159,7 @@
                                                            
                             ?>
                             <div class="col-md-4 Resources-item d-flex align-items-stretch ftco-animate">
-                                <div class="project-wrap">
+                                <div class="project-wrap text-center sprs">
                                     <a href="<?=$spre['link']?>" class="img" style="background-image: url('<?=PATH_IMG_SITE?>/<?= $spre['img']?>');">
                                     </a>
                                     <div class="text p-4">

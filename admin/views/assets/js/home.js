@@ -213,8 +213,46 @@ $(document).ready(function() {
             $("#thutu").attr("disabled", 'disabled');            
         } else {
             $("#thutu").removeAttr("disabled");            
-        }
-                   
+        }                   
+    });
+
+    $('#class_sprs').on('change', function (e) {
+        var optionSelected  = $("option:selected", this);
+        var valueSelected   = this.value;
+        var ordinalCurrent  = $('#ordinalCurrent').val();
+        ordinalCurrent      = parseInt(ordinalCurrent);
+        let classData       = new FormData();
+        classData.append('valueSelected', valueSelected); 
+        classData.append('action', 'getOrdinalByClass');
+        
+        $.ajax({
+            type: 'POST',
+            url: 'controllers/ajax/order.php',
+            dataType: 'JSON',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: classData,
+            success: function(response) {   
+                $('#thutu option').remove();
+             
+                var o = new Option('Giữ', ordinalCurrent);
+                $('#thutu').append(o);
+                for (let i = 0; i < response.length; i++) {
+                    if (response[i]['ordinal'] != ordinalCurrent) {
+                        if (response[i]['class'] == 0) {
+                            var classe = 'Mầm non';
+                        } else {
+                            var classe = response[i]['class'];
+                        }
+                        o = new Option(classe + ' - ' + response[i]['name'], response[i]['ordinal']);
+                        $('#thutu').append(o);
+                    }                    
+                }
+            }, error: function () {
+
+            }
+        });
     });
 });
 

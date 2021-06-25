@@ -14,6 +14,7 @@ require_once "../../../system/config.php";
             $notOr      = true;   
             $sqlCheck   = false;   
             $where      = false;
+            $justClass  = false;
             $filter     = $_POST['filterOb'];
             $data       = json_decode($filter);
 
@@ -35,7 +36,7 @@ require_once "../../../system/config.php";
                 } 
                 $sqlCheck  = true;   
                 $notOr     = false;          
-
+                $justClass = false;
                 $sql      .= 'type in (';
                 $sql      .= implode(',', $type);
                 $sql      .= ')';
@@ -47,6 +48,7 @@ require_once "../../../system/config.php";
                     $where = true;
                 } 
                 $sqlCheck = true;
+                $justClass = true;
                 if ($notOr == false) {
                     $sql  .= ' AND ';
                 } else {
@@ -64,6 +66,7 @@ require_once "../../../system/config.php";
                     $where = true;
                 } 
                 $sqlCheck = true;
+                $justClass = false;
                 if ($notOr == false) {
                     $sql  .= ' AND ';
                 } else {
@@ -78,9 +81,12 @@ require_once "../../../system/config.php";
                 $amountProduct = $model->getAmountProduct($sql);
                 $amountProduct = count($amountProduct);
             }
-
-            $sql .= ' ORDER BY class ASC limit ';
-            $sql .= $form . ' , 9';
+            if ($justClass == true) {
+                $sql .= ' ORDER BY idcate ASC, class ';
+            } else {            
+                $sql .= ' ORDER BY class ASC ';
+            }
+            $sql .= ' limit ' . $form . ' , 9';
 
             if ($sqlCheck === true || $form > 0) {
                 $dataProducts = $model->getProductsBySql($sql);

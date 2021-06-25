@@ -26,6 +26,9 @@ class supportresources
             case 'delete':
                 $this->delete();
                 break;
+            case 'move':
+                $this->move();
+                break;
             default:
                 break;
         }
@@ -33,7 +36,8 @@ class supportresources
     }
     public function index()
     {
-        $list = $this->modelSpResources->listRecords();        
+        $list = $this->modelSpResources->listRecords();     
+        $maxOrdinal = $this->modelSpResources->getAmountOrdinal();   
         $page_title = "Danh sách bài viết";
         $page_file = "views/spresources_index.php";
         require_once "views/layout.php";
@@ -50,9 +54,10 @@ class supportresources
         }
 
         if (isset($_POST['them']) && $_POST['them']) {
-            $name   = $this->lib->stripTags($_POST['name']);            
-            $link   = $_POST['link'];
-            $img    = $_FILES['img'];            
+            $name      = $this->lib->stripTags($_POST['name']);            
+            $link      = $_POST['link'];
+            $img       = $_FILES['img'];                 
+            
             $imgs   = $this->lib->checkUpLoadMany($img);
             if ($imgs) {                
                 $checkIMG = explode(",", $imgs);                
@@ -88,11 +93,10 @@ class supportresources
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                     settype($id, "int");
-                    
-                    $this->edit($name, $imgs, $link, $id);
+                    echo $imgs;
                     exit();
-
-                } else {                                        
+                    $this->edit($name, $imgs, $link, $id);                    
+                } else {                              
                     $this->store($name, $imgs, $link);
                 }
             }
@@ -140,4 +144,46 @@ class supportresources
         require_once "views/layout.php";
     }
 
+    function move() {
+        $action = $_GET['action'];
+        $class  = $_GET['class'];
+        
+        $ordinal = $_GET['ordinal'];
+        if ($action == 'down') {
+            $ordinalMove = $ordinal - 1;
+        } else if ($action == 'up') {
+            $ordinalMove = $ordinal + 1;
+        } else {
+            echo "<script>alert('Đã có lỗi xảy ra!')</script>";
+            header("location: ?ctrl=supportresources");
+        }
+
+        $idB = $this->modelSpResources->getIdMoveByOrdinal($ordinalMove, $class);
+        
+        if ($idB) {
+            if (isset($_SESSION['message'])) {
+                unset($_SESSION['message']);
+            }
+            $idA = $this->modelSpResources->getIdMoveByOrdinal($ordinal, $class);
+            
+            $this->modelSpResources->updateOrdinalAbout($ordinalMove, $idA); // A
+            $this->modelSpResources->updateOrdinalAbout($ordinal, $idB); // B
+            header("location: ?ctrl=supportresources");
+            exit();
+        } else {
+            $_SESSION['message'] = "";
+
+            if ($idB == "") {
+                $_SESSION['message'] = "Thứ tự sản phẩm đã maximum/minnimum ! <br>Hãy thử lại";
+            } else {
+                $_SESSION['message'] = "Đã có lỗi xảy ra! Vui lòng thử lại";
+            }
+
+            if ($_SESSION['message']) {
+                header("location: ?ctrl=thongbao");
+            }            
+            // header("location: ?ctrl=supportresources");
+            // exit();
+        }                
+    } 
 }

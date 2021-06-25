@@ -66,7 +66,9 @@
                                         <label for="">Link tài nguyên</label><span style="color:red;"></span>
                                         <input type="text" name="link"  parsley-trigger="change" value="<?=$oneRecode['link']?>" placeholder="Link tài nguyên..." class="form-control" >
                                     </div>
-                                </div>              
+                                </div>   
+                                
+           
                             </div>
                                                                                                         
                             <div class="form-group text-right mb-0 mt-5">
